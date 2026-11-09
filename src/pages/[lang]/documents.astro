@@ -1,0 +1,43 @@
+---
+import { statSync } from 'node:fs';
+import Base from '@/layouts/Base.astro';
+import Crumbs from '@/components/Crumbs.astro';
+import { LANGS, DOC_CATEGORIES, type Lang, type DocCategory } from '@/config/site';
+import { t, localePath, formatDate } from '@/i18n/utils';
+import { getDocuments } from '@/lib/content';
+
+export function getStaticPaths() { return LANGS.map((lang) => ({ params: { lang } })); }
+const lang = Astro.params.lang as Lang;
+const tr = t(lang);
+const docs = await getDocuments();
+const size = (file: string) => { try { const b = statSync(new URL(`../../../public${file}`, import.meta.url)).size; return b > 1048576 ? `${(b / 1048576).toFixed(1).replace('.', lang === 'en' ? '.' : ',')} ${lang === 'en' ? 'MB' : 'МБ'}` : `${Math.max(1, Math.round(b / 1024))} ${lang === 'en' ? 'KB' : 'КБ'}`; } catch { return ''; } };
+const cats = (Object.keys(DOC_CATEGORIES) as DocCategory[]).filter((c) => docs.some((d) => d.data.category === c));
+---
+<Base lang={lang} title={tr('docs.title')} description={tr('docs.description')} section="documents">
+  <div class="wrap page-head">
+    <Crumbs items={[{ name: tr('nav.home'), href: localePath(lang) }, { name: tr('docs.title') }]} />
+    <h1>{tr('docs.title')}</h1>
+    <p class="lead">{tr('docs.description')}</p>
+  </div>
+  <div class="wrap section" style="padding-top:0">
+    {cats.map((c) => (
+      <section style="margin-bottom:var(--space-4)">
+        <div class="section-head"><h2>{DOC_CATEGORIES[c][lang]}</h2></div>
+        <ul class="docs">
+          {docs.filter((d) => d.data.category === c).map((d) => (
+            <li>
+              <span class="ico" aria-hidden="true">{d.data.file.split('.').pop()!.toUpperCase()}</span>
+              <div>
+                <a href={d.data.file} type="application/pdf">{d.data.title[lang]}</a>
+                <small>{d.data.summary[lang]}</small>
+                <small>{tr('docs.languages')}: {d.data.languages.map((l) => l.toUpperCase()).join(', ')} · {tr('docs.date')}: {formatDate(d.data.date, lang)}{d.data.pages ? ` · ${d.data.pages} ${tr('docs.pages')}` : ''}</small>
+              </div>
+              <span class="size">{size(d.data.file)}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+    {docs.length === 0 && <p class="note">—</p>}
+  </div>
+</Base>

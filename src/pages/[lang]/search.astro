@@ -1,0 +1,43 @@
+---
+/** Site search on Pagefind: the index is built after `astro build` and served from /pagefind/. No external service. */
+import Base from '@/layouts/Base.astro';
+import Crumbs from '@/components/Crumbs.astro';
+import { LANGS, type Lang } from '@/config/site';
+import { t, localePath } from '@/i18n/utils';
+
+export function getStaticPaths() { return LANGS.map((lang) => ({ params: { lang } })); }
+const lang = Astro.params.lang as Lang;
+const tr = t(lang);
+---
+<Base lang={lang} title={tr('search.title')} description={tr('search.description')} section="search" noindex>
+  <div class="wrap page-head">
+    <Crumbs items={[{ name: tr('nav.home'), href: localePath(lang) }, { name: tr('search.title') }]} />
+    <h1>{tr('search.title')}</h1>
+    <div class="search-box">
+      <label class="visually-hidden" for="q">{tr('search.placeholder')}</label>
+      <input id="q" type="search" placeholder={tr('search.placeholder')} autocomplete="off" autofocus data-lang={lang} />
+    </div>
+    <ol class="search-results" id="results" aria-live="polite"></ol>
+    <p class="note" id="status"></p>
+  </div>
+  <script>
+    const input = document.getElementById('q') as HTMLInputElement;
+    const list = document.getElementById('results')!;
+    const status = document.getElementById('status')!;
+    let pagefind: any;
+    async function search(q: string) {
+      if (!q.trim()) { list.innerHTML = ''; status.textContent = ''; return; }
+      try {
+        pagefind ??= await import(/* @vite-ignore */ '/pagefind/pagefind.js');
+        await pagefind.options({ language: input.dataset.lang });
+        const res = await pagefind.search(q);
+        const items = await Promise.all(res.results.slice(0, 20).map((r: any) => r.data()));
+        list.innerHTML = items.map((d: any) => `<li><a href="${d.url}">${d.meta.title ?? d.url}</a><p>${d.excerpt}</p></li>`).join('');
+        status.textContent = items.length ? '' : '—';
+      } catch { status.textContent = 'Search index is built with the site; run a full build.'; }
+    }
+    let timer: number;
+    input.addEventListener('input', () => { clearTimeout(timer); timer = window.setTimeout(() => search(input.value), 200); });
+    const q = new URLSearchParams(location.search).get('q'); if (q) { input.value = q; search(q); }
+  </script>
+</Base>

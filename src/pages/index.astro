@@ -1,0 +1,36 @@
+---
+/**
+ * Root: Astro's redirectToDefaultLocale handles /, but a static host cannot read Accept-Language.
+ * This page sends everyone to /ru/ by meta refresh and lets a browser that prefers English or Uzbek
+ * switch before the refresh fires. Search engines index the language pages, never this one.
+ */
+import { firm } from '@/config/site';
+---
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{firm.shortName}</title>
+  <meta name="robots" content="noindex" />
+  <link rel="alternate" hreflang="ru" href="/ru/" />
+  <link rel="alternate" hreflang="en" href="/en/" />
+  <link rel="alternate" hreflang="uz-Latn" href="/uz/" />
+  <link rel="alternate" hreflang="x-default" href="/ru/" />
+  <meta http-equiv="refresh" content="0; url=/ru/" />
+  <script is:inline>
+    (function () {
+      var langs = (navigator.languages || [navigator.language || 'ru']).map(function (l) { return String(l).toLowerCase(); });
+      for (var i = 0; i < langs.length; i++) {
+        if (langs[i].indexOf('ru') === 0) break;
+        if (langs[i].indexOf('uz') === 0) { location.replace('/uz/'); return; }
+        if (langs[i].indexOf('en') === 0) { location.replace('/en/'); return; }
+      }
+      location.replace('/ru/');
+    })();
+  </script>
+</head>
+<body>
+  <p><a href="/ru/">Русский</a> · <a href="/en/">English</a> · <a href="/uz/">Oʻzbek</a></p>
+</body>
+</html>

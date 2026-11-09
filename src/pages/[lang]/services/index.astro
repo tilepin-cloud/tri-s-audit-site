@@ -1,0 +1,33 @@
+---
+import Base from '@/layouts/Base.astro';
+import Crumbs from '@/components/Crumbs.astro';
+import { LANGS, type Lang } from '@/config/site';
+import { t, localePath } from '@/i18n/utils';
+import { getServices, serviceSlug } from '@/lib/content';
+import { breadcrumbs } from '@/lib/schema';
+
+export function getStaticPaths() { return LANGS.map((lang) => ({ params: { lang } })); }
+const lang = Astro.params.lang as Lang;
+const tr = t(lang);
+const services = await getServices(lang);
+const site = Astro.site!;
+---
+<Base lang={lang} title={tr('services.title')} description={tr('services.description')} section="services"
+  jsonLd={breadcrumbs([{ name: tr('nav.home'), url: new URL(localePath(lang), site).href }, { name: tr('services.title'), url: new URL(localePath(lang, 'services'), site).href }])}>
+  <div class="wrap page-head">
+    <Crumbs items={[{ name: tr('nav.home'), href: localePath(lang) }, { name: tr('services.title') }]} />
+    <h1>{tr('services.title')}</h1>
+    <p class="lead">{tr('services.description')}</p>
+  </div>
+  <div class="wrap section" style="padding-top:0">
+    <div class="grid">
+      {services.map((s) => (
+        <article class="card">
+          {s.data.standards.length > 0 && <span class="std">{s.data.standards.slice(0, 3).join(' · ')}</span>}
+          <h2 style="font-size:clamp(1.1rem,6cqi,1.35rem);margin:0"><a href={localePath(lang, 'services', serviceSlug(s))} style="color:inherit;text-decoration:none">{s.data.title}</a></h2>
+          <p>{s.data.summary}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</Base>

@@ -1,0 +1,36 @@
+---
+/** Share links with no third-party scripts. Copy uses the Clipboard API inline; without JS the button is hidden. */
+import { firm, type Lang } from '@/config/site';
+import { t } from '@/i18n/utils';
+interface Props { url: string; title: string; lang: Lang }
+const { url, title, lang } = Astro.props;
+const tr = t(lang);
+const enc = encodeURIComponent;
+---
+<div class="share">
+  {firm.shareTargets.includes('telegram') && (
+    <a href={`https://t.me/share/url?url=${enc(url)}&text=${enc(title)}`} rel="noopener" target="_blank">
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21 4-18 8 6 2 2 6 10-16Z"/></svg>Telegram
+    </a>
+  )}
+  {firm.shareTargets.includes('linkedin') && (
+    <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${enc(url)}`} rel="noopener" target="_blank">
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 11v6M8 7v.5M12 17v-6m0 3a3 3 0 0 1 6 0v3"/></svg>LinkedIn
+    </a>
+  )}
+  {firm.shareTargets.includes('copy') && (
+    <button type="button" class="copy" data-url={url} data-done={tr('blog.copied')} hidden>
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5h10"/></svg><span>{tr('blog.copy')}</span>
+    </button>
+  )}
+</div>
+<script>
+  document.querySelectorAll<HTMLButtonElement>('.share .copy').forEach((b) => {
+    if (!navigator.clipboard) return;
+    b.hidden = false;
+    b.addEventListener('click', async () => {
+      const label = b.querySelector('span')!; const old = label.textContent;
+      try { await navigator.clipboard.writeText(b.dataset.url!); label.textContent = b.dataset.done!; setTimeout(() => (label.textContent = old), 1500); } catch {}
+    });
+  });
+</script>

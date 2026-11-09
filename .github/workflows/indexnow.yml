@@ -1,0 +1,23 @@
+# After a push to main, tell Yandex and Bing which URLs changed (IndexNow). Google ignores IndexNow;
+# it reads the sitemap. Requires the secret INDEXNOW_KEY and the key file public/<key>.txt (see scripts/indexnow.mjs).
+name: IndexNow
+
+on:
+  push:
+    branches: [main]
+    paths: ['src/content/**']
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 2 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Submit changed URLs
+        if: ${{ secrets.INDEXNOW_KEY != '' }}
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+          SITE_URL: https://tri-s-audit.uz
+        run: node scripts/indexnow.mjs

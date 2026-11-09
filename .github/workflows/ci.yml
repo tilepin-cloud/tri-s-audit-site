@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Content gate
+        run: npm run check:content
+      - name: Build (production URL, so canonical and hreflang are checked as they will ship)
+        run: npm run build
+        env:
+          SITE_URL: https://tri-s-audit.uz
+      - name: Smoke-test the output
+        run: |
+          test -f dist/ru/index.html && test -f dist/en/index.html && test -f dist/uz/index.html
+          test -f dist/robots.txt && test -f dist/llms.txt && test -f dist/sitemap-index.xml && test -f dist/ru/rss.xml
+          test -d dist/pagefind
+          grep -q 'hreflang="x-default"' dist/ru/index.html
+          grep -q 'application/ld+json' dist/ru/index.html
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
+          retention-days: 7

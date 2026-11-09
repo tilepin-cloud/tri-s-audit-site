@@ -1,0 +1,14 @@
+---
+import Base from '@/layouts/Base.astro';
+import { t, localePath } from '@/i18n/utils';
+const lang = 'ru';
+const tr = t(lang);
+---
+<Base lang={lang} title={tr('notFound.title')} description={tr('notFound.text')} noindex alternates={{}}>
+  <div class="wrap page-head">
+    <p class="eyebrow mono">404</p>
+    <h1>{tr('notFound.title')} · Page not found · Sahifa topilmadi</h1>
+    <p class="lead">{tr('notFound.text')}</p>
+    <p><a class="btn" href={localePath('ru')}>Русский</a> <a class="btn" href={localePath('en')}>English</a> <a class="btn" href={localePath('uz')}>Oʻzbek</a></p>
+  </div>
+</Base>

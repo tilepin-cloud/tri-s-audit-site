@@ -1,0 +1,15 @@
+# build
+dist/
+.astro/
+node_modules/
+.wrangler/
+
+# local
+.env
+.env.*
+*.log
+.DS_Store
+Thumbs.db
+
+# the prototype server and the dev launch config are local tooling
+.claude/launch.json

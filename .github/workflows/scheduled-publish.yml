@@ -1,0 +1,17 @@
+# Posts with a future `date` are excluded from production builds. This workflow redeploys every morning
+# (Tashkent 09:00 = 04:00 UTC) so a scheduled post appears on its day without a manual push.
+# It triggers the Cloudflare Workers Builds deploy hook stored in the repository secret CF_DEPLOY_HOOK.
+name: Scheduled publish
+
+on:
+  schedule:
+    - cron: '0 4 * * *'
+  workflow_dispatch:
+
+jobs:
+  redeploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger the hosting build
+        if: ${{ secrets.CF_DEPLOY_HOOK != '' }}
+        run: curl -fsS -X POST "${{ secrets.CF_DEPLOY_HOOK }}"

@@ -1,0 +1,45 @@
+---
+import { render } from 'astro:content';
+import Base from '@/layouts/Base.astro';
+import Crumbs from '@/components/Crumbs.astro';
+import { LANGS, firm, type Lang } from '@/config/site';
+import { t, localePath } from '@/i18n/utils';
+import { getPage } from '@/lib/content';
+import { organization } from '@/lib/schema';
+
+export function getStaticPaths() { return LANGS.map((lang) => ({ params: { lang } })); }
+const lang = Astro.params.lang as Lang;
+const tr = t(lang);
+const page = await getPage(lang, 'contacts');
+const Content = page ? (await render(page)).Content : null;
+const socials = Object.entries(firm.social).filter(([, u]) => u);
+---
+<Base lang={lang} title={tr('contacts.title')} description={page?.data.description ?? tr('contacts.noForms')} section="contacts" jsonLd={organization(lang)}>
+  <div class="wrap page-head">
+    <Crumbs items={[{ name: tr('nav.home'), href: localePath(lang) }, { name: tr('contacts.title') }]} />
+    <h1>{tr('contacts.title')}</h1>
+    <p class="lead">{tr('contacts.noForms')}</p>
+  </div>
+  <div class="wrap layout-2">
+    <div>
+      <dl class="dl">
+        <dt>E-mail</dt><dd><a href={`mailto:${firm.email}`}>{firm.email}</a></dd>
+        <dt>{lang === 'ru' ? 'Телефон' : lang === 'en' ? 'Phone' : 'Telefon'}</dt><dd><a href={firm.phoneHref}>{firm.phone}</a></dd>
+        <dt>{lang === 'ru' ? 'Адрес' : lang === 'en' ? 'Address' : 'Manzil'}</dt><dd>{firm.address[lang]} · <a href={firm.mapUrl} rel="noopener" target="_blank">{tr('contacts.map')}</a></dd>
+        {socials.map(([name, url]) => <><dt style="text-transform:capitalize">{name}</dt><dd><a href={url} rel="noopener me" target="_blank">{url.replace(/^https?:\/\/(www\.)?/, '')}</a></dd></>)}
+      </dl>
+      {Content && <article class="prose" style="margin-top:var(--space-4)" data-pagefind-body><Content /></article>}
+    </div>
+    <aside>
+      <div class="aside-box">
+        <h2>{tr('contacts.requisites')}</h2>
+        <ul>
+          <li>{firm.legalName[lang]}</li>
+          <li>{firm.registry[lang]}</li>
+          <li>{lang === 'ru' ? 'ИНН' : lang === 'en' ? 'Tax ID' : 'STIR'} {firm.taxId}</li>
+          <li>{firm.address[lang]}</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</Base>

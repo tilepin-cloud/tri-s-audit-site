@@ -1,0 +1,20 @@
+---
+import { RUBRICS, type Lang, type Rubric } from '@/config/site';
+import { t, localePath, formatDate } from '@/i18n/utils';
+import { postSlug, type Post } from '@/lib/content';
+
+interface Props { post: Post; lang: Lang; minutes?: number; showRubric?: boolean }
+const { post, lang, minutes, showRubric = true } = Astro.props;
+const tr = t(lang);
+const href = localePath(lang, 'blog', postSlug(post));
+---
+<article class="post-card">
+  <div class="meta">
+    {showRubric && <a class="tag" href={localePath(lang, 'blog', 'rubric', post.data.rubric)}>{RUBRICS[post.data.rubric as Rubric][lang]}</a>}
+    {post.data.issue && <a class="tag tag-issue" href={localePath(lang, 'issues', String(post.data.issue))}>{tr('blog.issue')} {post.data.issue}</a>}
+    <time datetime={post.data.date.toISOString().slice(0, 10)}>{formatDate(post.data.date, lang)}</time>
+    {minutes && <span>{minutes} {tr('blog.minutes')}</span>}
+  </div>
+  <h3><a href={href}>{post.data.title}</a></h3>
+  <p>{post.data.description}</p>
+</article>

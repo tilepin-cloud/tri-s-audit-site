@@ -1,0 +1,30 @@
+---
+import Base from '@/layouts/Base.astro';
+import Crumbs from '@/components/Crumbs.astro';
+import PostCard from '@/components/PostCard.astro';
+import { LANGS, RUBRIC_KEYS, RUBRICS, type Lang } from '@/config/site';
+import { t, localePath } from '@/i18n/utils';
+import { getPosts } from '@/lib/content';
+
+export function getStaticPaths() { return LANGS.map((lang) => ({ params: { lang } })); }
+const lang = Astro.params.lang as Lang;
+const tr = t(lang);
+const posts = await getPosts(lang);
+---
+<Base lang={lang} title={tr('blog.title')} description={tr('blog.description')} section="blog">
+  <div class="wrap page-head">
+    <Crumbs items={[{ name: tr('nav.home'), href: localePath(lang) }, { name: tr('blog.title') }]} />
+    <h1>{tr('blog.title')}</h1>
+    <p class="lead">{tr('blog.description')}</p>
+  </div>
+  <div class="wrap">
+    <nav class="rubric-nav" aria-label={tr('blog.rubrics')}>
+      <a href={localePath(lang, 'blog')} aria-current="page">{tr('blog.all')}</a>
+      {RUBRIC_KEYS.map((r) => <a href={localePath(lang, 'blog', 'rubric', r)}>{RUBRICS[r][lang]}</a>)}
+      <a href={localePath(lang, 'issues')}>{tr('issues.title')}</a>
+      <a href={`/${lang}/rss.xml`} class="mono">RSS</a>
+    </nav>
+    <div class="posts" style="margin-bottom:var(--space-5)">{posts.map((p) => <PostCard post={p} lang={lang} />)}</div>
+    {posts.length === 0 && <p class="note">{tr('blog.unavailable')}</p>}
+  </div>
+</Base>

@@ -1,0 +1,33 @@
+---
+import Base from '@/layouts/Base.astro';
+import Crumbs from '@/components/Crumbs.astro';
+import PostCard from '@/components/PostCard.astro';
+import { LANGS, RUBRIC_KEYS, RUBRICS, type Lang, type Rubric } from '@/config/site';
+import { t, localePath } from '@/i18n/utils';
+import { getPosts } from '@/lib/content';
+
+export function getStaticPaths() { return LANGS.flatMap((lang) => RUBRIC_KEYS.map((rubric) => ({ params: { lang, rubric } }))); }
+const lang = Astro.params.lang as Lang;
+const rubric = Astro.params.rubric as Rubric;
+const tr = t(lang);
+const posts = (await getPosts(lang)).filter((p) => p.data.rubric === rubric);
+const title = RUBRICS[rubric][lang];
+const feed = `/${lang}/blog/rubric/${rubric}/rss.xml`;
+---
+<Base lang={lang} title={`${title} — ${tr('blog.title')}`} description={`${tr('blog.title')}: ${title}. ${tr('blog.description')}`} section="blog"
+  links={[{ rel: 'alternate', type: 'application/rss+xml', href: feed, title: `${title} — RSS` }]}>
+  <div class="wrap page-head">
+    <Crumbs items={[{ name: tr('nav.home'), href: localePath(lang) }, { name: tr('blog.title'), href: localePath(lang, 'blog') }, { name: title }]} />
+    <p class="eyebrow">{tr('blog.rubrics')}</p>
+    <h1>{title}</h1>
+  </div>
+  <div class="wrap">
+    <nav class="rubric-nav" aria-label={tr('blog.rubrics')}>
+      <a href={localePath(lang, 'blog')}>{tr('blog.all')}</a>
+      {RUBRIC_KEYS.map((r) => <a href={localePath(lang, 'blog', 'rubric', r)} aria-current={r === rubric ? 'page' : undefined}>{RUBRICS[r][lang]}</a>)}
+      <a href={feed} class="mono">RSS</a>
+    </nav>
+    <div class="posts" style="margin-bottom:var(--space-5)">{posts.map((p) => <PostCard post={p} lang={lang} showRubric={false} />)}</div>
+    {posts.length === 0 && <p class="note">{tr('blog.unavailable')}</p>}
+  </div>
+</Base>

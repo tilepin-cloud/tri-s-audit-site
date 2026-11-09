@@ -1,0 +1,111 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '@/layouts/Base.astro';
+import Crumbs from '@/components/Crumbs.astro';
+import Toc from '@/components/Toc.astro';
+import ShareLinks from '@/components/ShareLinks.astro';
+import PostCard from '@/components/PostCard.astro';
+import { RUBRICS, LANG_NAME, type Lang, type Rubric } from '@/config/site';
+import { t, localePath, formatDate, readingMinutes } from '@/i18n/utils';
+import { postLang, postSlug, postTranslations, getPosts, getMember, getIssues } from '@/lib/content';
+import { article, breadcrumbs } from '@/lib/schema';
+
+export async function getStaticPaths() {
+  const all = (await getCollection('posts')).filter((p) => import.meta.env.DEV || (!p.data.draft && p.data.date.getTime() <= Date.now()));
+  return all.map((p) => ({ params: { lang: postLang(p), slug: postSlug(p) }, props: { post: p } }));
+}
+const { post } = Astro.props;
+const lang = Astro.params.lang as Lang;
+const tr = t(lang);
+const { Content, headings } = await render(post);
+const slug = postSlug(post);
+const translations = await postTranslations(post);
+const alternates = Object.fromEntries(Object.entries(translations).map(([l, p]) => [l, localePath(l as Lang, 'blog', postSlug(p!))]));
+const site = Astro.site!;
+const url = new URL(Astro.url.pathname, site).href;
+const mdUrl = new URL(`${localePath(lang, 'blog', slug).replace(/\/$/, '')}.md`, site).href;
+const author = await getMember(lang, post.data.author) ?? await getMember('ru', post.data.author);
+const authorUrl = new URL(localePath(lang, 'team', post.data.author), site).href;
+const minutes = readingMinutes(post.body ?? '');
+const rubricName = RUBRICS[post.data.rubric as Rubric][lang];
+const issue = post.data.issue ? (await getIssues()).find((i) => i.data.number === post.data.issue) : undefined;
+const inIssue = post.data.issue ? (await getPosts(lang)).filter((p) => p.data.issue === post.data.issue && p.id !== post.id) : [];
+const more = (await getPosts(lang)).filter((p) => p.id !== post.id && !inIssue.includes(p)).slice(0, 3);
+const ogImage = `/og/${lang}/${slug}.png`;
+const jsonLd = [
+  article(lang, { url, title: post.data.title, description: post.data.description, published: post.data.date, updated: post.data.updated, image: new URL(ogImage, site).href,
+    authorName: author?.data.name ?? post.data.author, authorUrl, authorKey: post.data.author, section: rubricName, keywords: [rubricName, ...post.data.tags], wordCount: (post.body ?? '').split(/\s+/).length, mdUrl }),
+  breadcrumbs([{ name: tr('nav.home'), url: new URL(localePath(lang), site).href }, { name: tr('blog.title'), url: new URL(localePath(lang, 'blog'), site).href }, { name: rubricName, url: new URL(localePath(lang, 'blog', 'rubric', post.data.rubric), site).href }, { name: post.data.title, url }]),
+];
+---
+<Base lang={lang} title={post.data.title} description={post.data.description} section="blog" alternates={alternates} type="article" image={ogImage}
+  published={post.data.date} updated={post.data.updated} jsonLd={jsonLd}
+  links={[{ rel: 'alternate', type: 'text/markdown', href: mdUrl, title: 'Markdown' }, { rel: 'alternate', type: 'application/rss+xml', href: `/${lang}/blog/rubric/${post.data.rubric}/rss.xml`, title: `${rubricName} — RSS` }]}>
+  <div class="wrap page-head">
+    <Crumbs items={[{ name: tr('nav.home'), href: localePath(lang) }, { name: tr('blog.title'), href: localePath(lang, 'blog') }, { name: rubricName, href: localePath(lang, 'blog', 'rubric', post.data.rubric) }]} />
+    <div class="meta" style="margin-bottom:.75rem">
+      <a class="tag" href={localePath(lang, 'blog', 'rubric', post.data.rubric)}>{rubricName}</a>
+      {post.data.issue && <a class="tag tag-issue" href={localePath(lang, 'issues', String(post.data.issue))}>{tr('blog.issue')} {post.data.issue}</a>}
+      <time datetime={post.data.date.toISOString().slice(0, 10)}>{formatDate(post.data.date, lang)}</time>
+      {post.data.updated && <span>{tr('blog.updated')} <time datetime={post.data.updated.toISOString().slice(0, 10)}>{formatDate(post.data.updated, lang)}</time></span>}
+      <span>{minutes} {tr('blog.minutes')}</span>
+    </div>
+    <h1>{post.data.title}</h1>
+    <p class="lead">{post.data.description}</p>
+    {Object.keys(translations).length > 1 && (
+      <div class="alt-langs"><span>{tr('blog.alsoIn')}</span>{Object.entries(translations).filter(([l]) => l !== lang).map(([l, p]) => <a href={localePath(l as Lang, 'blog', postSlug(p!))} hreflang={l} lang={l}>{LANG_NAME[l as Lang]}</a>)}</div>
+    )}
+  </div>
+
+  <div class="wrap layout-2">
+    <article class="prose" data-pagefind-body data-pagefind-meta={`rubric:${rubricName}`}>
+      {post.data.cover && <figure class="cover"><img src={post.data.cover.src} alt={post.data.coverAlt ?? ''} width={post.data.cover.width} height={post.data.cover.height} loading="eager" fetchpriority="high" /></figure>}
+      <Content />
+      {post.data.sources.length > 0 && (
+        <>
+          <h2 id="sources">{tr('blog.sources')}</h2>
+          <ol>{post.data.sources.map((s) => <li>{s.url ? <a href={s.url} rel="noopener" target="_blank">{s.title}</a> : s.title}</li>)}</ol>
+        </>
+      )}
+      <hr />
+      {author && (
+        <div class="author">
+          <div class="avatar" aria-hidden="true">{author.data.photo ? <img src={author.data.photo.src} alt="" width="48" height="48" /> : author.data.name.split(/\s+/).map((w) => w[0]).join('').slice(0, 2)}</div>
+          <div><b><a href={localePath(lang, 'team', post.data.author)} style="color:inherit;text-decoration:none">{author.data.name}</a></b><br /><span class="note">{author.data.role}</span></div>
+        </div>
+      )}
+      <p class="note" style="margin-top:1.5rem">{tr('blog.disclaimer')}</p>
+    </article>
+
+    <aside>
+      <div class="aside-box">
+        <Toc headings={headings} lang={lang} />
+        <hr />
+        <h2>{tr('blog.share')}</h2>
+        <ShareLinks url={url} title={post.data.title} lang={lang} />
+        <hr />
+        <h2>{tr('blog.machine')}</h2>
+        <ul>
+          <li><a href={mdUrl} class="mono">{slug}.md</a> — {tr('blog.markdown')}</li>
+          <li><a href={`/${lang}/blog/rubric/${post.data.rubric}/rss.xml`} class="mono">rss.xml</a> — {tr('blog.feed')}</li>
+        </ul>
+        {issue && inIssue.length > 0 && (
+          <>
+            <hr />
+            <h2><a href={localePath(lang, 'issues', String(issue.data.number))} style="color:inherit;text-decoration:none">{tr('blog.inIssue')} · № {issue.data.number}</a></h2>
+            <ul>{inIssue.map((p) => <li><a href={localePath(lang, 'blog', postSlug(p))}>{p.data.title}</a></li>)}</ul>
+          </>
+        )}
+      </div>
+    </aside>
+  </div>
+
+  {more.length > 0 && (
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head"><h2>{tr('blog.readMore')}</h2><a href={localePath(lang, 'blog')}>{tr('home.allPosts')} →</a></div>
+        <div class="posts">{more.map((p) => <PostCard post={p} lang={lang} />)}</div>
+      </div>
+    </section>
+  )}
+</Base>

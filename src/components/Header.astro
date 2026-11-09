@@ -1,0 +1,44 @@
+---
+import { LANGS, LANG_NAME, type Lang } from '@/config/site';
+import { t, localePath } from '@/i18n/utils';
+
+interface Props { lang: Lang; section?: string; alternates: Partial<Record<Lang, string>> }
+const { lang, section, alternates } = Astro.props;
+const tr = t(lang);
+const items = [
+  { key: 'services', href: localePath(lang, 'services'), label: tr('nav.services') },
+  { key: 'about', href: localePath(lang, 'about'), label: tr('nav.about') },
+  { key: 'team', href: localePath(lang, 'team'), label: tr('nav.team') },
+  { key: 'blog', href: localePath(lang, 'blog'), label: tr('nav.blog') },
+  { key: 'documents', href: localePath(lang, 'documents'), label: tr('nav.documents') },
+  { key: 'contacts', href: localePath(lang, 'contacts'), label: tr('nav.contacts') },
+];
+---
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href={localePath(lang)} aria-label={`TRI-S-AUDIT — ${tr('nav.home')}`}><img src="/logo.svg" alt="TRI-S-AUDIT" width="245" height="55" /></a>
+    <nav class="nav-main" aria-label={tr('nav.menu')}>
+      <ul>
+        {items.map((i) => <li><a href={i.href} aria-current={section === i.key ? 'page' : undefined}>{i.label}</a></li>)}
+      </ul>
+    </nav>
+    <nav class="lang" aria-label={tr('nav.lang')}>
+      {LANGS.map((l) =>
+        alternates[l]
+          ? <a href={alternates[l]} hreflang={l} lang={l} aria-current={l === lang ? 'true' : undefined} title={LANG_NAME[l]}>{l.toUpperCase()}</a>
+          : <span title={tr('blog.unavailable')} aria-disabled="true">{l.toUpperCase()}</span>
+      )}
+    </nav>
+    <a class="icon-btn" href={localePath(lang, 'search')} aria-label={tr('nav.search')}>
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    </a>
+    <button class="icon-btn menu-btn" popovertarget="menu" aria-label={tr('nav.menu')}>
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <nav id="menu" class="menu-pop" popover aria-label={tr('nav.menu')}>
+      <ul>
+        {items.map((i) => <li><a href={i.href} aria-current={section === i.key ? 'page' : undefined}>{i.label}</a></li>)}
+      </ul>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,16 @@
+# Public documents. Files live in /public/docs/. An entry with draft: true is built in dev only.
+# Add a document: copy the PDF to public/docs/, add a block here, run `npm run check:content`.
+- id: quality-system-description
+  title:
+    ru: "Описание системы управления качеством"
+    en: "Description of the system of quality management"
+    uz: "Sifat boshqaruvi tizimining tavsifi"
+  summary:
+    ru: "Компоненты системы по МСУК 1, документы Руководства, технологический контур, результаты внешнего контроля — без наименований клиентов (МСУК 1, п. 36(e))."
+    en: "Components of the system under ISQM 1, the Firm Manual, the technology contour and external inspection results, without client names (ISQM 1 para. 36(e))."
+    uz: "XSBS 1 boʻyicha tizim tarkibi, Firma qoʻllanmasi, texnologik kontur va tashqi nazorat natijalari, mijozlar nomlarisiz (XSBS 1, 36(e)-band)."
+  category: quality
+  date: 2026-11-01
+  languages: [ru]
+  file: /docs/tri-s-audit-quality-system-ru.pdf
+  draft: true

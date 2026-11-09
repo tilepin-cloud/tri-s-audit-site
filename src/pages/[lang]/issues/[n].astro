@@ -1,0 +1,31 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '@/layouts/Base.astro';
+import Crumbs from '@/components/Crumbs.astro';
+import PostCard from '@/components/PostCard.astro';
+import { LANGS, type Lang } from '@/config/site';
+import { t, localePath, formatDate } from '@/i18n/utils';
+import { getPosts } from '@/lib/content';
+
+export async function getStaticPaths() {
+  const issues = await getCollection('issues');
+  return LANGS.flatMap((lang) => issues.map((i) => ({ params: { lang, n: String(i.data.number) }, props: { issue: i } })));
+}
+const { issue } = Astro.props;
+const lang = Astro.params.lang as Lang;
+const tr = t(lang);
+const posts = (await getPosts(lang)).filter((p) => p.data.issue === issue.data.number);
+const title = `${tr('blog.issue')} ${issue.data.number}: ${issue.data.title[lang]}`;
+---
+<Base lang={lang} title={title} description={issue.data.summary[lang]} section="blog">
+  <div class="wrap page-head">
+    <Crumbs items={[{ name: tr('nav.home'), href: localePath(lang) }, { name: tr('blog.title'), href: localePath(lang, 'blog') }, { name: tr('issues.title'), href: localePath(lang, 'issues') }, { name: `№ ${issue.data.number}` }]} />
+    <p class="eyebrow">{tr('blog.issue')} {issue.data.number} · {formatDate(issue.data.date, lang)}</p>
+    <h1>{issue.data.title[lang]}</h1>
+    <p class="lead">{issue.data.summary[lang]}</p>
+  </div>
+  <div class="wrap section" style="padding-top:0">
+    <div class="posts">{posts.map((p) => <PostCard post={p} lang={lang} />)}</div>
+    {posts.length === 0 && <p class="note">{tr('blog.unavailable')}</p>}
+  </div>
+</Base>

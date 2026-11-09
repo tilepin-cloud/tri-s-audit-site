@@ -1,0 +1,7 @@
+---
+/** Emits one <script type="application/ld+json"> per object. The `<` escape keeps the JSON safe inside HTML. */
+interface Props { data: object | object[] }
+const items = Array.isArray(Astro.props.data) ? Astro.props.data : [Astro.props.data];
+const json = (o: object) => JSON.stringify(o).replace(/</g, '\\u003c');
+---
+{items.map((o) => <script type="application/ld+json" set:html={json(o)} />)}

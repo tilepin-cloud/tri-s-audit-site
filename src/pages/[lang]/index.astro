@@ -1,0 +1,108 @@
+---
+import Base from '@/layouts/Base.astro';
+import PostCard from '@/components/PostCard.astro';
+import { LANGS, RUBRICS, DOC_CATEGORIES, firm, type Lang, type Rubric, type DocCategory } from '@/config/site';
+import { t, localePath, formatDate } from '@/i18n/utils';
+import { getPosts, getServices, getTeam, getDocuments, getPage, serviceSlug, entryKey } from '@/lib/content';
+import { organization, website } from '@/lib/schema';
+import { render } from 'astro:content';
+
+export function getStaticPaths() { return LANGS.map((lang) => ({ params: { lang } })); }
+const lang = Astro.params.lang as Lang;
+const tr = t(lang);
+const [posts, services, team, docs, home] = await Promise.all([getPosts(lang), getServices(lang), getTeam(lang), getDocuments(), getPage(lang, 'home')]);
+if (!home) throw new Error(`pages/${lang}/home.md is missing`);
+const { Content } = await render(home);
+const partners = team.filter((m) => m.data.partner);
+const facts = (home.data as any).facts ?? [];
+---
+<Base lang={lang} title={home.data.title} description={home.data.description} jsonLd={[organization(lang), website(lang)]}>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">{tr('hero.eyebrow')}</p>
+        <h1>{home.data.title}</h1>
+        <p class="lead">{home.data.description}</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href={`mailto:${firm.email}`}>
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18v12H3z"/><path d="m3 7 9 6 9-6"/></svg>
+            {tr('cta.email')}</a>
+          {firm.social.telegram && <a class="btn" href={firm.social.telegram} rel="noopener" target="_blank">
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21 4-18 8 6 2 2 6 10-16Z"/></svg>
+            {tr('cta.telegram')}</a>}
+        </div>
+      </div>
+      <div class="facts" aria-label={tr('nav.about')}>
+        <div><b>№ {firm.registryNumber}</b><span>{lang === 'ru' ? 'в реестре аудиторских организаций Минфина РУз с 2021 года' : lang === 'en' ? 'in the register of audit organisations of the Ministry of Finance since 2021' : 'Moliya vazirligi auditorlik tashkilotlari reestrida 2021 yildan'}</span></div>
+        <div><b>{lang === 'ru' ? 'МСА · МСУК 1' : lang === 'en' ? 'ISA · ISQM 1' : 'XAS · XSBS 1'}</b><span>{lang === 'ru' ? 'аудит и система управления качеством по международным стандартам' : lang === 'en' ? 'audit and quality management under the international standards' : 'xalqaro standartlar boʻyicha audit va sifat boshqaruvi tizimi'}</span></div>
+        <div><b>{lang === 'ru' ? 'МСФО' : lang === 'en' ? 'IFRS' : 'MHXS'}</b><span>{lang === 'ru' ? 'трансформация, первое применение, консолидация' : lang === 'en' ? 'transformation, first-time adoption, consolidation' : 'transformatsiya, birinchi qoʻllash, konsolidatsiya'}</span></div>
+        <div><b>RU · EN · UZ</b><span>{lang === 'ru' ? 'отчёты и заключения на трёх языках' : lang === 'en' ? 'reports and opinions in three languages' : 'hisobot va xulosalar uch tilda'}</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="wrap">
+      <div class="section-head"><h2>{tr('home.services')}</h2><a href={localePath(lang, 'services')}>{tr('home.allServices')} →</a></div>
+      <div class="grid">
+        {services.map((s) => (
+          <article class="card">
+            {s.data.standards.length > 0 && <span class="std">{s.data.standards.slice(0, 2).join(' · ')}</span>}
+            <h3><a href={localePath(lang, 'services', serviceSlug(s))}>{s.data.title}</a></h3>
+            <p>{s.data.summary}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section band" id="how">
+    <div class="wrap">
+      <div class="section-head"><h2>{tr('home.how')}</h2><a href={localePath(lang, 'about')}>{tr('nav.about')} →</a></div>
+      <div class="prose" style="max-width:none"><Content /></div>
+    </div>
+  </section>
+
+  {posts.length > 0 && (
+    <section class="section" id="blog">
+      <div class="wrap">
+        <div class="section-head"><h2>{tr('home.blog')}</h2><a href={localePath(lang, 'blog')}>{tr('home.allPosts')} →</a></div>
+        <div class="posts">{posts.slice(0, 3).map((p) => <PostCard post={p} lang={lang} />)}</div>
+      </div>
+    </section>
+  )}
+
+  {docs.length > 0 && (
+    <section class="section band" id="documents">
+      <div class="wrap">
+        <div class="section-head"><h2>{tr('home.documents')}</h2><a href={localePath(lang, 'documents')}>{tr('home.allDocuments')} →</a></div>
+        <ul class="docs">
+          {docs.slice(0, 3).map((d) => (
+            <li>
+              <span class="ico" aria-hidden="true">PDF</span>
+              <div><a href={d.data.file}>{d.data.title[lang]}</a><small>{DOC_CATEGORIES[d.data.category as DocCategory][lang]} · {d.data.languages.map((l) => l.toUpperCase()).join(', ')} · {formatDate(d.data.date, lang)}</small></div>
+              <span class="size">{d.data.pages ? `${d.data.pages} ${tr('docs.pages')}` : ''}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  {partners.length > 0 && (
+    <section class="section" id="team">
+      <div class="wrap">
+        <div class="section-head"><h2>{tr('home.team')}</h2><a href={localePath(lang, 'team')}>{tr('home.allTeam')} →</a></div>
+        <div class="grid">
+          {partners.map((m) => (
+            <article class="card">
+              {m.data.photo ? <img class="photo" src={m.data.photo.src} alt="" width="72" height="72" loading="lazy" /> : <div class="avatar" aria-hidden="true">{m.data.name.split(/\s+/).map((w) => w[0]).join('').slice(0, 2)}</div>}
+              <h3><a href={localePath(lang, 'team', entryKey(m))}>{m.data.name}</a></h3>
+              <p class="role">{m.data.role}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+</Base>

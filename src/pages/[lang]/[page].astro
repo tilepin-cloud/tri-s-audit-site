@@ -1,0 +1,38 @@
+---
+/** Static pages from src/content/pages: about, methodology, legal, for-ai, … (home and contacts have their own routes). */
+import { getCollection, render } from 'astro:content';
+import Base from '@/layouts/Base.astro';
+import Crumbs from '@/components/Crumbs.astro';
+import Toc from '@/components/Toc.astro';
+import type { Lang } from '@/config/site';
+import { t, localePath } from '@/i18n/utils';
+import { entryKey, entryLang, pageLangs } from '@/lib/content';
+import { organization, breadcrumbs } from '@/lib/schema';
+
+export async function getStaticPaths() {
+  const OWN_ROUTES = new Set(['home', 'contacts']);
+  const all = (await getCollection('pages')).filter((p) => (import.meta.env.DEV || !p.data.draft) && !OWN_ROUTES.has(entryKey(p)));
+  return all.map((p) => ({ params: { lang: entryLang(p), page: entryKey(p) }, props: { entry: p } }));
+}
+const { entry } = Astro.props;
+const lang = Astro.params.lang as Lang;
+const key = entryKey(entry);
+const tr = t(lang);
+const { Content, headings } = await render(entry);
+const langs = await pageLangs(key);
+const alternates = Object.fromEntries(langs.map((l) => [l, localePath(l, key)]));
+const site = Astro.site!;
+const section = key === 'about' || key === 'methodology' ? 'about' : undefined;
+---
+<Base lang={lang} title={entry.data.title} description={entry.data.description} section={section} alternates={alternates} updated={entry.data.updated}
+  jsonLd={[organization(lang), breadcrumbs([{ name: tr('nav.home'), url: new URL(localePath(lang), site).href }, { name: entry.data.title, url: new URL(Astro.url.pathname, site).href }])]}>
+  <div class="wrap page-head">
+    <Crumbs items={[{ name: tr('nav.home'), href: localePath(lang) }, { name: entry.data.title }]} />
+    <h1>{entry.data.title}</h1>
+    <p class="lead">{entry.data.description}</p>
+  </div>
+  <div class="wrap layout-2">
+    <article class="prose" data-pagefind-body><Content /></article>
+    <aside><div class="aside-box"><Toc headings={headings} lang={lang} title={tr('services.onPage')} /></div></aside>
+  </div>
+</Base>

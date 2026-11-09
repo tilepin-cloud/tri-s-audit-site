@@ -1,0 +1,70 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '@/layouts/Base.astro';
+import Crumbs from '@/components/Crumbs.astro';
+import Toc from '@/components/Toc.astro';
+import PostCard from '@/components/PostCard.astro';
+import { firm, type Lang } from '@/config/site';
+import { t, localePath } from '@/i18n/utils';
+import { entryKey, entryLang, serviceSlug, serviceTranslations, getPosts } from '@/lib/content';
+import { service as serviceLd, faqPage, breadcrumbs } from '@/lib/schema';
+
+export async function getStaticPaths() {
+  const all = (await getCollection('services')).filter((s) => import.meta.env.DEV || !s.data.draft);
+  return all.map((s) => ({ params: { lang: entryLang(s), slug: serviceSlug(s) }, props: { entry: s } }));
+}
+const { entry } = Astro.props;
+const lang = Astro.params.lang as Lang;
+const tr = t(lang);
+const { Content, headings } = await render(entry);
+const key = entryKey(entry);
+const translations = await serviceTranslations(key);
+const alternates = Object.fromEntries(Object.entries(translations).map(([l, s]) => [l, localePath(l as Lang, 'services', serviceSlug(s!))]));
+const site = Astro.site!;
+const url = new URL(Astro.url.pathname, site).href;
+const related = (await getPosts(lang)).filter((p) => p.data.tags.includes(key)).slice(0, 4);
+const jsonLd = [
+  serviceLd(lang, { url, name: entry.data.title, description: entry.data.summary }),
+  breadcrumbs([
+    { name: tr('nav.home'), url: new URL(localePath(lang), site).href },
+    { name: tr('services.title'), url: new URL(localePath(lang, 'services'), site).href },
+    { name: entry.data.title, url },
+  ]),
+  ...(entry.data.faq.length ? [faqPage(entry.data.faq)] : []),
+];
+---
+<Base lang={lang} title={entry.data.title} description={entry.data.summary} section="services" alternates={alternates} jsonLd={jsonLd}>
+  <div class="wrap page-head">
+    <Crumbs items={[{ name: tr('nav.home'), href: localePath(lang) }, { name: tr('services.title'), href: localePath(lang, 'services') }, { name: entry.data.title }]} />
+    {entry.data.standards.length > 0 && <p class="eyebrow">{entry.data.standards.join(' · ')}</p>}
+    <h1>{entry.data.title}</h1>
+    <p class="lead">{entry.data.summary}</p>
+  </div>
+  <div class="wrap layout-2">
+    <article class="prose" data-pagefind-body>
+      <Content />
+      {entry.data.deliverables.length > 0 && (
+        <>
+          <h2 id="deliverables">{tr('services.deliverables')}</h2>
+          <ul>{entry.data.deliverables.map((d) => <li>{d}</li>)}</ul>
+        </>
+      )}
+      {entry.data.faq.length > 0 && (
+        <>
+          <h2 id="faq">{tr('services.faq')}</h2>
+          {entry.data.faq.map((f) => <details class="faq"><summary>{f.q}</summary><div>{f.a}</div></details>)}
+        </>
+      )}
+      <h2 id="contact">{tr('cta.discuss')}</h2>
+      <p><a href={`mailto:${firm.email}`}>{firm.email}</a>{firm.social.telegram && <> · <a href={firm.social.telegram} rel="noopener" target="_blank">Telegram</a></>}</p>
+    </article>
+    <aside>
+      <div class="aside-box">
+        <Toc headings={[...headings, ...(entry.data.deliverables.length ? [{ depth: 2, slug: 'deliverables', text: tr('services.deliverables') }] : []), ...(entry.data.faq.length ? [{ depth: 2, slug: 'faq', text: tr('services.faq') }] : [])]} lang={lang} title={tr('services.onPage')} />
+        {related.length > 0 && (<><hr /><h2>{tr('services.related')}</h2><ul>{related.map((p) => <li><a href={localePath(lang, 'blog', p.data.slug ?? p.id.split('/').pop()!.replace(/^\d{4}-\d{2}-\d{2}-/, ''))}>{p.data.title}</a></li>)}</ul></>)}
+        <hr />
+        <a class="btn btn-primary" href={`mailto:${firm.email}`}>{tr('cta.discuss')}</a>
+      </div>
+    </aside>
+  </div>
+</Base>

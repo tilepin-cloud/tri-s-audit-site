@@ -1,0 +1,59 @@
+---
+import { LANGS, LANG_NAME, firm, type Lang } from '@/config/site';
+import { t, localePath } from '@/i18n/utils';
+
+interface Props { lang: Lang; alternates: Partial<Record<Lang, string>> }
+const { lang, alternates } = Astro.props;
+const tr = t(lang);
+const year = new Date().getFullYear();
+const socials = [
+  ['Telegram', firm.social.telegram], ['LinkedIn', firm.social.linkedin], ['Facebook', firm.social.facebook],
+  ['Instagram', firm.social.instagram], ['YouTube', firm.social.youtube],
+].filter(([, url]) => url) as [string, string][];
+---
+<footer class="site-footer" id="contacts">
+  <div class="wrap">
+    <div class="footer-grid">
+      <section>
+        <h2>{tr('contacts.title')}</h2>
+        <ul>
+          <li><a href={`mailto:${firm.email}`}>{firm.email}</a></li>
+          <li><a href={firm.phoneHref}>{firm.phone}</a></li>
+          <li>{firm.address[lang]}</li>
+          <li><a href={firm.mapUrl} rel="noopener" target="_blank">{tr('contacts.map')}</a></li>
+        </ul>
+      </section>
+      <section>
+        <h2>{tr('contacts.requisites')}</h2>
+        <ul>
+          <li>{firm.legalName[lang]}</li>
+          <li>{firm.registry[lang]}</li>
+          <li>{lang === 'ru' ? 'ИНН' : lang === 'en' ? 'Tax ID' : 'STIR'} {firm.taxId}</li>
+        </ul>
+      </section>
+      <section>
+        <h2>{tr('contacts.sections')}</h2>
+        <ul>
+          <li><a href={localePath(lang, 'services')}>{tr('nav.services')}</a></li>
+          <li><a href={localePath(lang, 'about')}>{tr('nav.about')}</a></li>
+          <li><a href={localePath(lang, 'blog')}>{tr('nav.blog')}</a></li>
+          <li><a href={localePath(lang, 'issues')}>{tr('nav.issues')}</a></li>
+          <li><a href={localePath(lang, 'documents')}>{tr('nav.documents')}</a></li>
+          <li><a href={localePath(lang, 'for-ai')}>{tr('nav.forAi')}</a></li>
+        </ul>
+      </section>
+      <section>
+        <h2>{tr('contacts.follow')}</h2>
+        <ul>
+          {socials.map(([name, url]) => <li><a href={url} rel="noopener me" target="_blank">{name}</a></li>)}
+          <li>{tr('blog.rss')}: {LANGS.map((l, i) => <><a href={`/${l}/rss.xml`}>{l}</a>{i < LANGS.length - 1 ? ' · ' : ''}</>)}</li>
+          <li><a href="/llms.txt" class="mono">llms.txt</a></li>
+        </ul>
+      </section>
+    </div>
+    <div class="footer-bottom">
+      <span>© {firm.foundedYear}–{year} {firm.shortName}. {tr('contacts.noForms')}</span>
+      <span>{LANGS.map((l, i) => <>{alternates[l] ? <a href={alternates[l]} hreflang={l} lang={l}>{LANG_NAME[l]}</a> : <span>{LANG_NAME[l]}</span>}{i < LANGS.length - 1 ? ' · ' : ''}</>)}</span>
+    </div>
+  </div>
+</footer>

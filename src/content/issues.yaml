@@ -1,0 +1,12 @@
+# Periodic issues (выпуски). Posts attach by `issue: <number>` in their front matter.
+- id: "1"
+  number: 1
+  date: 2026-11-09
+  title:
+    ru: "Стандарты 2026: что меняется для клиентов"
+    en: "The 2026 standards: what changes for clients"
+    uz: "2026 standartlari: mijozlar uchun nima oʻzgaradi"
+  summary:
+    ru: "Первый выпуск: МСА 240 (пересмотренный), три сверки МСФО 1 и правила ИИ-контура фирмы."
+    en: "Issue one: ISA 240 (Revised), the three IFRS 1 reconciliations and the firm's rules for AI."
+    uz: "Birinchi son: XAS 240 (qayta koʻrib chiqilgan), MHXS 1 ning uchta solishtiruvi va firmaning SI qoidalari."

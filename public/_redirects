@@ -1,0 +1,10 @@
+# Redirects for Cloudflare (Workers static assets / Pages). One rule per line: from  to  status.
+# The language root is handled by /index.html (meta refresh + navigator.language).
+# When the old site's URL list is known, map every old path here with 301, e.g.:
+# /about.html        /ru/about/        301
+# /services.html     /ru/services/     301
+# /news/*            /ru/blog/         301
+/index.html   /   301
+/ru           /ru/   301
+/en           /en/   301
+/uz           /uz/   301

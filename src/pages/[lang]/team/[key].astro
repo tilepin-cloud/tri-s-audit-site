@@ -1,0 +1,61 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '@/layouts/Base.astro';
+import Crumbs from '@/components/Crumbs.astro';
+import PostCard from '@/components/PostCard.astro';
+import type { Lang } from '@/config/site';
+import { t, localePath } from '@/i18n/utils';
+import { entryKey, entryLang, memberTranslations, getPosts } from '@/lib/content';
+import { person, breadcrumbs } from '@/lib/schema';
+
+export async function getStaticPaths() {
+  const all = (await getCollection('team')).filter((m) => import.meta.env.DEV || !m.data.draft);
+  return all.map((m) => ({ params: { lang: entryLang(m), key: entryKey(m) }, props: { entry: m } }));
+}
+const { entry } = Astro.props;
+const lang = Astro.params.lang as Lang;
+const tr = t(lang);
+const key = entryKey(entry);
+const { Content } = await render(entry);
+const translations = await memberTranslations(key);
+const alternates = Object.fromEntries(Object.keys(translations).map((l) => [l, localePath(l as Lang, 'team', key)]));
+const site = Astro.site!;
+const url = new URL(Astro.url.pathname, site).href;
+const posts = (await getPosts(lang)).filter((p) => p.data.author === key);
+const description = `${entry.data.name} — ${entry.data.role}. ${entry.data.credentials.join(', ')}`.slice(0, 300);
+---
+<Base lang={lang} title={entry.data.name} description={description} section="team" alternates={alternates} type="website"
+  image={entry.data.photo?.src}
+  jsonLd={[person(lang, { key, name: entry.data.name, role: entry.data.role, url, image: entry.data.photo ? new URL(entry.data.photo.src, site).href : undefined, linkedin: entry.data.linkedin, credentials: entry.data.credentials }),
+    breadcrumbs([{ name: tr('nav.home'), url: new URL(localePath(lang), site).href }, { name: tr('team.title'), url: new URL(localePath(lang, 'team'), site).href }, { name: entry.data.name, url }])]}>
+  <div class="wrap page-head">
+    <Crumbs items={[{ name: tr('nav.home'), href: localePath(lang) }, { name: tr('team.title'), href: localePath(lang, 'team') }, { name: entry.data.name }]} />
+    <div class="author" style="margin-bottom:1rem">
+      <div class="avatar" style="width:5rem;height:5rem;font-size:1.5rem" aria-hidden="true">{entry.data.photo ? <img src={entry.data.photo.src} alt="" width="80" height="80" /> : entry.data.name.split(/\s+/).map((w) => w[0]).join('').slice(0, 2)}</div>
+      <div><h1 style="margin:0">{entry.data.name}</h1><p class="lead" style="margin:0">{entry.data.role}</p></div>
+    </div>
+  </div>
+  <div class="wrap layout-2">
+    <article class="prose" data-pagefind-body>
+      <Content />
+      {entry.data.credentials.length > 0 && (<><h2>{tr('team.credentials')}</h2><ul>{entry.data.credentials.map((c) => <li>{c}</li>)}</ul></>)}
+    </article>
+    <aside>
+      <div class="aside-box">
+        <h2>{tr('contacts.title')}</h2>
+        <ul>
+          {entry.data.email && <li><a href={`mailto:${entry.data.email}`}>{entry.data.email}</a></li>}
+          {entry.data.linkedin && <li><a href={entry.data.linkedin} rel="noopener me" target="_blank">LinkedIn</a></li>}
+        </ul>
+      </div>
+    </aside>
+  </div>
+  {posts.length > 0 && (
+    <section class="section">
+      <div class="wrap">
+        <div class="section-head"><h2>{tr('team.posts')}</h2></div>
+        <div class="posts">{posts.slice(0, 6).map((p) => <PostCard post={p} lang={lang} />)}</div>
+      </div>
+    </section>
+  )}
+</Base>
