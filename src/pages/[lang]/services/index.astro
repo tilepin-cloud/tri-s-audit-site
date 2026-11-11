@@ -20,7 +20,7 @@ const site = Astro.site!;
     <p class="lead">{tr('services.description')}</p>
   </div>
   <div class="wrap section" style="padding-top:0">
-    <div class="grid">
+    <div class="grid grid-accent">
       {services.map((s) => (
         <article class="card">
           {s.data.standards.length > 0 && <span class="std">{s.data.standards.slice(0, 3).join(' · ')}</span>}
