@@ -11,6 +11,16 @@ const socials = [
   ['Instagram', firm.social.instagram], ['YouTube', firm.social.youtube],
 ].filter(([, url]) => url) as [string, string][];
 ---
+<aside class="wrap" aria-labelledby="cta-title">
+  <div class="cta-panel">
+    <h2 id="cta-title">{tr('cta.discuss')}</h2>
+    <p>{tr('contacts.noForms')}</p>
+    <div class="cta-row">
+      <a class="btn btn-dark" href={`mailto:${firm.email}`}>{tr('cta.email')}</a>
+      {firm.social.telegram && <a class="btn" href={firm.social.telegram} rel="noopener" target="_blank">{tr('cta.telegram')}</a>}
+    </div>
+  </div>
+</aside>
 <footer class="site-footer" id="contacts">
   <div class="wrap">
     <div class="footer-grid">
@@ -52,7 +62,7 @@ const socials = [
       </section>
     </div>
     <div class="footer-bottom">
-      <span>© {firm.foundedYear}–{year} {firm.shortName}. {tr('contacts.noForms')}</span>
+      <span>© {firm.foundedYear}–{year} {firm.shortName}</span>
       <span>{LANGS.map((l, i) => <>{alternates[l] ? <a href={alternates[l]} hreflang={l} lang={l}>{LANG_NAME[l]}</a> : <span>{LANG_NAME[l]}</span>}{i < LANGS.length - 1 ? ' · ' : ''}</>)}</span>
     </div>
   </div>

@@ -18,16 +18,16 @@ const facts = (home.data as any).facts ?? [];
 ---
 <Base lang={lang} title={home.data.title} description={home.data.description} jsonLd={[organization(lang), website(lang)]}>
   <section class="hero">
-    <div class="wrap hero-grid">
+    <div class="wrap"><div class="hero-panel">
       <div>
         <p class="eyebrow">{tr('hero.eyebrow')}</p>
         <h1>{home.data.title}</h1>
         <p class="lead">{home.data.description}</p>
         <div class="cta-row">
-          <a class="btn btn-primary" href={`mailto:${firm.email}`}>
+          <a class="btn btn-accent" href={`mailto:${firm.email}`}>
             <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18v12H3z"/><path d="m3 7 9 6 9-6"/></svg>
             {tr('cta.email')}</a>
-          {firm.social.telegram && <a class="btn" href={firm.social.telegram} rel="noopener" target="_blank">
+          {firm.social.telegram && <a class="btn btn-ghost" href={firm.social.telegram} rel="noopener" target="_blank">
             <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21 4-18 8 6 2 2 6 10-16Z"/></svg>
             {tr('cta.telegram')}</a>}
         </div>
@@ -38,13 +38,13 @@ const facts = (home.data as any).facts ?? [];
         <div><b>{lang === 'ru' ? 'МСФО' : lang === 'en' ? 'IFRS' : 'MHXS'}</b><span>{lang === 'ru' ? 'трансформация, первое применение, консолидация' : lang === 'en' ? 'transformation, first-time adoption, consolidation' : 'transformatsiya, birinchi qoʻllash, konsolidatsiya'}</span></div>
         <div><b>RU · EN · UZ</b><span>{lang === 'ru' ? 'отчёты и заключения на трёх языках' : lang === 'en' ? 'reports and opinions in three languages' : 'hisobot va xulosalar uch tilda'}</span></div>
       </div>
-    </div>
+    </div></div>
   </section>
 
   <section class="section" id="services">
     <div class="wrap">
       <div class="section-head"><h2>{tr('home.services')}</h2><a href={localePath(lang, 'services')}>{tr('home.allServices')} →</a></div>
-      <div class="grid">
+      <div class="grid grid-accent">
         {services.map((s) => (
           <article class="card">
             {s.data.standards.length > 0 && <span class="std">{s.data.standards.slice(0, 2).join(' · ')}</span>}
@@ -56,15 +56,15 @@ const facts = (home.data as any).facts ?? [];
     </div>
   </section>
 
-  <section class="section band" id="how">
-    <div class="wrap">
+  <section id="how">
+    <div class="wrap"><div class="panel-dark">
       <div class="section-head"><h2>{tr('home.how')}</h2><a href={localePath(lang, 'about')}>{tr('nav.about')} →</a></div>
-      <div class="prose" style="max-width:none"><Content /></div>
-    </div>
+      <Content />
+    </div></div>
   </section>
 
   {posts.length > 0 && (
-    <section class="section" id="blog">
+    <section class="section band" id="blog" style="margin-top:var(--section)">
       <div class="wrap">
         <div class="section-head"><h2>{tr('home.blog')}</h2><a href={localePath(lang, 'blog')}>{tr('home.allPosts')} →</a></div>
         <div class="posts">{posts.slice(0, 3).map((p) => <PostCard post={p} lang={lang} />)}</div>
@@ -73,7 +73,7 @@ const facts = (home.data as any).facts ?? [];
   )}
 
   {docs.length > 0 && (
-    <section class="section band" id="documents">
+    <section class="section" id="documents">
       <div class="wrap">
         <div class="section-head"><h2>{tr('home.documents')}</h2><a href={localePath(lang, 'documents')}>{tr('home.allDocuments')} →</a></div>
         <ul class="docs">
@@ -90,7 +90,7 @@ const facts = (home.data as any).facts ?? [];
   )}
 
   {partners.length > 0 && (
-    <section class="section" id="team">
+    <section class="section" id="team" style="padding-top:0">
       <div class="wrap">
         <div class="section-head"><h2>{tr('home.team')}</h2><a href={localePath(lang, 'team')}>{tr('home.allTeam')} →</a></div>
         <div class="grid">
