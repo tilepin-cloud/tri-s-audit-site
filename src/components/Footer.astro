@@ -16,8 +16,8 @@ const socials = [
     <h2 id="cta-title">{tr('cta.discuss')}</h2>
     <p>{tr('contacts.noForms')}</p>
     <div class="cta-row">
-      <a class="btn btn-dark" href={`mailto:${firm.email}`}>{tr('cta.email')}</a>
-      {firm.social.telegram && <a class="btn" href={firm.social.telegram} rel="noopener" target="_blank">{tr('cta.telegram')}</a>}
+      <a class="btn btn-accent" href={`mailto:${firm.email}`}>{tr('cta.email')}</a>
+      {firm.social.telegram && <a class="btn btn-ghost" href={firm.social.telegram} rel="noopener" target="_blank">{tr('cta.telegram')}</a>}
     </div>
   </div>
 </aside>

@@ -34,7 +34,8 @@ node scripts/new-post.mjs <slug> --rubric ifrs --author tilepin --issue 2
 
 - Design v2 (partners' brief: modern, airy, colourful): one light scheme; colours and fonts only from the tokens in
   `global.css`. The brand colours sky, black and orange are mandatory and carry large rounded panels (sky hero, black
-  "how we work", orange contact panel, black footer); cards sit on sky tints. Keep generous spacing (`--section`).
+  "how we work", sky contact panel, black footer); cards sit on sky tints. Orange is only for actions and
+  interactive states (primary button, hover, focus), never for decoration or panels. Keep generous spacing (`--section`).
   `prototype/` still shows the rejected v1 look.
 - Every page sets `alternates` so hreflang is reciprocal and never points at a missing translation.
 - URLs: `/<lang>/section/slug/` with trailing slash; rubric and service keys are language-independent.
