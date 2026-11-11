@@ -10,14 +10,15 @@ on:
 jobs:
   ping:
     runs-on: ubuntu-latest
+    # The secrets context is not available in `if:`, so the key is mapped to env here and the steps test env.
+    env:
+      INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+      SITE_URL: https://tri-s-audit.uz
     steps:
       - uses: actions/checkout@v4
         with: { fetch-depth: 2 }
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - name: Submit changed URLs
-        if: ${{ secrets.INDEXNOW_KEY != '' }}
-        env:
-          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
-          SITE_URL: https://tri-s-audit.uz
+        if: ${{ env.INDEXNOW_KEY != '' }}
         run: node scripts/indexnow.mjs

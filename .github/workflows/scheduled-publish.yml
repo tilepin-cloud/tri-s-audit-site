@@ -11,7 +11,10 @@ on:
 jobs:
   redeploy:
     runs-on: ubuntu-latest
+    # The secrets context is not available in `if:`, so the hook is mapped to env here and the step tests env.
+    env:
+      CF_DEPLOY_HOOK: ${{ secrets.CF_DEPLOY_HOOK }}
     steps:
       - name: Trigger the hosting build
-        if: ${{ secrets.CF_DEPLOY_HOOK != '' }}
-        run: curl -fsS -X POST "${{ secrets.CF_DEPLOY_HOOK }}"
+        if: ${{ env.CF_DEPLOY_HOOK != '' }}
+        run: curl -fsS -X POST "$CF_DEPLOY_HOOK"
