@@ -1,6 +1,6 @@
 /**
- * Open Graph images in the firm's style: white card, the rail on top, title in the heading face, footer with
- * rubric and date. Rendered from an SVG template with resvg at build time. Fonts: drop TTF/OTF files into
+ * Open Graph images in the site's design v2: the sky panel with a translucent ring, the rail on top, a white title
+ * in the heading face, footer with rubric and date. No orange outside the rail. Rendered from an SVG template with resvg at build time. Fonts: drop TTF/OTF files into
  * src/og/fonts/ (for example FiraSansCondensed-SemiBold.ttf) to make the output identical on every build machine;
  * without them resvg falls back to system fonts (Bahnschrift on Windows, DejaVu/Noto on Linux).
  */
@@ -27,18 +27,23 @@ function wrap(text: string, maxChars: number, maxLines: number): string[] {
 }
 
 function svg(title: string, kicker: string, footerLeft: string, footerRight: string): string {
-  const size = title.length > 90 ? 48 : title.length > 60 ? 56 : 64;
-  const lines = wrap(title, Math.floor(1040 / (size * 0.52)), 4);
-  const lineH = size * 1.12;
-  const startY = 330 - ((lines.length - 1) * lineH) / 2;
+  const size = title.length > 90 ? 52 : title.length > 60 ? 62 : 76;
+  const lines = wrap(title, Math.floor(1000 / (size * 0.52)), 4);
+  const lineH = size * 1.1;
+  const startY = 335 - ((lines.length - 1) * lineH) / 2;
+  const head = 'Bahnschrift SemiBold, Bahnschrift, Fira Sans Condensed, DejaVu Sans, sans-serif';
+  const mono = 'Consolas, JetBrains Mono, DejaVu Sans Mono, monospace';
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
-  <rect width="${W}" height="${H}" fill="#ffffff"/>
+  <defs><linearGradient id="sky" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#123a5a"/><stop offset=".42" stop-color="#1f5c8c"/><stop offset="1" stop-color="#3080c0"/></linearGradient></defs>
+  <rect width="${W}" height="${H}" fill="url(#sky)"/>
+  <circle cx="1090" cy="40" r="300" fill="none" stroke="#ffffff" stroke-opacity=".07" stroke-width="110"/>
   <rect x="0" y="0" width="${W * 0.3}" height="14" fill="#3080c0"/><rect x="${W * 0.3}" y="0" width="${W * 0.6}" height="14" fill="#000000"/><rect x="${W * 0.9}" y="0" width="${W * 0.1}" height="14" fill="#f87831"/>
-  <text x="80" y="110" font-family="Bahnschrift SemiBold, Bahnschrift, Fira Sans Condensed, DejaVu Sans, sans-serif" font-weight="600" font-size="24" letter-spacing="2" fill="#3a3f47">${esc(kicker.toUpperCase())}</text>
-  ${lines.map((l, i) => `<text x="80" y="${(startY + i * lineH).toFixed(1)}" font-family="Bahnschrift SemiBold, Bahnschrift, Fira Sans Condensed, DejaVu Sans, sans-serif" font-weight="600" font-size="${size}" fill="#000000">${esc(l)}</text>`).join('\n  ')}
-  <line x1="80" y1="540" x2="${W - 80}" y2="540" stroke="#8a8f98" stroke-width="1"/>
-  <text x="80" y="585" font-family="Consolas, JetBrains Mono, DejaVu Sans Mono, monospace" font-size="22" fill="#3a3f47">${esc(footerLeft)}</text>
-  <text x="${W - 80}" y="585" text-anchor="end" font-family="Consolas, JetBrains Mono, DejaVu Sans Mono, monospace" font-size="22" fill="#3a3f47">${esc(footerRight)}</text>
+  <circle cx="88" cy="112" r="8" fill="#ffffff"/>
+  <text x="112" y="121" font-family="${head}" font-weight="600" font-size="24" letter-spacing="2.4" fill="#ffffff">${esc(kicker.toUpperCase())}</text>
+  ${lines.map((l, i) => `<text x="80" y="${(startY + i * lineH).toFixed(1)}" font-family="${head}" font-weight="600" font-size="${size}" fill="#ffffff">${esc(l)}</text>`).join('\n  ')}
+  <line x1="80" y1="540" x2="${W - 80}" y2="540" stroke="#ffffff" stroke-opacity=".3" stroke-width="2"/>
+  <text x="80" y="585" font-family="${mono}" font-size="22" fill="#ffffff">${esc(footerLeft)}</text>
+  <text x="${W - 80}" y="585" text-anchor="end" font-family="${mono}" font-size="22" fill="#ffffff" fill-opacity=".85">${esc(footerRight)}</text>
 </svg>`;
 }
 
