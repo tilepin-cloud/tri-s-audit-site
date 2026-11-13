@@ -24,12 +24,8 @@ const facts = (home.data as any).facts ?? [];
         <h1>{home.data.title}</h1>
         <p class="lead">{home.data.description}</p>
         <div class="cta-row">
-          <a class="btn btn-accent" href={`mailto:${firm.email}`}>
-            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18v12H3z"/><path d="m3 7 9 6 9-6"/></svg>
-            {tr('cta.email')}</a>
-          {firm.social.telegram && <a class="btn btn-ghost" href={firm.social.telegram} rel="noopener" target="_blank">
-            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21 4-18 8 6 2 2 6 10-16Z"/></svg>
-            {tr('cta.telegram')}</a>}
+          <a class="btn btn-accent" href={localePath(lang, 'services')}>{tr('nav.services')}</a>
+          <a class="btn btn-ghost" href={localePath(lang, 'contacts')}>{tr('nav.contacts')}</a>
         </div>
       </div>
       <div class="facts" aria-label={tr('nav.about')}>

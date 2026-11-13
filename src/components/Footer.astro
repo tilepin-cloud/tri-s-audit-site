@@ -6,6 +6,8 @@ interface Props { lang: Lang; alternates: Partial<Record<Lang, string>> }
 const { lang, alternates } = Astro.props;
 const tr = t(lang);
 const year = new Date().getFullYear();
+const contactsPath = localePath(lang, 'contacts');
+const onContacts = Astro.url.pathname.replace(/\/?$/, '/') === contactsPath;
 const socials = [
   ['Telegram', firm.social.telegram], ['LinkedIn', firm.social.linkedin], ['Facebook', firm.social.facebook],
   ['Instagram', firm.social.instagram], ['YouTube', firm.social.youtube],
@@ -15,22 +17,22 @@ const socials = [
   <div class="cta-panel">
     <h2 id="cta-title">{tr('cta.discuss')}</h2>
     <p>{tr('contacts.noForms')}</p>
-    <div class="cta-row">
-      <a class="btn btn-accent" href={`mailto:${firm.email}`}>{tr('cta.email')}</a>
-      {firm.social.telegram && <a class="btn btn-ghost" href={firm.social.telegram} rel="noopener" target="_blank">{tr('cta.telegram')}</a>}
-    </div>
+    {!onContacts && <div class="cta-row"><a class="btn btn-accent" href={contactsPath}>{tr('nav.contacts')}</a></div>}
   </div>
 </aside>
 <footer class="site-footer" id="contacts">
   <div class="wrap">
+    <section class="footer-address">
+      <h2>{lang === 'ru' ? 'Адрес' : lang === 'en' ? 'Address' : 'Manzil'}</h2>
+      <address>{firm.address[lang]}</address>
+      <a href={firm.mapUrl} rel="noopener" target="_blank">{tr('contacts.map')} →</a>
+    </section>
     <div class="footer-grid">
       <section>
         <h2>{tr('contacts.title')}</h2>
         <ul>
           <li><a href={`mailto:${firm.email}`}>{firm.email}</a></li>
           <li><a href={firm.phoneHref}>{firm.phone}</a></li>
-          <li>{firm.address[lang]}</li>
-          <li><a href={firm.mapUrl} rel="noopener" target="_blank">{tr('contacts.map')}</a></li>
         </ul>
       </section>
       <section>
