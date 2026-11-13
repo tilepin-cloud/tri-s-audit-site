@@ -4,7 +4,7 @@ import Base from '@/layouts/Base.astro';
 import Crumbs from '@/components/Crumbs.astro';
 import Toc from '@/components/Toc.astro';
 import PostCard from '@/components/PostCard.astro';
-import { firm, type Lang } from '@/config/site';
+import { type Lang } from '@/config/site';
 import { t, localePath } from '@/i18n/utils';
 import { entryKey, entryLang, serviceSlug, serviceTranslations, getPosts } from '@/lib/content';
 import { service as serviceLd, faqPage, breadcrumbs } from '@/lib/schema';
@@ -56,14 +56,14 @@ const jsonLd = [
         </>
       )}
       <h2 id="contact">{tr('cta.discuss')}</h2>
-      <p><a href={`mailto:${firm.email}`}>{firm.email}</a>{firm.social.telegram && <> · <a href={firm.social.telegram} rel="noopener" target="_blank">Telegram</a></>}</p>
+      <p>{tr('contacts.noForms')} <a href={localePath(lang, 'contacts')}>{tr('nav.contacts')} →</a></p>
     </article>
     <aside>
       <div class="aside-box">
         <Toc headings={[...headings, ...(entry.data.deliverables.length ? [{ depth: 2, slug: 'deliverables', text: tr('services.deliverables') }] : []), ...(entry.data.faq.length ? [{ depth: 2, slug: 'faq', text: tr('services.faq') }] : [])]} lang={lang} title={tr('services.onPage')} />
         {related.length > 0 && (<><hr /><h2>{tr('services.related')}</h2><ul>{related.map((p) => <li><a href={localePath(lang, 'blog', p.data.slug ?? p.id.split('/').pop()!.replace(/^\d{4}-\d{2}-\d{2}-/, ''))}>{p.data.title}</a></li>)}</ul></>)}
         <hr />
-        <a class="btn btn-primary" href={`mailto:${firm.email}`}>{tr('cta.discuss')}</a>
+        <a class="btn btn-primary" href={localePath(lang, 'contacts')}>{tr('cta.discuss')}</a>
       </div>
     </aside>
   </div>
