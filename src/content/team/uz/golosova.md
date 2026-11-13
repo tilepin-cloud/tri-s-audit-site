@@ -3,6 +3,7 @@ name: "Svetlana Alekseyevna Golosova"
 role: "Boshqaruvchi hamkor, direktor"
 credentials:
   - "Auditor, Oʻzbekiston Respublikasi malaka sertifikati"
+photo: ../../../assets/team/golosova.jpg
 order: 1
 partner: true
 lead: true
@@ -12,4 +13,4 @@ Boshqaruvchi hamkor mijozlar bilan munosabatlar, topshiriqlarni qabul qilish, ul
 
 Moliyaviy hisobot auditi, obzor tekshiruvlari va kelishilgan protseduralar boʻyicha topshiriqlarni olib boradi; auditorlik xulosalarini va tartibga soluvchi organlar bilan yozishmalarni imzolaydi.
 
-*Surat va batafsil tarjimai hol keyinroq qoʻshiladi.*
+*Batafsil tarjimai hol keyinroq qoʻshiladi.*
