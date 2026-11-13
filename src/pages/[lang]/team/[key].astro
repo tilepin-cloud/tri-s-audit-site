@@ -5,7 +5,7 @@ import Crumbs from '@/components/Crumbs.astro';
 import PostCard from '@/components/PostCard.astro';
 import type { Lang } from '@/config/site';
 import { t, localePath } from '@/i18n/utils';
-import { entryKey, entryLang, memberTranslations, getPosts } from '@/lib/content';
+import { entryKey, entryLang, memberTranslations, getPosts, initials } from '@/lib/content';
 import { person, breadcrumbs } from '@/lib/schema';
 
 export async function getStaticPaths() {
@@ -31,7 +31,7 @@ const description = `${entry.data.name} — ${entry.data.role}. ${entry.data.cre
   <div class="wrap page-head">
     <Crumbs items={[{ name: tr('nav.home'), href: localePath(lang) }, { name: tr('team.title'), href: localePath(lang, 'team') }, { name: entry.data.name }]} />
     <div class="author" style="margin-bottom:1rem">
-      <div class="avatar" style="width:5rem;height:5rem;font-size:1.5rem" aria-hidden="true">{entry.data.photo ? <img src={entry.data.photo.src} alt="" width="80" height="80" /> : entry.data.name.split(/\s+/).map((w) => w[0]).join('').slice(0, 2)}</div>
+      <div class="avatar" style="width:5rem;height:5rem;font-size:1.5rem" aria-hidden="true">{entry.data.photo ? <img src={entry.data.photo.src} alt="" width="80" height="80" /> : initials(entry.data.name)}</div>
       <div><h1 style="margin:0">{entry.data.name}</h1><p class="lead" style="margin:0">{entry.data.role}</p></div>
     </div>
   </div>

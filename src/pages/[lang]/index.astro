@@ -3,7 +3,7 @@ import Base from '@/layouts/Base.astro';
 import PostCard from '@/components/PostCard.astro';
 import { LANGS, RUBRICS, DOC_CATEGORIES, firm, type Lang, type Rubric, type DocCategory } from '@/config/site';
 import { t, localePath, formatDate } from '@/i18n/utils';
-import { getPosts, getServices, getTeam, getDocuments, getPage, serviceSlug, entryKey } from '@/lib/content';
+import { getPosts, getServices, getTeam, getDocuments, getPage, serviceSlug, entryKey, initials } from '@/lib/content';
 import { organization, website } from '@/lib/schema';
 import { render } from 'astro:content';
 
@@ -13,7 +13,8 @@ const tr = t(lang);
 const [posts, services, team, docs, home] = await Promise.all([getPosts(lang), getServices(lang), getTeam(lang), getDocuments(), getPage(lang, 'home')]);
 if (!home) throw new Error(`pages/${lang}/home.md is missing`);
 const { Content } = await render(home);
-const partners = team.filter((m) => m.data.partner);
+const leader = team.find((m) => m.data.lead);
+const LeaderBio = leader ? (await render(leader)).Content : null;
 const facts = (home.data as any).facts ?? [];
 ---
 <Base lang={lang} title={home.data.title} description={home.data.description} jsonLd={[organization(lang), website(lang)]}>
@@ -85,19 +86,18 @@ const facts = (home.data as any).facts ?? [];
     </section>
   )}
 
-  {partners.length > 0 && (
+  {leader && LeaderBio && (
     <section class="section" id="team" style="padding-top:0">
       <div class="wrap">
         <div class="section-head"><h2>{tr('home.team')}</h2><a href={localePath(lang, 'team')}>{tr('home.allTeam')} →</a></div>
-        <div class="grid">
-          {partners.map((m) => (
-            <article class="card">
-              {m.data.photo ? <img class="photo" src={m.data.photo.src} alt="" width="72" height="72" loading="lazy" /> : <div class="avatar" aria-hidden="true">{m.data.name.split(/\s+/).map((w) => w[0]).join('').slice(0, 2)}</div>}
-              <h3><a href={localePath(lang, 'team', entryKey(m))}>{m.data.name}</a></h3>
-              <p class="role">{m.data.role}</p>
-            </article>
-          ))}
-        </div>
+        <article class="leader">
+          <div class="portrait">{leader.data.photo ? <img src={leader.data.photo.src} alt={leader.data.name} width={leader.data.photo.width} height={leader.data.photo.height} loading="lazy" /> : <span aria-hidden="true">{initials(leader.data.name)}</span>}</div>
+          <div>
+            <h3><a href={localePath(lang, 'team', entryKey(leader))}>{leader.data.name}</a></h3>
+            <p class="role">{leader.data.role}</p>
+            <div class="prose"><LeaderBio /></div>
+          </div>
+        </article>
       </div>
     </section>
   )}

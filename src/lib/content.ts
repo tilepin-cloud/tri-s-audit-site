@@ -75,3 +75,9 @@ export async function getDocuments(): Promise<Doc[]> {
 export async function getIssues(): Promise<Issue[]> {
   return (await getCollection('issues')).sort((a, b) => b.data.number - a.data.number);
 }
+
+/** Initials for the portrait placeholder: first letters of the first and the last word of the name. */
+export function initials(name: string): string {
+  const w = name.trim().split(/\s+/);
+  return ((w[0]?.[0] ?? '') + (w.length > 1 ? w[w.length - 1][0] : '')).replace(/[.]/g, '');
+}

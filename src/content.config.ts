@@ -64,8 +64,9 @@ const team = defineCollection({
       linkedin: z.string().url().optional(),
       email: z.string().email().optional(),
       order: z.number().int(),
-      /** Partners are shown on the home page. */
       partner: z.boolean().default(false),
+      /** The head of the firm: shown on the home page with photo and biography. */
+      lead: z.boolean().default(false),
       draft: z.boolean().default(false),
       reviewed: z.boolean().default(true),
     }),
