@@ -18,3 +18,5 @@
 - Inter (400, 500, 600) — Rasmus Andersson, SIL Open Font License 1.1, `@fontsource/inter`.
 
 Cyrillic, Latin and Latin Extended subsets, woff2, bundled with the site; no requests to third-party font hosts.
+`src/og/fonts/` holds the same subsets merged into TrueType files (Montserrat SemiBold and Bold, Inter Regular)
+for the Open Graph images rendered at build time; see the README there.
