@@ -1,5 +1,6 @@
 ---
 title: "Tax and legal advice"
+short: "Tax and legal"
 summary: "Written opinions on tax and legal questions with the answer in the first paragraph, numbered arguments and references to provisions on lex.uz in the edition in force. Support in tax inspections and disputes."
 order: 7
 standards: ["Tax Code of Uzbekistan", "IESBA 604, 608"]

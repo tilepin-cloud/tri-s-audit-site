@@ -1,5 +1,6 @@
 ---
 title: "Other assurance engagements"
+short: "Assurance engagements"
 summary: "Independent assurance on non-financial information: indicators, control systems, compliance with the terms of a contract or regulation, under ISAE 3000 with reasonable or limited assurance."
 order: 5
 standards: ["ISAE 3000", "ISAE 3402"]

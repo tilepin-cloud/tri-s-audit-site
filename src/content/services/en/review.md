@@ -1,5 +1,6 @@
 ---
 title: "Review of financial statements"
+short: "Review"
 summary: "Limited assurance on financial statements based on inquiries and analytical procedures under ISRE 2400, when a full audit is not required but an owner, bank or partner needs assurance."
 order: 2
 standards: ["ISRE 2400", "ISRE 2410"]

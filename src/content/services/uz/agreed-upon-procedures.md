@@ -1,5 +1,6 @@
 ---
 title: "Kelishilgan protseduralar"
+short: "Kelishilgan protseduralar"
 summary: "Buyurtmachi bilan kelishilgan roʻyxat boʻyicha muayyan faktlarni tekshirish — bank, investor, donor yoki bosh kompaniya uchun. Ishonch bildirmasdan, faktik natijalar haqida hisobot (XTXS 4400)."
 order: 3
 standards: ["XTXS 4400"]

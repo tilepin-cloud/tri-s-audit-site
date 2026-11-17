@@ -1,5 +1,6 @@
 ---
 title: "Agreed-upon procedures"
+short: "Agreed-upon procedures"
 summary: "Testing of specific facts against a list agreed with the client, for a bank, investor, donor or parent company. A report of factual findings without expressing assurance (ISRS 4400)."
 order: 3
 standards: ["ISRS 4400"]
