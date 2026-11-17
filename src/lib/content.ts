@@ -76,6 +76,13 @@ export async function getIssues(): Promise<Issue[]> {
   return (await getCollection('issues')).sort((a, b) => b.data.number - a.data.number);
 }
 
+/** "Светлана Алексеевна Голосова" → "С. Голосова"; a name that is already short ("И. Тилепин") is returned as is. */
+export function shortName(name: string): string {
+  const w = name.trim().split(/\s+/);
+  if (w.length < 2 || /^\S\.$/.test(w[0])) return name.trim();
+  return `${w[0][0]}. ${w[w.length - 1]}`;
+}
+
 /** Initials for the portrait placeholder: first letters of the first and the last word of the name. */
 export function initials(name: string): string {
   const w = name.trim().split(/\s+/);

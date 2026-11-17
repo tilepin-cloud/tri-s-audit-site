@@ -21,13 +21,13 @@ const feed = `/${lang}/blog/rubric/${rubric}/rss.xml`;
     <p class="eyebrow">{tr('blog.rubrics')}</p>
     <h1>{title}</h1>
   </div>
-  <div class="wrap">
+  <div class="wrap page-body">
     <nav class="rubric-nav" aria-label={tr('blog.rubrics')}>
       <a href={localePath(lang, 'blog')}>{tr('blog.all')}</a>
       {RUBRIC_KEYS.map((r) => <a href={localePath(lang, 'blog', 'rubric', r)} aria-current={r === rubric ? 'page' : undefined}>{RUBRICS[r][lang]}</a>)}
-      <a href={feed} class="mono">RSS</a>
+      <a href={feed}>RSS</a>
     </nav>
-    <div class="posts" style="margin-bottom:var(--space-5)">{posts.map((p) => <PostCard post={p} lang={lang} showRubric={false} />)}</div>
+    <div class="posts">{posts.map((p) => <PostCard post={p} lang={lang} showRubric={false} />)}</div>
     {posts.length === 0 && <p class="note">{tr('blog.unavailable')}</p>}
   </div>
 </Base>

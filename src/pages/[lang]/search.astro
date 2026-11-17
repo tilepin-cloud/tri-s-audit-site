@@ -10,7 +10,7 @@ const lang = Astro.params.lang as Lang;
 const tr = t(lang);
 ---
 <Base lang={lang} title={tr('search.title')} description={tr('search.description')} section="search" noindex>
-  <div class="wrap page-head">
+  <div class="wrap page-head page-body">
     <Crumbs items={[{ name: tr('nav.home'), href: localePath(lang) }, { name: tr('search.title') }]} />
     <h1>{tr('search.title')}</h1>
     <div class="search-box">

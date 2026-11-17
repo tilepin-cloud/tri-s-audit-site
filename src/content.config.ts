@@ -79,6 +79,9 @@ const pages = defineCollection({
     title: z.string(),
     description: z.string().min(40).max(320),
     updated: z.coerce.date().optional(),
+    /** Home page only: the "Who we are" block (title and paragraphs) and the lead of "How we work". */
+    about: z.object({ title: z.string(), text: z.array(z.string()).min(1) }).optional(),
+    howLead: z.string().optional(),
     draft: z.boolean().default(false),
     reviewed: z.boolean().default(true),
   }),

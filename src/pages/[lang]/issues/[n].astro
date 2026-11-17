@@ -24,7 +24,7 @@ const title = `${tr('blog.issue')} ${issue.data.number}: ${issue.data.title[lang
     <h1>{issue.data.title[lang]}</h1>
     <p class="lead">{issue.data.summary[lang]}</p>
   </div>
-  <div class="wrap section" style="padding-top:0">
+  <div class="wrap page-body">
     <div class="posts">{posts.map((p) => <PostCard post={p} lang={lang} />)}</div>
     {posts.length === 0 && <p class="note">{tr('blog.unavailable')}</p>}
   </div>

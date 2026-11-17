@@ -30,9 +30,9 @@ const description = `${entry.data.name} — ${entry.data.role}. ${entry.data.cre
     breadcrumbs([{ name: tr('nav.home'), url: new URL(localePath(lang), site).href }, { name: tr('team.title'), url: new URL(localePath(lang, 'team'), site).href }, { name: entry.data.name, url }])]}>
   <div class="wrap page-head">
     <Crumbs items={[{ name: tr('nav.home'), href: localePath(lang) }, { name: tr('team.title'), href: localePath(lang, 'team') }, { name: entry.data.name }]} />
-    <div class="author" style="margin-bottom:1rem">
+    <div class="author">
       <div class="avatar" style="width:5rem;height:5rem;font-size:1.5rem" aria-hidden="true">{entry.data.photo ? <img src={entry.data.photo.src} alt="" width="80" height="80" /> : initials(entry.data.name)}</div>
-      <div><h1 style="margin:0">{entry.data.name}</h1><p class="lead" style="margin:0">{entry.data.role}</p></div>
+      <div><h1>{entry.data.name}</h1><p class="lead" style="margin-top:8px">{entry.data.role}</p></div>
     </div>
   </div>
   <div class="wrap layout-2">
@@ -40,18 +40,20 @@ const description = `${entry.data.name} — ${entry.data.role}. ${entry.data.cre
       <Content />
       {entry.data.credentials.length > 0 && (<><h2>{tr('team.credentials')}</h2><ul>{entry.data.credentials.map((c) => <li>{c}</li>)}</ul></>)}
     </article>
-    <aside>
-      <div class="aside-box">
-        <h2>{tr('contacts.title')}</h2>
-        <ul>
-          {entry.data.email && <li><a href={`mailto:${entry.data.email}`}>{entry.data.email}</a></li>}
-          {entry.data.linkedin && <li><a href={entry.data.linkedin} rel="noopener me" target="_blank">LinkedIn</a></li>}
-        </ul>
-      </div>
-    </aside>
+    {(entry.data.email || entry.data.linkedin) && (
+      <aside>
+        <div class="aside-box">
+          <h2>{tr('contacts.title')}</h2>
+          <ul>
+            {entry.data.email && <li><a href={`mailto:${entry.data.email}`}>{entry.data.email}</a></li>}
+            {entry.data.linkedin && <li><a href={entry.data.linkedin} rel="noopener me" target="_blank">LinkedIn</a></li>}
+          </ul>
+        </div>
+      </aside>
+    )}
   </div>
   {posts.length > 0 && (
-    <section class="section">
+    <section class="section band">
       <div class="wrap">
         <div class="section-head"><h2>{tr('team.posts')}</h2></div>
         <div class="posts">{posts.slice(0, 6).map((p) => <PostCard post={p} lang={lang} />)}</div>

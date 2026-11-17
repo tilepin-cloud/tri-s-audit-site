@@ -1,6 +1,6 @@
 ---
 /**
- * Base layout: <head> with canonical, hreflang, Open Graph, feeds and JSON-LD; header, footer, rails.
+ * Base layout: <head> with canonical, hreflang, Open Graph, feeds and JSON-LD; header and footer of design v3.
  * Every page passes the languages it exists in (`alternates`) so hreflang is reciprocal and never points
  * at a missing translation.
  */
@@ -79,12 +79,10 @@ const previewNoindex = import.meta.env.NOINDEX === '1';
 </head>
 <body>
   <a class="skip" href="#main">{lang === 'ru' ? 'К содержимому' : lang === 'en' ? 'Skip to content' : 'Mazmunga oʻtish'}</a>
-  <div class="rail" aria-hidden="true"></div>
   <Header lang={lang} section={section} alternates={alternates} />
   <main id="main">
     <slot />
   </main>
   <Footer lang={lang} alternates={alternates} />
-  <div class="rail" aria-hidden="true"></div>
 </body>
 </html>

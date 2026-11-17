@@ -1,71 +1,69 @@
 ---
-import { LANGS, LANG_NAME, firm, type Lang } from '@/config/site';
+/**
+ * Footer of design v3: four columns on near-black — the firm (white owl mark, wordmark, legal name, registry),
+ * the sections, the services shown on the home page, and the contacts — then a bottom row with the copyright,
+ * the privacy line and the machine-readable feeds.
+ */
+import { LANGS, HOME_SERVICES, firm, type Lang } from '@/config/site';
 import { t, localePath } from '@/i18n/utils';
+import { getServices, serviceSlug, entryKey } from '@/lib/content';
 
 interface Props { lang: Lang; alternates: Partial<Record<Lang, string>> }
-const { lang, alternates } = Astro.props;
+const { lang } = Astro.props;
 const tr = t(lang);
 const year = new Date().getFullYear();
-const contactsPath = localePath(lang, 'contacts');
-const onContacts = Astro.url.pathname.replace(/\/?$/, '/') === contactsPath;
+const services = (await getServices(lang)).filter((s) => (HOME_SERVICES as readonly string[]).includes(entryKey(s)));
 const socials = [
   ['Telegram', firm.social.telegram], ['LinkedIn', firm.social.linkedin], ['Facebook', firm.social.facebook],
   ['Instagram', firm.social.instagram], ['YouTube', firm.social.youtube],
 ].filter(([, url]) => url) as [string, string][];
+const sections = [
+  { href: localePath(lang, 'about'), label: tr('nav.about') },
+  { href: localePath(lang, 'team'), label: tr('nav.team') },
+  { href: localePath(lang, 'blog'), label: tr('nav.blog') },
+  { href: localePath(lang, 'issues'), label: tr('nav.issues') },
+  { href: localePath(lang, 'documents'), label: tr('nav.documents') },
+  { href: localePath(lang, 'for-ai'), label: tr('nav.forAi') },
+  { href: localePath(lang, 'contacts'), label: tr('nav.contacts') },
+];
 ---
-<aside class="wrap" aria-labelledby="cta-title">
-  <div class="cta-panel">
-    <h2 id="cta-title">{tr('cta.discuss')}</h2>
-    <p>{tr('contacts.noForms')}</p>
-    {!onContacts && <div class="cta-row"><a class="btn btn-accent" href={contactsPath}>{tr('nav.contacts')}</a></div>}
-  </div>
-</aside>
-<footer class="site-footer" id="contacts">
+<footer class="site-footer">
   <div class="wrap">
-    <section class="footer-address">
-      <h2>{lang === 'ru' ? 'Адрес' : lang === 'en' ? 'Address' : 'Manzil'}</h2>
-      <address>{firm.address[lang]}</address>
-      <a href={firm.mapUrl} rel="noopener" target="_blank">{tr('contacts.map')} →</a>
-    </section>
-    <div class="footer-grid">
-      <section>
-        <h2>{tr('contacts.title')}</h2>
+    <div class="foot">
+      <div>
+        <a class="foot-brand" href={localePath(lang)} aria-label={`${firm.shortName} — ${tr('nav.home')}`}>
+          <img src="/img/owls-white.svg" alt="" width="88" height="44" loading="lazy" />
+          <span class="wordmark">{firm.shortName}</span>
+        </a>
+        <p class="foot-about">{firm.legalName[lang]}. {firm.registry[lang]}.</p>
+      </div>
+      <div>
+        <h4>{tr('footer.firm')}</h4>
+        <ul>{sections.map((s) => <li><a href={s.href}>{s.label}</a></li>)}</ul>
+      </div>
+      <div>
+        <h4>{tr('nav.services')}</h4>
+        <ul>
+          {services.map((s) => <li><a href={localePath(lang, 'services', serviceSlug(s))}>{s.data.title}</a></li>)}
+          <li><a href={localePath(lang, 'services')}>{tr('home.allServices')}</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>{tr('nav.contacts')}</h4>
         <ul>
           <li><a href={`mailto:${firm.email}`}>{firm.email}</a></li>
           <li><a href={firm.phoneHref}>{firm.phone}</a></li>
+          <li><address>{firm.address[lang]}</address></li>
+          {socials.length > 0 && (
+            <li>{socials.map(([name, url], i) => <>{i > 0 && <span class="sep"> · </span>}<a href={url} rel="noopener me" target="_blank">{name}</a></>)}</li>
+          )}
         </ul>
-      </section>
-      <section>
-        <h2>{tr('contacts.requisites')}</h2>
-        <ul>
-          <li>{firm.legalName[lang]}</li>
-          <li>{firm.registry[lang]}</li>
-          <li>{lang === 'ru' ? 'ИНН' : lang === 'en' ? 'Tax ID' : 'STIR'} {firm.taxId}</li>
-        </ul>
-      </section>
-      <section>
-        <h2>{tr('contacts.sections')}</h2>
-        <ul>
-          <li><a href={localePath(lang, 'services')}>{tr('nav.services')}</a></li>
-          <li><a href={localePath(lang, 'about')}>{tr('nav.about')}</a></li>
-          <li><a href={localePath(lang, 'blog')}>{tr('nav.blog')}</a></li>
-          <li><a href={localePath(lang, 'issues')}>{tr('nav.issues')}</a></li>
-          <li><a href={localePath(lang, 'documents')}>{tr('nav.documents')}</a></li>
-          <li><a href={localePath(lang, 'for-ai')}>{tr('nav.forAi')}</a></li>
-        </ul>
-      </section>
-      <section>
-        <h2>{tr('contacts.follow')}</h2>
-        <ul>
-          {socials.map(([name, url]) => <li><a href={url} rel="noopener me" target="_blank">{name}</a></li>)}
-          <li>{tr('blog.rss')}: {LANGS.map((l, i) => <><a href={`/${l}/rss.xml`}>{l}</a>{i < LANGS.length - 1 ? ' · ' : ''}</>)}</li>
-          <li><a href="/llms.txt" class="mono">llms.txt</a></li>
-        </ul>
-      </section>
+      </div>
     </div>
-    <div class="footer-bottom">
-      <span>© {firm.foundedYear}–{year} {firm.shortName}</span>
-      <span>{LANGS.map((l, i) => <>{alternates[l] ? <a href={alternates[l]} hreflang={l} lang={l}>{LANG_NAME[l]}</a> : <span>{LANG_NAME[l]}</span>}{i < LANGS.length - 1 ? ' · ' : ''}</>)}</span>
+    <div class="foot-bottom">
+      <span>© {firm.foundedYear}–{year} {firm.shortName}. {tr('footer.copyright')}</span>
+      <span>{tr('footer.privacy')}</span>
+      <span>{LANGS.map((l, i) => <>{i > 0 ? ' · ' : ''}<a href={`/${l}/rss.xml`}>RSS {l.toUpperCase()}</a></>)} · <a href="/llms.txt">llms.txt</a></span>
     </div>
   </div>
 </footer>

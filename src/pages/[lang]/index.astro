@@ -1,104 +1,150 @@
 ---
+/**
+ * Home page in design v3: full-bleed hero with the firm name over the mountain photo, lead and four facts;
+ * "Who we are"; the navy services panel with six cards; the numbered steps from pages/<lang>/home.md;
+ * the leadership block on the band; three latest posts; the sky contact panel.
+ */
+import { Image, Picture } from 'astro:assets';
+import { render } from 'astro:content';
 import Base from '@/layouts/Base.astro';
 import PostCard from '@/components/PostCard.astro';
-import { LANGS, RUBRICS, DOC_CATEGORIES, firm, type Lang, type Rubric, type DocCategory } from '@/config/site';
-import { t, localePath, formatDate } from '@/i18n/utils';
-import { getPosts, getServices, getTeam, getDocuments, getPage, serviceSlug, entryKey, initials } from '@/lib/content';
+import ServiceIcon from '@/components/ServiceIcon.astro';
+import { LANGS, HOME_SERVICES, firm, type Lang } from '@/config/site';
+import { t, localePath } from '@/i18n/utils';
+import { getPosts, getServices, getTeam, getPage, serviceSlug, entryKey } from '@/lib/content';
 import { organization, website } from '@/lib/schema';
-import { render } from 'astro:content';
+import heroPhoto from '@/assets/hero-mountains.jpg';
 
 export function getStaticPaths() { return LANGS.map((lang) => ({ params: { lang } })); }
 const lang = Astro.params.lang as Lang;
 const tr = t(lang);
-const [posts, services, team, docs, home] = await Promise.all([getPosts(lang), getServices(lang), getTeam(lang), getDocuments(), getPage(lang, 'home')]);
+const [posts, services, team, home] = await Promise.all([getPosts(lang), getServices(lang), getTeam(lang), getPage(lang, 'home')]);
 if (!home) throw new Error(`pages/${lang}/home.md is missing`);
-const { Content } = await render(home);
+const { Content: Steps } = await render(home);
 const leader = team.find((m) => m.data.lead);
 const LeaderBio = leader ? (await render(leader)).Content : null;
-const facts = (home.data as any).facts ?? [];
+const homeServices = HOME_SERVICES.map((k) => services.find((s) => entryKey(s) === k)).filter((s) => s !== undefined);
+const facts: [string, string][] = [
+  [`№ ${firm.registryNumber}`, tr('fact.registry')],
+  [tr('fact.isaTitle'), tr('fact.isa')],
+  [tr('fact.ifrsTitle'), tr('fact.ifrs')],
+  ['RU · EN · UZ', tr('fact.langs')],
+];
 ---
 <Base lang={lang} title={home.data.title} description={home.data.description} jsonLd={[organization(lang), website(lang)]}>
-  <section class="hero">
-    <div class="wrap"><div class="hero-panel">
-      <div>
-        <p class="eyebrow">{tr('hero.eyebrow')}</p>
-        <h1>{home.data.title}</h1>
-        <p class="lead">{home.data.description}</p>
-        <div class="cta-row">
-          <a class="btn btn-accent" href={localePath(lang, 'services')}>{tr('nav.services')}</a>
-          <a class="btn btn-ghost" href={localePath(lang, 'contacts')}>{tr('nav.contacts')}</a>
+  <section class="hero" id="top">
+    <div class="hero-bg" aria-hidden="true">
+      <Picture src={heroPhoto} widths={[800, 1400, 2400]} sizes="100vw" formats={['webp']} fallbackFormat="jpg" alt="" loading="eager" fetchpriority="high" decoding="async" />
+    </div>
+    <div class="wrap">
+      <div class="hero-top">
+        <p class="eyebrow eyebrow-plain eyebrow-center">{tr('hero.eyebrow')}</p>
+        <h1 class="hero-title">{firm.shortName}</h1>
+      </div>
+      <div class="hero-lower">
+        <p class="hero-lead">{home.data.description}</p>
+        <div class="facts">
+          {facts.map(([title, text]) => <div><b>{title}</b><span>{text}</span></div>)}
         </div>
       </div>
-      <div class="facts" aria-label={tr('nav.about')}>
-        <div><b>№ {firm.registryNumber}</b><span>{lang === 'ru' ? 'в реестре аудиторских организаций Минфина РУз с 2021 года' : lang === 'en' ? 'in the register of audit organisations of the Ministry of Finance since 2021' : 'Moliya vazirligi auditorlik tashkilotlari reestrida 2021 yildan'}</span></div>
-        <div><b>{lang === 'ru' ? 'МСА · МСУК 1' : lang === 'en' ? 'ISA · ISQM 1' : 'XAS · XSBS 1'}</b><span>{lang === 'ru' ? 'аудит и система управления качеством по международным стандартам' : lang === 'en' ? 'audit and quality management under the international standards' : 'xalqaro standartlar boʻyicha audit va sifat boshqaruvi tizimi'}</span></div>
-        <div><b>{lang === 'ru' ? 'МСФО' : lang === 'en' ? 'IFRS' : 'MHXS'}</b><span>{lang === 'ru' ? 'трансформация, первое применение, консолидация' : lang === 'en' ? 'transformation, first-time adoption, consolidation' : 'transformatsiya, birinchi qoʻllash, konsolidatsiya'}</span></div>
-        <div><b>RU · EN · UZ</b><span>{lang === 'ru' ? 'отчёты и заключения на трёх языках' : lang === 'en' ? 'reports and opinions in three languages' : 'hisobot va xulosalar uch tilda'}</span></div>
-      </div>
-    </div></div>
+      <span class="visually-hidden">{tr('hero.photoCredit')}</span>
+    </div>
   </section>
 
-  <section class="section" id="services">
+  {home.data.about && (
+    <section class="section" id="about">
+      <div class="wrap cols-5-7">
+        <div>
+          <p class="eyebrow">{tr('nav.about')}</p>
+          <h2>{home.data.about.title}</h2>
+        </div>
+        <div class="col-text about-text">
+          {home.data.about.text.map((p) => <p>{p}</p>)}
+          <a class="more" href={localePath(lang, 'about')}>{tr('home.aboutMore')} <span aria-hidden="true">→</span></a>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="panel-navy" id="services">
     <div class="wrap">
-      <div class="section-head"><h2>{tr('home.services')}</h2><a href={localePath(lang, 'services')}>{tr('home.allServices')} →</a></div>
-      <div class="grid grid-accent">
-        {services.map((s) => (
+      <div class="section-intro">
+        <p class="eyebrow eyebrow-center">{tr('home.services')}</p>
+        <h2>{tr('home.servicesTitle')}</h2>
+        <p>{tr('home.servicesLead')}</p>
+      </div>
+      <div class="cards-3">
+        {homeServices.map((s) => (
           <article class="card">
-            {s.data.standards.length > 0 && <span class="std">{s.data.standards.slice(0, 2).join(' · ')}</span>}
+            <ServiceIcon name={entryKey(s)} />
+            {s.data.standards.length > 0 && <span class="std">{s.data.standards.join(' · ')}</span>}
             <h3><a href={localePath(lang, 'services', serviceSlug(s))}>{s.data.title}</a></h3>
             <p>{s.data.summary}</p>
           </article>
         ))}
       </div>
+      <div class="center-row">
+        <a class="btn-outline-light" href={localePath(lang, 'services')}>{services.length === 9 ? tr('home.allNineServices') : tr('home.allServices')} <span aria-hidden="true">→</span></a>
+      </div>
     </div>
   </section>
 
-  <section id="how">
-    <div class="wrap"><div class="panel-dark">
-      <div class="section-head"><h2>{tr('home.how')}</h2><a href={localePath(lang, 'about')}>{tr('nav.about')} →</a></div>
-      <Content />
-    </div></div>
+  <section class="section" id="how">
+    <div class="wrap cols-4-8">
+      <div class="how-intro">
+        <p class="eyebrow">{tr('home.approach')}</p>
+        <h2>{tr('home.how')}</h2>
+        {home.data.howLead && <p>{home.data.howLead}</p>}
+      </div>
+      <div><Steps /></div>
+    </div>
   </section>
 
-  {posts.length > 0 && (
-    <section class="section band" id="blog" style="margin-top:var(--section)">
-      <div class="wrap">
-        <div class="section-head"><h2>{tr('home.blog')}</h2><a href={localePath(lang, 'blog')}>{tr('home.allPosts')} →</a></div>
-        <div class="posts">{posts.slice(0, 3).map((p) => <PostCard post={p} lang={lang} />)}</div>
-      </div>
-    </section>
-  )}
-
-  {docs.length > 0 && (
-    <section class="section" id="documents">
-      <div class="wrap">
-        <div class="section-head"><h2>{tr('home.documents')}</h2><a href={localePath(lang, 'documents')}>{tr('home.allDocuments')} →</a></div>
-        <ul class="docs">
-          {docs.slice(0, 3).map((d) => (
-            <li>
-              <span class="ico" aria-hidden="true">PDF</span>
-              <div><a href={d.data.file}>{d.data.title[lang]}</a><small>{DOC_CATEGORIES[d.data.category as DocCategory][lang]} · {d.data.languages.map((l) => l.toUpperCase()).join(', ')} · {formatDate(d.data.date, lang)}</small></div>
-              <span class="size">{d.data.pages ? `${d.data.pages} ${tr('docs.pages')}` : ''}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
-  )}
-
   {leader && LeaderBio && (
-    <section class="section" id="team" style="padding-top:0">
-      <div class="wrap">
-        <div class="section-head"><h2>{tr('home.team')}</h2><a href={localePath(lang, 'team')}>{tr('home.allTeam')} →</a></div>
-        <article class="leader">
-          <div class="portrait">{leader.data.photo ? <img src={leader.data.photo.src} alt={leader.data.name} width={leader.data.photo.width} height={leader.data.photo.height} loading="lazy" /> : <span aria-hidden="true">{initials(leader.data.name)}</span>}</div>
-          <div>
-            <h3><a href={localePath(lang, 'team', entryKey(leader))}>{leader.data.name}</a></h3>
-            <p class="role">{leader.data.role}</p>
-            <div class="prose"><LeaderBio /></div>
-          </div>
-        </article>
+    <section class="band" id="team">
+      <div class="wrap cols-5-7 leader" style="align-items:center">
+        <div>
+          {leader.data.photo && <Image class="lead-photo" src={leader.data.photo} alt={leader.data.name} width={760} widths={[380, 760]} sizes="(max-width: 980px) 100vw, 380px" loading="lazy" />}
+        </div>
+        <div>
+          <p class="eyebrow">{tr('home.team')}</p>
+          <h2>{leader.data.name}</h2>
+          <p class="role">{leader.data.role}</p>
+          <div class="bio"><LeaderBio /></div>
+          <a class="more" href={localePath(lang, 'team')}>{tr('home.allTeam')} <span aria-hidden="true">→</span></a>
+        </div>
       </div>
     </section>
   )}
+
+  {posts.length > 0 && (
+    <section class="section" id="blog">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">{tr('home.blog')}</p>
+            <h2>{tr('home.blogTitle')}</h2>
+          </div>
+          <a class="more" href={localePath(lang, 'blog')}>{tr('home.allPosts')} <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="cards-3">{posts.slice(0, 3).map((p) => <PostCard post={p} lang={lang} />)}</div>
+      </div>
+    </section>
+  )}
+
+  <section class="cta" id="contacts">
+    <div class="wrap">
+      <div class="cta-panel cols-2">
+        <div>
+          <h2>{tr('cta.discuss')}</h2>
+          <p>{tr('cta.text')}</p>
+        </div>
+        <div class="cta-links">
+          <a class="contact-link" href={`mailto:${firm.email}`}>{firm.email}</a>
+          <a class="contact-link" href={firm.phoneHref}>{firm.phone}</a>
+          <address>{firm.address[lang]}</address>
+        </div>
+      </div>
+    </div>
+  </section>
 </Base>

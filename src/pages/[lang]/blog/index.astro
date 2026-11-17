@@ -17,14 +17,14 @@ const posts = await getPosts(lang);
     <h1>{tr('blog.title')}</h1>
     <p class="lead">{tr('blog.description')}</p>
   </div>
-  <div class="wrap">
+  <div class="wrap page-body">
     <nav class="rubric-nav" aria-label={tr('blog.rubrics')}>
       <a href={localePath(lang, 'blog')} aria-current="page">{tr('blog.all')}</a>
       {RUBRIC_KEYS.map((r) => <a href={localePath(lang, 'blog', 'rubric', r)}>{RUBRICS[r][lang]}</a>)}
       <a href={localePath(lang, 'issues')}>{tr('issues.title')}</a>
-      <a href={`/${lang}/rss.xml`} class="mono">RSS</a>
+      <a href={`/${lang}/rss.xml`}>RSS</a>
     </nav>
-    <div class="posts" style="margin-bottom:var(--space-5)">{posts.map((p) => <PostCard post={p} lang={lang} />)}</div>
+    <div class="posts">{posts.map((p) => <PostCard post={p} lang={lang} />)}</div>
     {posts.length === 0 && <p class="note">{tr('blog.unavailable')}</p>}
   </div>
 </Base>
