@@ -50,6 +50,8 @@ a:hover { color: #F87831; }
 .btn-outline { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 26px; border-radius: 8px; border: 1.5px solid #3080C0; color: #1F5C8C; font-weight: 600; font-size: 16px; }
 .btn-outline:hover { background: #3080C0; color: #ffffff; }
 .more { font-weight: 600; font-size: 17px; color: #1F5C8C; display: inline-flex; align-items: center; gap: 8px; }
+.contact-link { color: #ffffff; font-family: Montserrat, Inter, sans-serif; font-weight: 600; font-size: 26px; line-height: 1.2; overflow-wrap: anywhere; text-decoration: underline; text-decoration-color: transparent; text-decoration-thickness: 2px; text-underline-offset: 8px; transition: text-decoration-color .15s; }
+.contact-link:hover, .contact-link:focus-visible { color: #ffffff; text-decoration-color: #F87831; }
 .more:hover { color: #F87831; }
 .card { border: 1px solid rgba(255,255,255,.24); border-radius: 16px; padding: 36px 32px 32px; display: flex; flex-direction: column; gap: 16px; color: #ffffff; }
 .card:hover { border-color: #F87831; }
