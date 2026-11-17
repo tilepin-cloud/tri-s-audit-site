@@ -1,5 +1,6 @@
 ---
 title: "Moliyaviy hisobotni koʻrib chiqish (obzor tekshiruvi)"
+short: "Obzor tekshiruvi"
 summary: "XOTS 2400 boʻyicha soʻrovlar va tahliliy protseduralarga asoslangan cheklangan ishonch — toʻliq audit talab etilmasa-yu, egasi, bank yoki hamkorga tasdiq kerak boʻlganda."
 order: 2
 standards: ["XOTS 2400", "XOTS 2410"]

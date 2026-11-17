@@ -1,5 +1,6 @@
 ---
 title: "Audit of financial statements"
+short: "Audit"
 summary: "An independent opinion on the fair presentation of financial statements under NAS or IFRS, performed under the International Standards on Auditing. For owners, banks, investors and the regulator."
 order: 1
 standards: ["ISA", "ISQM 1", "ZRU-677"]

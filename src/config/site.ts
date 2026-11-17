@@ -51,6 +51,9 @@ export const firm = {
   shareTargets: ['telegram', 'linkedin', 'copy'] as const,
 };
 
+/** Services shown on the home page and in the footer, in this order (keys of src/content/services/<lang>/). */
+export const HOME_SERVICES = ['audit', 'review', 'agreed-upon-procedures', 'ifrs', 'tax', 'it-report'] as const;
+
 /** Blog rubrics. The slug is language-independent and appears in URLs: /ru/blog/rubric/audit/ */
 export const RUBRICS = {
   audit: { ru: 'Аудит и МСА', en: 'Audit and ISA', uz: 'Audit va XAS' },

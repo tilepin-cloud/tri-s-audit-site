@@ -1,5 +1,6 @@
 ---
 title: "Compilation of financial statements"
+short: "Compilation"
 summary: "Preparation of financial statements from the client's accounting data under NAS or IFRS, with a compilation report under ISRS 4410. No audit and no assurance, but with our professional responsibility for form and logic."
 order: 4
 standards: ["ISRS 4410"]

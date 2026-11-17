@@ -1,19 +1,43 @@
 /**
- * Open Graph images in the site's design v2: the sky panel with a translucent ring, the rail on top, a white title
- * in the heading face, footer with rubric and date. No orange outside the rail. Rendered from an SVG template with resvg at build time. Fonts: drop TTF/OTF files into
- * src/og/fonts/ (for example FiraSansCondensed-SemiBold.ttf) to make the output identical on every build machine;
- * without them resvg falls back to system fonts (Bahnschrift on Windows, DejaVu/Noto on Linux).
+ * Open Graph images in design v3: the navy card with the white owl mark and the wordmark, an eyebrow in pale sky
+ * (rubric or "audit organisation · Tashkent"), the title in Montserrat SemiBold, a hairline and a footer in Inter.
+ * No orange. Rendered from an SVG template with resvg at build time. Fonts come from src/og/fonts/ (Montserrat
+ * SemiBold and Bold, Inter Regular, merged from the Fontsource subsets — see the README there), so the output is the
+ * same on every build machine; system fonts are only a fallback for glyphs those files lack.
  */
 import type { APIRoute, GetStaticPaths } from 'astro';
 import { getCollection } from 'astro:content';
-import { readdirSync, existsSync } from 'node:fs';
+import { readdirSync, existsSync, readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import { Resvg } from '@resvg/resvg-js';
 import { RUBRICS, firm, LANGS, type Lang, type Rubric } from '@/config/site';
 import { postLang, postSlug } from '@/lib/content';
 import { t } from '@/i18n/utils';
 
 const W = 1200, H = 630;
+const NAVY = '#0F2A44', PALE = '#9CC8EE', WHITE = '#ffffff';
+const HEAD = 'Montserrat, Inter, DejaVu Sans, sans-serif';
+const TEXT = 'Inter, DejaVu Sans, sans-serif';
+/**
+ * A project file by its path from the repository root. In dev `import.meta.url` is the source file; in the build it is
+ * the chunk under dist/, so the working directory (the project root for `astro build`) is tried as well.
+ */
+function projectPath(rel: string): string | undefined {
+  const fromModule = fileURLToPath(new URL(`../../../${rel}`, import.meta.url));
+  const fromCwd = join(process.cwd(), rel);
+  return [fromModule, fromCwd].find((p) => existsSync(p));
+}
 const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+/** The owl mark as nested SVG: public/img/owls-white.svg without its outer element and title. */
+function owl(x: number, y: number, height: number): string {
+  const file = projectPath('public/img/owls-white.svg');
+  if (!file) return '';
+  const inner = readFileSync(file, 'utf8').replace(/^[\s\S]*?<svg[^>]*>/, '').replace(/<title>[\s\S]*?<\/title>/, '').replace(/<\/svg>\s*$/, '');
+  const width = Math.round((height * 2026) / 1016);
+  return `<svg x="${x}" y="${y}" width="${width}" height="${height}" viewBox="112 112 2026 1016">${inner}</svg>`;
+}
 
 function wrap(text: string, maxChars: number, maxLines: number): string[] {
   const words = text.split(/\s+/); const lines: string[] = []; let cur = '';
@@ -27,30 +51,28 @@ function wrap(text: string, maxChars: number, maxLines: number): string[] {
 }
 
 function svg(title: string, kicker: string, footerLeft: string, footerRight: string): string {
-  const size = title.length > 90 ? 52 : title.length > 60 ? 62 : 76;
-  const lines = wrap(title, Math.floor(1000 / (size * 0.52)), 4);
-  const lineH = size * 1.1;
-  const startY = 335 - ((lines.length - 1) * lineH) / 2;
-  const head = 'Bahnschrift SemiBold, Bahnschrift, Fira Sans Condensed, DejaVu Sans, sans-serif';
-  const mono = 'Consolas, JetBrains Mono, DejaVu Sans Mono, monospace';
+  const size = title.length > 90 ? 50 : title.length > 60 ? 58 : 68;
+  const lines = wrap(title, Math.floor(1040 / (size * 0.56)), 4);
+  const lineH = size * 1.14;
+  const block = (lines.length - 1) * lineH;
+  const startY = 352 - block / 2; // the title block is centred on the middle band of the card
+  const owlH = 52, owlW = Math.round((owlH * 2026) / 1016);
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
-  <defs><linearGradient id="sky" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#123a5a"/><stop offset=".42" stop-color="#1f5c8c"/><stop offset="1" stop-color="#3080c0"/></linearGradient></defs>
-  <rect width="${W}" height="${H}" fill="url(#sky)"/>
-  <circle cx="1090" cy="40" r="300" fill="none" stroke="#ffffff" stroke-opacity=".07" stroke-width="110"/>
-  <rect x="0" y="0" width="${W * 0.3}" height="14" fill="#3080c0"/><rect x="${W * 0.3}" y="0" width="${W * 0.6}" height="14" fill="#000000"/><rect x="${W * 0.9}" y="0" width="${W * 0.1}" height="14" fill="#f87831"/>
-  <circle cx="88" cy="112" r="8" fill="#ffffff"/>
-  <text x="112" y="121" font-family="${head}" font-weight="600" font-size="24" letter-spacing="2.4" fill="#ffffff">${esc(kicker.toUpperCase())}</text>
-  ${lines.map((l, i) => `<text x="80" y="${(startY + i * lineH).toFixed(1)}" font-family="${head}" font-weight="600" font-size="${size}" fill="#ffffff">${esc(l)}</text>`).join('\n  ')}
-  <line x1="80" y1="540" x2="${W - 80}" y2="540" stroke="#ffffff" stroke-opacity=".3" stroke-width="2"/>
-  <text x="80" y="585" font-family="${mono}" font-size="22" fill="#ffffff">${esc(footerLeft)}</text>
-  <text x="${W - 80}" y="585" text-anchor="end" font-family="${mono}" font-size="22" fill="#ffffff" fill-opacity=".85">${esc(footerRight)}</text>
+  <rect width="${W}" height="${H}" fill="${NAVY}"/>
+  ${owl(80, 64, owlH)}
+  <text x="${80 + owlW + 20}" y="${64 + owlH / 2 + 9}" font-family="${HEAD}" font-weight="700" font-size="26" letter-spacing="1.6" fill="${WHITE}">${esc(firm.shortName)}</text>
+  <text x="80" y="${startY - size * 1.1 - 22}" font-family="${HEAD}" font-weight="600" font-size="20" letter-spacing="2.8" fill="${PALE}">${esc(kicker.toUpperCase())}</text>
+  ${lines.map((l, i) => `<text x="80" y="${(startY + i * lineH).toFixed(1)}" font-family="${HEAD}" font-weight="600" font-size="${size}" letter-spacing="-0.5" fill="${WHITE}">${esc(l)}</text>`).join('\n  ')}
+  <line x1="80" y1="546" x2="${W - 80}" y2="546" stroke="${WHITE}" stroke-opacity=".22" stroke-width="1.5"/>
+  <text x="80" y="588" font-family="${TEXT}" font-size="21" fill="${WHITE}" fill-opacity=".8">${esc(footerLeft)}</text>
+  <text x="${W - 80}" y="588" text-anchor="end" font-family="${TEXT}" font-size="21" fill="${WHITE}" fill-opacity=".6">${esc(footerRight)}</text>
 </svg>`;
 }
 
 function render(markup: string): Uint8Array {
-  const fontsDir = new URL('../../og/fonts/', import.meta.url);
-  const fontFiles = existsSync(fontsDir) ? readdirSync(fontsDir).filter((f) => /\.(ttf|otf)$/i.test(f)).map((f) => new URL(f, fontsDir).pathname.replace(/^\/([A-Za-z]:)/, '$1')) : [];
-  const r = new Resvg(markup, { fitTo: { mode: 'width', value: W }, font: { loadSystemFonts: true, fontFiles, defaultFontFamily: 'Fira Sans Condensed' } });
+  const fontsDir = projectPath('src/og/fonts');
+  const fontFiles = fontsDir ? readdirSync(fontsDir).filter((f) => /\.(ttf|otf)$/i.test(f)).map((f) => join(fontsDir, f)) : [];
+  const r = new Resvg(markup, { fitTo: { mode: 'width', value: W }, font: { loadSystemFonts: true, fontFiles, defaultFontFamily: 'Montserrat' } });
   return r.render().asPng();
 }
 
@@ -73,7 +95,7 @@ export const GET: APIRoute = ({ props }) => {
   } else {
     const lang = (props.lang ?? 'ru') as Lang;
     const tagline = lang === 'ru' ? 'Аудит, которому доверяют цифры' : lang === 'en' ? 'Audit the numbers can trust' : 'Raqamlar ishonadigan audit';
-    markup = svg(tagline, lang === 'ru' ? 'Аудиторская организация · Ташкент' : lang === 'en' ? 'Audit organisation · Tashkent' : 'Auditorlik tashkiloti · Toshkent', `${firm.shortName} · tri-s-audit.uz`, `${firm.email}`);
+    markup = svg(tagline, t(lang)('hero.eyebrow'), `${firm.shortName} · tri-s-audit.uz`, `${firm.email}`);
   }
   return new Response(render(markup), { headers: { 'Content-Type': 'image/png' } });
 };

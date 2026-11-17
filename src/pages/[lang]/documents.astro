@@ -19,10 +19,10 @@ const cats = (Object.keys(DOC_CATEGORIES) as DocCategory[]).filter((c) => docs.s
     <h1>{tr('docs.title')}</h1>
     <p class="lead">{tr('docs.description')}</p>
   </div>
-  <div class="wrap section" style="padding-top:0">
+  <div class="wrap page-body">
     {cats.map((c) => (
-      <section style="margin-bottom:var(--space-4)">
-        <div class="section-head"><h2>{DOC_CATEGORIES[c][lang]}</h2></div>
+      <section class="docs-group">
+        <h2>{DOC_CATEGORIES[c][lang]}</h2>
         <ul class="docs">
           {docs.filter((d) => d.data.category === c).map((d) => (
             <li>

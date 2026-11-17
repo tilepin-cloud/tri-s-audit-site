@@ -28,7 +28,7 @@ const socials = Object.entries(firm.social).filter(([, u]) => u);
         <dt>{lang === 'ru' ? 'Адрес' : lang === 'en' ? 'Address' : 'Manzil'}</dt><dd>{firm.address[lang]} · <a href={firm.mapUrl} rel="noopener" target="_blank">{tr('contacts.map')}</a></dd>
         {socials.map(([name, url]) => <><dt style="text-transform:capitalize">{name}</dt><dd><a href={url} rel="noopener me" target="_blank">{url.replace(/^https?:\/\/(www\.)?/, '')}</a></dd></>)}
       </dl>
-      {Content && <article class="prose" style="margin-top:var(--space-4)" data-pagefind-body><Content /></article>}
+      {Content && <article class="prose" style="margin-top:40px" data-pagefind-body><Content /></article>}
     </div>
     <aside>
       <div class="aside-box">

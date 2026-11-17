@@ -1,5 +1,6 @@
 ---
 title: "Moliyaviy hisobot auditi"
+short: "Hisobot auditi"
 summary: "BHMS yoki MHXS boʻyicha hisobotning haqqoniyligi haqida Xalqaro audit standartlariga muvofiq bildirilgan mustaqil fikr. Egalar, banklar, investorlar va tartibga soluvchi organ uchun."
 order: 1
 standards: ["XAS", "XSBS 1", "OʻRQ-677"]

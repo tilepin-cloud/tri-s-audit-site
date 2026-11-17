@@ -20,9 +20,10 @@ const groups = [
     <h1>{tr('team.title')}</h1>
     <p class="lead">{tr('team.description')}</p>
   </div>
+  <div class="wrap page-body">
   {groups.map((g) => (
-    <section class="wrap section" style="padding-top:0">
-      <div class="section-head"><h2>{g.title}</h2></div>
+    <section class="docs-group">
+      <h2>{g.title}</h2>
       <div class="grid">
         {g.members.map((m) => (
           <article class="card">
@@ -34,4 +35,5 @@ const groups = [
       </div>
     </section>
   ))}
+  </div>
 </Base>

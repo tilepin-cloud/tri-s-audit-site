@@ -17,14 +17,14 @@ const posts = await getPosts(lang);
     <h1>{tr('issues.title')}</h1>
     <p class="lead">{tr('issues.description')}</p>
   </div>
-  <div class="wrap section" style="padding-top:0">
+  <div class="wrap page-body">
     <div class="grid">
       {issues.map((i) => {
         const n = posts.filter((p) => p.data.issue === i.data.number).length;
         return (
           <article class="card">
             <span class="std">{tr('blog.issue')} {i.data.number} · {formatDate(i.data.date, lang)}</span>
-            <h2 style="font-size:clamp(1.1rem,6cqi,1.35rem);margin:0"><a href={localePath(lang, 'issues', String(i.data.number))} style="color:inherit;text-decoration:none">{i.data.title[lang]}</a></h2>
+            <h2><a href={localePath(lang, 'issues', String(i.data.number))}>{i.data.title[lang]}</a></h2>
             <p>{i.data.summary[lang]}</p>
             <p class="note">{n} {lang === 'ru' ? 'публ.' : lang === 'en' ? 'posts' : 'maqola'}</p>
           </article>

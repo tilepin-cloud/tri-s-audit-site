@@ -1,5 +1,6 @@
 ---
 title: "Maʼlumotlar xavfsizligi va yaxlitligi toʻgʻrisida hisobot"
+short: "Maʼlumotlar xavfsizligi"
 summary: "Hisob tizimining umumiy IT-nazoratlari va hisob maʼlumotlari yaxlitligini tekshirish — auditning bir qismi yoki alohida topshiriq sifatida. Toʻqqizta yaxlitlik testi boʻyicha A–D darajali baho va rahbariyat uchun hisobot."
 order: 8
 standards: ["XAS 315", "OʻRQ-764", "COBIT"]

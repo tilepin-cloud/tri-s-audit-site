@@ -63,7 +63,7 @@ const jsonLd = [
         <Toc headings={[...headings, ...(entry.data.deliverables.length ? [{ depth: 2, slug: 'deliverables', text: tr('services.deliverables') }] : []), ...(entry.data.faq.length ? [{ depth: 2, slug: 'faq', text: tr('services.faq') }] : [])]} lang={lang} title={tr('services.onPage')} />
         {related.length > 0 && (<><hr /><h2>{tr('services.related')}</h2><ul>{related.map((p) => <li><a href={localePath(lang, 'blog', p.data.slug ?? p.id.split('/').pop()!.replace(/^\d{4}-\d{2}-\d{2}-/, ''))}>{p.data.title}</a></li>)}</ul></>)}
         <hr />
-        <a class="btn btn-primary" href={localePath(lang, 'contacts')}>{tr('cta.discuss')}</a>
+        <a class="btn btn-primary" href={localePath(lang, 'contacts')}>{tr('cta.button')}</a>
       </div>
     </aside>
   </div>

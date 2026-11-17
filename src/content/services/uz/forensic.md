@@ -1,5 +1,6 @@
 ---
 title: "Forenzik va dalillarni yigʻish"
+short: "Forenzik"
 summary: "Firibgarlik belgilarini tekshirish, hisobni qayta tiklash va hisob hamda ochiq manbalardan dalillarni maqbullik qoidalariga muvofiq yigʻish — egalar, direktorlar kengashlari va yuristlar uchun."
 order: 9
 standards: ["IESBA 607", "Ikki manba qoidasi"]

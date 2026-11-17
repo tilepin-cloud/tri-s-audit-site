@@ -1,5 +1,6 @@
 ---
 title: "Ishonchlilikni tasdiqlashga oid boshqa topshiriqlar"
+short: "Tasdiqlash topshiriqlari"
 summary: "Moliyaviy boʻlmagan axborotni mustaqil tasdiqlash: koʻrsatkichlar, nazorat tizimlari, shartnoma yoki reglament shartlariga rioya qilish — XIBS 3000 boʻyicha oqilona yoki cheklangan ishonch bilan."
 order: 5
 standards: ["XIBS 3000", "XIBS 3402"]

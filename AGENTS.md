@@ -40,7 +40,7 @@ Posts with a future `date` are built in dev but hidden in production until the d
 ## Services, team, pages
 
 One file per language with the same file name: `services/<lang>/<key>.md`, `team/<lang>/<key>.md`,
-`pages/<lang>/<key>.md`. The key is the URL slug and the link between languages. `pages/<lang>/home.md` is the
+`pages/<lang>/<key>.md`. A service carries `short:` — the name used in the footer; keep it under 40 characters. The key is the URL slug and the link between languages. `pages/<lang>/home.md` is the
 home page: its title and description are the hero, its body is the "How we work" block.
 
 ## Documents

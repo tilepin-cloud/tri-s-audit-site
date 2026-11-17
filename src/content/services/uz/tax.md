@@ -1,5 +1,6 @@
 ---
 title: "Soliq va huquqiy maslahat"
+short: "Soliq va huquq"
 summary: "Soliq va huquqiy masalalar boʻyicha yozma xulosalar: javob birinchi xatboshida, raqamlangan dalillar va lex.uz normalariga amaldagi tahrirda havolalar. Soliq tekshiruvlari va nizolarni kuzatib borish."
 order: 7
 standards: ["OʻzR Soliq kodeksi", "IESBA 604, 608"]

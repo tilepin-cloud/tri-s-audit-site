@@ -1,5 +1,6 @@
 ---
 title: "IFRS reporting and transformation"
+short: "IFRS reporting"
 summary: "Transformation of financial statements from NAS to IFRS, first-time adoption under IFRS 1 with three reconciliations, group consolidation and a full set of financial statements with notes. For investors, banks and parent companies."
 order: 6
 standards: ["IFRS 1", "IFRS 10", "ISRS 4410"]
