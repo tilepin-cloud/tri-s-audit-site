@@ -44,7 +44,7 @@ const sections = [
       <div>
         <h4>{tr('nav.services')}</h4>
         <ul>
-          {services.map((s) => <li><a href={localePath(lang, 'services', serviceSlug(s))}>{s.data.title}</a></li>)}
+          {services.map((s) => <li><a href={localePath(lang, 'services', serviceSlug(s))}>{s.data.short ?? s.data.title}</a></li>)}
           <li><a href={localePath(lang, 'services')}>{tr('home.allServices')}</a></li>
         </ul>
       </div>

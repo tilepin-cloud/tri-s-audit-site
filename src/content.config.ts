@@ -40,6 +40,8 @@ const services = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/services' }),
   schema: z.object({
     title: z.string(),
+    /** Short name for the footer and other tight places; falls back to the title. */
+    short: z.string().max(40).optional(),
     /** One or two sentences that answer "what is it and who needs it". */
     summary: z.string().min(40).max(400),
     order: z.number().int(),
