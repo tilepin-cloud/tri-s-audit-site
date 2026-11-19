@@ -16,7 +16,7 @@ texts, human author on every post, three languages by `translationKey`, nothing 
 | `src/lib/content.ts` | collection queries, visibility (drafts and future dates hidden in production) |
 | `src/pages/` | routes under `[lang]/`; `robots.txt.ts`, `llms.txt.ts`, `llms-full.txt.ts`, `og/[...path].png.ts` |
 | `src/styles/global.css` | design v3 tokens and all styles; Montserrat and Inter via `@fontsource`; no framework |
-| `scripts/` | `check-content.mjs` gate, `new-post.mjs` scaffold, `indexnow.mjs` |
+| `scripts/` | `check-content.mjs` gate, `new-post.mjs` scaffold, `indexnow.mjs`, `panel.mjs` the control panel; shared readers in `lib/content-files.mjs` |
 | `public/_headers`, `public/_redirects` | security headers and 301 map for Cloudflare |
 | `design-v3/` | the approved static page of design v3 (visual source of truth, not built); `CREDITS.md` at the root lists photo and font credits |
 | `prototype/` | the HTML prototype of three screens in the v1 design (superseded, not built) |
@@ -29,7 +29,26 @@ npm run check:content    # content gate
 npm run build            # SITE_URL=https://tri-s-audit.uz for production; NOINDEX=1 for the preview host
 npm run preview
 node scripts/new-post.mjs <slug> --rubric ifrs --author tilepin --issue 2
+npm run panel            # the control panel: text summary; add -- --live, -- --json or -- --html
 ```
+
+## Control panel
+
+This repository is the site's management system; the texts are written elsewhere and arrive here finished. The owner
+runs the site by talking to the agent, and `scripts/panel.mjs` is the agent's instrument: it lists every material
+(posts by `translationKey`; services, pages and team cards by file name) with its state in ru, en and uz —
+published, draft, scheduled for a date, not reviewed, translation missing — together with the content gate's
+verdict, documents, issues, the firm facts still marked `[TBC]` in `site.ts`, and the git state. With `--live` it
+also asks the network who serves the domain and whether the production host answers, is open to search engines and
+shows as many posts as the repository publishes.
+
+- "Сводка" / "обнови сводку": run `npm run panel -- --live`, report the "Требует внимания" list in plain Russian.
+- To show the page: `npm run panel -- --html --live` writes `.panel/index.html`; serve `.panel/` locally and open it.
+  `.panel/` is ignored by git; `.panel/config.json` holds `{"liveUrl": "https://…"}`, the production host, which
+  is not written anywhere in the repository.
+- Publish, schedule, unpublish: change `draft` or `date` in the front matter on a branch, run the gate and the
+  build, open a pull request; `main` is production. Run the panel before and after, and say what changed.
+- The panel only reads. It never edits content and is not part of the built site.
 
 ## Conventions
 
