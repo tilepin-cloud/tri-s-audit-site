@@ -1,12 +1,12 @@
 ---
 title: "Firma haqida"
-description: "TRI-S-AUDIT — Toshkentdagi auditorlik tashkiloti, 2021 yilda Moliya vazirligi reestriga 6-raqam bilan kiritilgan. XAS, MHXS boʻyicha audit, soliq va huquq, oʻz metodologiyasi va SI kontur."
-updated: 2026-11-09
+description: "TRI-S-AUDIT — audit, soliq va konsalting. Firma 2021 yilda Moliya vazirligi reestriga 6-raqam bilan kiritilgan. XAS, MHXS boʻyicha audit, soliq va huquq, oʻz metodologiyasi va SI kontur."
+updated: 2026-11-20
 reviewed: false
 ---
 ## Biz kimmiz
 
-TRI-S-AUDIT — Toshkentdagi mustaqil auditorlik tashkiloti. Biz Oʻzbekiston Respublikasi Moliya vazirligining auditorlik tashkilotlari reestriga 6-raqam bilan (2021 yil 3 iyun) kiritilganmiz va Oʻzbekistonda tan olingan Xalqaro audit standartlari (XAS), Xalqaro sifat boshqaruvi standartlari va IESBA Etika kodeksi asosida ishlaymiz.
+TRI-S-AUDIT — mustaqil firma: audit, soliq va konsalting. Biz Oʻzbekiston Respublikasi Moliya vazirligining auditorlik tashkilotlari reestriga 6-raqam bilan (2021 yil 3 iyun) kiritilganmiz va Oʻzbekistonda tan olingan Xalqaro audit standartlari (XAS), Xalqaro sifat boshqaruvi standartlari va IESBA Etika kodeksi asosida ishlaymiz.
 
 Firmani ikki hamkor boshqaradi: boshqaruvchi hamkor topshiriqlar va mijozlar uchun masʼul; sifat nazorati boʻyicha hamkor esa sifat tizimi, metodologiya va har bir xulosani chiqarilishidan oldin koʻrib chiqish uchun masʼul. Bunday taqsimot Firma qoʻllanmasida mustahkamlangan va XSBS 1 tomonidan talab etiladi.
 

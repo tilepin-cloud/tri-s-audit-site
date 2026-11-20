@@ -1,6 +1,6 @@
 /**
  * Open Graph images in design v3: the navy card with the white owl mark and the wordmark, an eyebrow in pale sky
- * (rubric or "audit organisation · Tashkent"), the title in Montserrat SemiBold, a hairline and a footer in Inter.
+ * (rubric or the hero line "Audit, Tax & Advisory"), the title in Montserrat SemiBold, a hairline and a footer in Inter.
  * No orange. Rendered from an SVG template with resvg at build time. Fonts come from src/og/fonts/ (Montserrat
  * SemiBold and Bold, Inter Regular, merged from the Fontsource subsets — see the README there), so the output is the
  * same on every build machine; system fonts are only a fallback for glyphs those files lack.

@@ -1,9 +1,9 @@
 ---
 title: "Audit the numbers can trust"
 description: "Audit of financial statements under ISA, IFRS transformation, tax and legal opinions. Our own methodology, transparent quality control and a technology contour operated under partner supervision."
-updated: 2026-11-09
+updated: 2026-11-20
 about:
-  title: "An independent audit firm in Tashkent"
+  title: "Independent audit under international standards"
   text:
     - "We are entered in the register of audit organisations of the Ministry of Finance of the Republic of Uzbekistan under No. 6 and work under the International Standards on Auditing, the International Standards on Quality Management and the IESBA Code of Ethics, as recognised in Uzbekistan."
     - "The firm is led by two partners: the managing partner is responsible for engagements and clients, the partner responsible for quality for the quality system, the methodology and the review of every report before issue. We do not audit financial statements that we prepared or transformed ourselves for the same period."
