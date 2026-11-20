@@ -1,11 +1,11 @@
 ---
 title: "About the firm"
-description: "TRI-S-AUDIT is an audit firm in Tashkent, entered in the Ministry of Finance register under No. 6 in 2021. ISA and IFRS audit, tax and legal advice, our own methodology and an AI contour."
-updated: 2026-11-09
+description: "TRI-S-AUDIT — audit, tax and advisory. The firm was entered in the Ministry of Finance register under No. 6 in 2021. ISA and IFRS audit, tax and legal advice, our own methodology and an AI contour."
+updated: 2026-11-20
 ---
 ## Who we are
 
-TRI-S-AUDIT is an independent audit firm in Tashkent. We are entered in the register of audit organisations of the Ministry of Finance of the Republic of Uzbekistan under No. 6 (3 June 2021) and work under the International Standards on Auditing, the International Standards on Quality Management and the IESBA Code of Ethics, as recognised in Uzbekistan.
+TRI-S-AUDIT is an independent audit, tax and advisory firm. We are entered in the register of audit organisations of the Ministry of Finance of the Republic of Uzbekistan under No. 6 (3 June 2021) and work under the International Standards on Auditing, the International Standards on Quality Management and the IESBA Code of Ethics, as recognised in Uzbekistan.
 
 The firm is led by two partners: the managing partner is responsible for engagements and clients; the partner responsible for quality is responsible for the quality system, the methodology and the review of every report before issue. This division is set out in the firm's Manual and is required by ISQM 1.
 
