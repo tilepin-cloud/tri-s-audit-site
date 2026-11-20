@@ -171,6 +171,18 @@ hr { border: 0; border-top: 1px solid var(--c-line); margin: 40px 0; }
   .lang a:not(.search-link)::after { inset: -10px -5px; }
   .search-link { width: 28px; }
 }
+@media (max-width: 400px) {
+  /* Small phones: at 360 px the wordmark ran under the languages (8 px overlap, 48 px at 320). The owl and the
+     wordmark shrink with the screen, from full size at 400 px to 28 px and 12 px at 320 px, and the first row
+     tightens, so the brand and the languages always keep a gap. */
+  .hdr { column-gap: 10px; }
+  .brand { gap: 8px; }
+  .brand img { height: clamp(28px, calc(28px + (100vw - 320px) * .15), 40px); }
+  .wordmark { font-size: clamp(12px, calc(12.2px + (100vw - 320px) * .0475), 16px); letter-spacing: .04em; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+  .lang { gap: 8px; }
+  .lang a:not(.search-link)::after { inset: -10px -4px; }
+  .search-link { width: 24px; }
+}
 
 /* Hero: the mountain photo under a dark gradient, the firm name as the title, the lead and four facts below. */
 .hero { position: relative; overflow: hidden; min-height: 900px; display: flex; background: var(--c-navy); color: var(--c-white); }
