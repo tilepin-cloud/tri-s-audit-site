@@ -10,7 +10,8 @@
     "preview": "astro preview",
     "check": "astro check && node scripts/check-content.mjs",
     "check:content": "node scripts/check-content.mjs",
-    "new:post": "node scripts/new-post.mjs"
+    "new:post": "node scripts/new-post.mjs",
+    "panel": "node scripts/panel.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^8.1.3",

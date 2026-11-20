@@ -13,3 +13,6 @@ Thumbs.db
 
 # the prototype server and the dev launch config are local tooling
 .claude/launch.json
+
+# the panel's generated page and its local settings (scripts/panel.mjs)
+.panel/
