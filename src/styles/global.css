@@ -323,7 +323,9 @@ a.tag:hover { color: var(--c-sky-dark); text-decoration: underline; text-decorat
 .crumbs li + li::before { content: "/"; margin-right: 8px; color: var(--c-line); }
 .crumbs a { color: var(--c-muted); text-underline-offset: 4px; }
 .crumbs a:hover { color: var(--c-ink); }
-.layout-2 { display: grid; gap: 64px 96px; align-items: start; padding-bottom: var(--section); }
+/* The single column is minmax(0, 1fr): a wide table inside the text then scrolls in place instead of stretching
+   the column and the whole page past the screen on a phone. */
+.layout-2 { display: grid; grid-template-columns: minmax(0, 1fr); gap: 64px 96px; align-items: start; padding-bottom: var(--section); }
 @media (min-width: 981px) { .layout-2 { grid-template-columns: minmax(0, 1fr) 320px; } }
 .prose { max-width: 760px; font-size: 18px; line-height: 1.7; color: var(--c-text); }
 .prose h2 { font-size: clamp(26px, 2.4vw, 32px); line-height: 1.2; margin: 2em 0 .6em; color: var(--c-ink); }
