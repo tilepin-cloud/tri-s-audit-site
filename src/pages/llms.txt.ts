@@ -12,7 +12,7 @@ export const GET: APIRoute = async ({ site }) => {
   const out: string[] = [];
   out.push(`# ${firm.shortName}`);
   out.push('');
-  out.push(`> ${firm.legalName.en}. Audit organisation in Tashkent, Uzbekistan (${firm.registry.en}). Financial statement audit under ISA, review and agreed-upon procedures, IFRS reporting and transformation, tax and legal advisory, forensic work and the data security and integrity report. The site is published in Russian (primary), English and Uzbek (Latin script).`);
+  out.push(`> ${firm.legalName.en}. Audit organisation in Tashkent, Uzbekistan (${firm.registry.en}). Financial statement audit under ISA, review and agreed-upon procedures, IFRS reporting and transformation, tax advice, forensic work and the data security and integrity report. The site is published in Russian (primary), English and Uzbek (Latin script).`);
   out.push('');
   out.push('## Facts');
   out.push(`- Legal name (RU): ${firm.legalName.ru}`);

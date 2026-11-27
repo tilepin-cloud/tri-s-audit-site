@@ -5,8 +5,8 @@ updated: 2026-11-27
 about:
   title: "2002 yildan beri mustaqil audit"
   text:
-    - "TRI-S-AUDIT Oʻzbekistonda 2002 yildan beri ishlaydi. Firma Moliya vazirligining auditorlik tashkilotlari reestriga kiritilgan, auditni xalqaro standartlar boʻyicha oʻtkazadi va zamonaviy audit usullarini qoʻllaydi."
-    - "Auditdan tashqari asosiy yoʻnalishlarimiz — soliq konsaltingi, MHXS boʻyicha hisobot va forenzik."
+    - "TRI-S-AUDIT Oʻzbekistonda 2002 yildan beri ishlaydi. Firma Moliya vazirligining auditorlik tashkilotlari reestriga kiritilgan. Moliyaviy hisobot auditini Audit va ishonchni taʼminlaydigan topshiriqlarning xalqaro standartlari boʻyicha kengash (IAASB) chiqargan Xalqaro audit standartlariga muvofiq oʻtkazamiz va zamonaviy audit usullarini qoʻllaymiz."
+    - "Asosiy yoʻnalishlarimiz — audit, soliq konsaltingi, MHXS boʻyicha hisobot va forenzik."
     - "Ish yillari davomida firmaning salmoqli mijozlar bazasi shakllandi. Hisobot, xulosa va yozishmalarni rus, ingliz va oʻzbek tillarida yuritamiz."
 howLead: "Ish tartibi har qanday topshiriq uchun bir xil."
 ---

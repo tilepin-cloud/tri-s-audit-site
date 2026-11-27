@@ -25,7 +25,7 @@ const leader = team.find((m) => m.data.lead);
 const LeaderBio = leader ? (await render(leader)).Content : null;
 const homeServices = HOME_SERVICES.map((k) => services.find((s) => entryKey(s) === k)).filter((s) => s !== undefined);
 const facts: [string, string][] = [
-  [String(firm.foundedYear), tr('fact.registry')],
+  [tr('fact.auditTitle'), tr('fact.audit')],
   [tr('fact.isaTitle'), tr('fact.isa')],
   [tr('fact.ifrsTitle'), tr('fact.ifrs')],
   [tr('fact.forensicTitle'), tr('fact.forensic')],

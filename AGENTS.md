@@ -32,6 +32,9 @@ Readers contact the firm by e-mail or social channels only.
     ISQM or the firm's internal documents, or describe internal roles and tools. Positions are the official ones:
     S. Golosova is Director and Managing Partner, I. Tilepin is Deputy Director for Development and Partner. The firm
     has worked since 2002; the registry number is not published. Stress tax advice, IFRS and forensic work.
+    Audit always comes first in any list of what the firm does. The firm gives tax advice only: no legal advice, no
+    "commercial law". A standard is named in full with its issuer on first mention (International Standards on
+    Auditing and International Standard on Quality Management 1, issued by the IAASB), not by a bare abbreviation.
     No slogans anywhere: the firm is presented by the plain line «Аудит, налоги и консалтинг».
 
 ## Writing a post

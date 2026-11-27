@@ -57,7 +57,7 @@ export const HOME_SERVICES = ['audit', 'tax', 'ifrs', 'forensic', 'review', 'agr
 export const RUBRICS = {
   audit: { ru: 'Аудит и МСА', en: 'Audit and ISA', uz: 'Audit va XAS' },
   ifrs: { ru: 'МСФО и НСБУ', en: 'IFRS and NAS', uz: 'MHXS va BHMS' },
-  tax: { ru: 'Налоги и право РУз', en: 'Tax and law of Uzbekistan', uz: 'Soliq va huquq' },
+  tax: { ru: 'Налоги', en: 'Tax', uz: 'Soliq' },
   ai: { ru: 'ИИ в аудите и финансах', en: 'AI in audit and finance', uz: 'Audit va moliyada sunʼiy intellekt' },
   firm: { ru: 'Новости фирмы', en: 'Firm news', uz: 'Firma yangiliklari' },
 } as const;

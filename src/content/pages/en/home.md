@@ -5,8 +5,8 @@ updated: 2026-11-27
 about:
   title: "Independent audit since 2002"
   text:
-    - "TRI-S-AUDIT has worked in Uzbekistan since 2002. The firm is entered in the register of audit organisations of the Ministry of Finance, audits under the international standards and uses modern audit methods."
-    - "Besides audit, our main lines of work are tax advice, IFRS reporting and forensic work."
+    - "TRI-S-AUDIT has worked in Uzbekistan since 2002. The firm is entered in the register of audit organisations of the Ministry of Finance. We audit financial statements in accordance with the International Standards on Auditing issued by the International Auditing and Assurance Standards Board (IAASB) and use modern audit methods."
+    - "Our main lines of work are audit, tax advice, IFRS reporting and forensic work."
     - "Over the years the firm has built a solid client base. We write reports, opinions and correspondence in Russian, English and Uzbek."
 howLead: "The order of work is the same for every engagement."
 ---
