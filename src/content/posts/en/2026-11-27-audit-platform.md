@@ -9,8 +9,6 @@ translationKey: audit-platform
 draft: false
 reviewed: false
 ---
-*This article was first published on the author's own site: [tilep.in/en/pro/audit-platform](https://tilep.in/en/pro/audit-platform/).*
-
 ## Key points
 
 - Firms file data the ministry uses to pick inspection targets.

@@ -9,8 +9,6 @@ translationKey: audit-platform
 draft: false
 reviewed: false
 ---
-*Maqola dastlab muallifning shaxsiy saytida rus tilida chop etilgan: [tilep.in/pro/audit-platform](https://tilep.in/pro/audit-platform/).*
-
 ## Asosiysi
 
 - Vazirlik tizimdagi maʼlumotlardan kimni tekshirishni tanlashda foydalanadi.

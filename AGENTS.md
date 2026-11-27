@@ -24,6 +24,9 @@ Readers contact the firm by e-mail or social channels only.
 6. **Nothing interactive.** Do not add forms, chat widgets, analytics scripts or external embeds. `_headers`
    sets a strict CSP; a change there is a decision of the owner.
 7. **Firm facts live in `src/config/site.ts`** (names, address, registry, socials, rubrics). Change them there, not in texts.
+8. **A reprint does not point at the author's personal site** (owner, 27.11.2026). A text that first appeared on a
+   partner's own site (tilep.in) is published here as the firm's article: no "first published on…" line and no link
+   to that site, in any language. The content gate fails on such a link.
 
 ## Writing a post
 
