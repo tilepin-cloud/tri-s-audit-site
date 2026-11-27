@@ -36,7 +36,9 @@ node scripts/new-post.mjs <slug> --rubric audit|ifrs|tax|ai|firm --author <team-
 Then fill `src/content/posts/ru/<date>-<slug>.md` first (Russian is the master for Uzbek-law topics; English is the
 master for methodology topics — write the master, then translate), remove `draft: true`, run `npm run check:content`
 and `npm run build`. Structure that works: `## Главное` (3–5 bullets, answer first) → what changes → how to prepare
-(table), with sources as inline links. Description 40–320 characters: it is the card, the meta description, the feed summary and the
+(table), with sources as inline links. The post must open with that second-level heading and a plain list right
+after it: the page lifts the pair into the key-points box beside the text. A source line under a table is an italic
+paragraph right after the table; it is set as the table's caption. Description 40–320 characters: it is the card, the meta description, the feed summary and the
 llms.txt line. Title ≤ 140 characters. Keep paragraphs short; one idea per paragraph.
 
 Posts with a future `date` are built in dev but hidden in production until the day; the scheduled workflow rebuilds daily.

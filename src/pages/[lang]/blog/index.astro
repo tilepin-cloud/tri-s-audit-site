@@ -1,7 +1,7 @@
 ---
 import Base from '@/layouts/Base.astro';
 import Crumbs from '@/components/Crumbs.astro';
-import PostCard from '@/components/PostCard.astro';
+import PostRow from '@/components/PostRow.astro';
 import { LANGS, RUBRIC_KEYS, RUBRICS, type Lang } from '@/config/site';
 import { t, localePath } from '@/i18n/utils';
 import { getPosts, getIssues } from '@/lib/content';
@@ -13,7 +13,7 @@ const posts = await getPosts(lang);
 const hasIssues = (await getIssues()).length > 0;
 ---
 <Base lang={lang} title={tr('blog.title')} description={tr('blog.description')} section="blog">
-  <div class="wrap page-head">
+  <div class="wrap page-head mag-head">
     <Crumbs items={[{ name: tr('nav.home'), href: localePath(lang) }, { name: tr('blog.title') }]} />
     <h1>{tr('blog.title')}</h1>
     <p class="lead">{tr('blog.description')}</p>
@@ -25,7 +25,7 @@ const hasIssues = (await getIssues()).length > 0;
       {hasIssues && <a href={localePath(lang, 'issues')}>{tr('issues.title')}</a>}
       <a href={`/${lang}/rss.xml`}>RSS</a>
     </nav>
-    <div class="posts">{posts.map((p) => <PostCard post={p} lang={lang} />)}</div>
+    <div class="rows">{posts.map((p) => <PostRow post={p} lang={lang} />)}</div>
     {posts.length === 0 && <p class="note">{tr('blog.unavailable')}</p>}
   </div>
 </Base>

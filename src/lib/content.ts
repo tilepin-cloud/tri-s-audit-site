@@ -88,3 +88,16 @@ export function initials(name: string): string {
   const w = name.trim().split(/\s+/);
   return ((w[0]?.[0] ?? '') + (w.length > 1 ? w[w.length - 1][0] : '')).replace(/[.]/g, '');
 }
+
+/** Rendered HTML of a post that opens with a second-level heading and a plain list right after it (the key points):
+ *  returns the heading, the list items and the rest of the body, so the page can set the points in a side box.
+ *  Returns undefined when the post does not open that way, when the list is nested, or when the HTML still carries
+ *  image placeholders (then the page renders the entry in the usual way). */
+export function splitTakeaways(html?: string): { takeaways: { title: string; items: string[] }; body: string } | undefined {
+  if (!html || html.includes('__ASTRO_IMAGE_')) return undefined;
+  const m = html.match(/^\s*<h2[^>]*>([\s\S]*?)<\/h2>\s*<ul>([\s\S]*?)<\/ul>/);
+  if (!m || /<[uo]l[\s>]/.test(m[2])) return undefined;
+  const items = [...m[2].matchAll(/<li>([\s\S]*?)<\/li>/g)].map((x) => x[1].replace(/^\s*<p>|<\/p>\s*$/g, '').trim()).filter(Boolean);
+  if (!items.length) return undefined;
+  return { takeaways: { title: m[1], items }, body: html.slice(m[0].length) };
+}
