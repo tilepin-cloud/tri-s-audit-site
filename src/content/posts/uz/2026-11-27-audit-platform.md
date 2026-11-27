@@ -6,7 +6,7 @@ rubric: audit
 tags: ["sifat nazorati", "xavf tahlili", "AXS", "Oʻzbekiston"]
 author: tilepin
 translationKey: audit-platform
-draft: true
+draft: false
 reviewed: false
 ---
 *Maqola dastlab muallifning shaxsiy saytida rus tilida chop etilgan: [tilep.in/pro/audit-platform](https://tilep.in/pro/audit-platform/).*

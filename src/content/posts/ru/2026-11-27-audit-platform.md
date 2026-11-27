@@ -6,7 +6,7 @@ rubric: audit
 tags: ["контроль качества", "анализ рисков", "МСА", "Узбекистан"]
 author: tilepin
 translationKey: audit-platform
-draft: true
+draft: false
 ---
 *Статья впервые опубликована на личном сайте автора: [tilep.in/pro/audit-platform](https://tilep.in/pro/audit-platform/).*
 

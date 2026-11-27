@@ -6,7 +6,7 @@ rubric: audit
 tags: ["quality control", "risk analysis", "ISA", "Uzbekistan"]
 author: tilepin
 translationKey: audit-platform
-draft: true
+draft: false
 reviewed: false
 ---
 *This article was first published on the author's own site: [tilep.in/en/pro/audit-platform](https://tilep.in/en/pro/audit-platform/).*
