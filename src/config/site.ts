@@ -1,7 +1,7 @@
 /**
  * Firm-wide facts and switches. Edit here, never in templates.
  * Names, address and registry data follow the letterhead (logo/src/letterhead.py in the methodology repo)
- * and the auditor registry record (№ 6, 03.06.2021).
+ * and the auditor registry. The firm has worked since 2002; the registry number is not published (owner, 27.11.2026).
  */
 export type Lang = 'ru' | 'en' | 'uz';
 export const LANGS: Lang[] = ['ru', 'en', 'uz'];
@@ -21,13 +21,12 @@ export const firm = {
     en: 'TRI-S-AUDIT LLC, audit organisation', // [TBC] official English name — owner
     uz: '«TRI-S-AUDIT» MChJ auditorlik tashkiloti', // [TBC] official Uzbek name — owner
   },
-  foundedYear: 2021,
+  foundedYear: 2002,
   registry: {
-    ru: 'Реестр аудиторских организаций Министерства финансов Республики Узбекистан, № 6 от 03.06.2021',
-    en: 'Register of audit organisations of the Ministry of Finance of the Republic of Uzbekistan, No. 6, 3 June 2021',
-    uz: 'Oʻzbekiston Respublikasi Moliya vazirligi auditorlik tashkilotlari reestri, № 6, 03.06.2021',
+    ru: 'Включена в реестр аудиторских организаций Министерства финансов Республики Узбекистан',
+    en: 'Entered in the register of audit organisations of the Ministry of Finance of the Republic of Uzbekistan',
+    uz: 'Oʻzbekiston Respublikasi Moliya vazirligining auditorlik tashkilotlari reestriga kiritilgan',
   },
-  registryNumber: '6',
   taxId: '204722723',
   address: {
     ru: '100060, г. Ташкент, Мирабадский район, ул. Т. Шевченко, 28',
@@ -52,7 +51,7 @@ export const firm = {
 };
 
 /** Services shown on the home page and in the footer, in this order (keys of src/content/services/<lang>/). */
-export const HOME_SERVICES = ['audit', 'review', 'agreed-upon-procedures', 'ifrs', 'tax', 'it-report'] as const;
+export const HOME_SERVICES = ['audit', 'tax', 'ifrs', 'forensic', 'review', 'agreed-upon-procedures'] as const;
 
 /** Blog rubrics. The slug is language-independent and appears in URLs: /ru/blog/rubric/audit/ */
 export const RUBRICS = {

@@ -25,10 +25,10 @@ const leader = team.find((m) => m.data.lead);
 const LeaderBio = leader ? (await render(leader)).Content : null;
 const homeServices = HOME_SERVICES.map((k) => services.find((s) => entryKey(s) === k)).filter((s) => s !== undefined);
 const facts: [string, string][] = [
-  [`№ ${firm.registryNumber}`, tr('fact.registry')],
+  [String(firm.foundedYear), tr('fact.registry')],
   [tr('fact.isaTitle'), tr('fact.isa')],
   [tr('fact.ifrsTitle'), tr('fact.ifrs')],
-  ['RU · EN · UZ', tr('fact.langs')],
+  [tr('fact.forensicTitle'), tr('fact.forensic')],
 ];
 ---
 <Base lang={lang} title={home.data.title} description={home.data.description} jsonLd={[organization(lang), website(lang)]}>

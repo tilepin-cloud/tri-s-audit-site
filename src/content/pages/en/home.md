@@ -1,19 +1,18 @@
 ---
 title: "Audit the numbers can trust"
-description: "Audit of financial statements under ISA, IFRS transformation, tax and legal opinions. Our own methodology, transparent quality control and a technology contour operated under partner supervision."
-updated: 2026-11-20
+description: "Audit of financial statements, tax advice, IFRS reporting and forensic work. In Uzbekistan since 2002."
+updated: 2026-11-27
 about:
-  title: "Independent audit under international standards"
+  title: "Independent audit since 2002"
   text:
-    - "We are entered in the register of audit organisations of the Ministry of Finance of the Republic of Uzbekistan under No. 6 and work under the International Standards on Auditing, the International Standards on Quality Management and the IESBA Code of Ethics, as recognised in Uzbekistan."
-    - "The firm is led by two partners: the managing partner is responsible for engagements and clients, the partner responsible for quality for the quality system, the methodology and the review of every report before issue. We do not audit financial statements that we prepared or transformed ourselves for the same period."
-    - "Reports, opinions and correspondence are in Russian, English and Uzbek."
-howLead: "Five rules that are the same for every engagement and are set out in the public description of the quality system."
+    - "TRI-S-AUDIT has worked in Uzbekistan since 2002. The firm is entered in the register of audit organisations of the Ministry of Finance, audits under the international standards and uses modern audit methods."
+    - "Besides audit, our main lines of work are tax advice, IFRS reporting and forensic work."
+    - "Over the years the firm has built a solid client base. We write reports, opinions and correspondence in Russian, English and Uzbek."
+howLead: "The order of work is the same for every engagement."
 ---
 <ol class="steps">
-  <li><b>Acceptance and independence</b><p>We check conflicts of interest and independence before the engagement letter is signed, not after. The firm does not audit financial statements that it prepared itself for the same period.</p></li>
-  <li><b>Risk and materiality</b><p>Planning is built on the client's risks; materiality levels are documented, explained and agreed with management.</p></li>
-  <li><b>Data, not a sample</b><p>Where possible, we test the whole population of entries: journal entries, Benford distributions, analytics over the full dataset.</p></li>
-  <li><b>Quality control</b><p>The partner responsible for quality reviews every report before it is issued. The system is built on ISQM 1 and ISQM 2 and described publicly.</p></li>
-  <li><b>AI under supervision</b><p>Models prepare drafts and recalculate figures; a human signs; client data is not used to train models.</p></li>
+  <li><b>Introduction and contract</b><p>We study the client's task and business. Before the contract is signed we make sure there is no conflict of interest.</p></li>
+  <li><b>Plan</b><p>We find where errors in the statements are most likely and matter most, and agree the timetable.</p></li>
+  <li><b>Audit</b><p>We audit with modern methods and discuss the questions we find with the client as the work goes on.</p></li>
+  <li><b>Result</b><p>Before issue every report goes through an internal quality review. The client receives the report and a letter with our findings and recommendations.</p></li>
 </ol>

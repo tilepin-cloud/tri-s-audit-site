@@ -14,4 +14,4 @@ Sayt fayllarni qabul qilmaydi. Birinchi xatdan keyin maʼlumotlarni topshirishni
 
 ## Murojaat va shikoyatlar
 
-Firma ishining sifati, mustaqillik yoki etika bilan bogʻliq savollar boshqaruvchi hamkorga xuddi shu manzilga «Sifat» belgisi bilan yuboriladi. Har bir murojaat roʻyxatga olinadi va Firma qoʻllanmasidagi tartib boʻyicha koʻrib chiqiladi.
+Firma ishining sifati, mustaqillik yoki etika bilan bogʻliq savollar firma direktoriga xuddi shu manzilga «Sifat» belgisi bilan yuboriladi. Har bir murojaat roʻyxatga olinadi va koʻrib chiqiladi.

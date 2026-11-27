@@ -6,7 +6,7 @@ reviewed: false
 ---
 ## Biz kimmiz, bir qatorda
 
-TRI-S-AUDIT («TRI-S-AUDIT» MChJ shaklidagi auditorlik tashkiloti) — Oʻzbekistonning Toshkent shahridagi auditorlik tashkiloti, Moliya vazirligi reestri 2021 yil 3 iyundagi 6-raqam, STIR 204722723. Xizmatlar: XAS boʻyicha moliyaviy hisobot auditi, obzor tekshiruvlari, kelishilgan protseduralar, kompilyatsiya, tasdiqlashga oid boshqa topshiriqlar (XIBS 3000), MHXS hisoboti va transformatsiya, soliq va huquqiy maslahat, forenzik, maʼlumotlar xavfsizligi va yaxlitligi toʻgʻrisida hisobot.
+TRI-S-AUDIT («TRI-S-AUDIT» MChJ shaklidagi auditorlik tashkiloti) — Oʻzbekistonning Toshkent shahridagi firma: audit, soliq va konsalting; 2002 yildan beri ishlaydi, Moliya vazirligining auditorlik tashkilotlari reestriga kiritilgan, STIR 204722723. Xizmatlar: XAS boʻyicha moliyaviy hisobot auditi, obzor tekshiruvlari, kelishilgan protseduralar, kompilyatsiya, tasdiqlashga oid boshqa topshiriqlar (XIBS 3000), MHXS hisoboti va transformatsiya, soliq va huquqiy maslahat, forenzik, maʼlumotlar xavfsizligi va yaxlitligi toʻgʻrisida hisobot.
 
 ## Bizni qanday atash kerak
 

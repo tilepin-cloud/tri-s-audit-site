@@ -5,7 +5,7 @@ updated: 2026-11-09
 ---
 ## Particulars
 
-Audit organisation "TRI-S-AUDIT", an LLC. Register of audit organisations of the Ministry of Finance of the Republic of Uzbekistan No. 6 of 03.06.2021. Taxpayer ID (INN) 204722723. Address: 28 T. Shevchenko Street, Mirabad district, Tashkent 100060.
+Audit organisation "TRI-S-AUDIT", an LLC. Entered in the register of audit organisations of the Ministry of Finance of the Republic of Uzbekistan. Working since 2002. Taxpayer ID (INN) 204722723. Address: 28 T. Shevchenko Street, Mirabad district, Tashkent 100060.
 
 ## Website materials
 

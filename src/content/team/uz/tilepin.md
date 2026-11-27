@@ -1,16 +1,14 @@
 ---
-name: "I. Tilepin"
-role: "Sifat nazorati boʻyicha hamkor, metodologiya egasi"
+name: "Igor Tilepin"
+role: "Rivojlantirish boʻyicha direktor oʻrinbosari, hamkor"
 credentials:
   - "Auditor, Oʻzbekiston Respublikasi malaka sertifikati"
 order: 2
 partner: true
 reviewed: false
 ---
-Sifat nazorati boʻyicha hamkor firmaning XSBS 1 va XSBS 2 boʻyicha sifat boshqaruvi tizimi uchun masʼul: har bir xulosani chiqarilishidan oldin koʻrib chiqadi, monitoring va kamchiliklarni bartaraf etishni olib boradi, metodologiyani tasdiqlaydi.
+Auditor, TRI-S-AUDITda 2022 yildan beri ishlaydi. Firmani rivojlantirish uchun masʼul: audit metodologiyasi, raqamli vositalar va xalqaro auditorlik tarmoqlari bilan hamkorlik. XAS va MHXS boʻyicha hisobot auditini olib boradi.
 
-Firma metodologiyasining muallifi — Qoʻllanma, SI kontur uchun mashina qatlami va ish hujjatlari shablonlari. Texnologik kontur uchun masʼul: tasdiqlangan vositalar, mijozlar maʼlumotlari va SI-agentlar bilan ishlash qoidalari.
+Bungacha ishlab chiqarish kompaniyalarida moliya direktori boʻlib ishlagan va auditorlik agentligini boshqargan.
 
-Blogning «Audit va XAS» hamda «Audit va moliyada sunʼiy intellekt» ruknlarini yuritadi.
-
-*Toʻliq ism, surat va batafsil tarjimai hol sayt egasi tomonidan qoʻshiladi.*
+Firmaning audit, MHXS va soliqlar haqidagi nashrlari muallifi.

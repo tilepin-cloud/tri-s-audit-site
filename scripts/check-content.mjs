@@ -3,7 +3,8 @@
  * Content gate, run before every build (npm run check:content) and in CI.
  * Errors (exit 1): [TBD]/[TBC] in a non-draft text, a post without translationKey or author, an unknown author,
  *                  a document whose file is missing, a broken internal link, a date in the wrong format,
- *                  a post that links to an author's personal site (reprints carry no such link, AGENTS.md rule 8).
+ *                  a post that links to an author's personal site (reprints carry no such link, AGENTS.md rule 8),
+ *                  the letter \u0451 in any text (AGENTS.md rule 9).
  * Warnings:        a text present in one language but not the others, reviewed: false, a description outside 40–320 chars.
  * Pure Node, no dependencies; the file walker and the front matter parser are in lib/content-files.mjs.
  */
@@ -36,6 +37,8 @@ for (const col of collections) {
       const tbd = (body + JSON.stringify(data)).match(/\[TB[DC]\]/g);
       if (tbd) err(file, `${tbd.length} × [TBD]/[TBC] in a published text`);
     }
+    const yo = (body + JSON.stringify(data)).match(/[\u0451\u0401]/g);
+    if (yo) err(file, `${yo.length} × the letter \u0451 (AGENTS.md rule 9: write \u0435)`);
     if (data.reviewed === false) warn(file, 'reviewed: false — human review pending');
     if (typeof data.description === 'string' && (data.description.length < 40 || data.description.length > 320)) warn(file, `description is ${data.description.length} chars (40–320 expected)`);
     if (col === 'posts') {

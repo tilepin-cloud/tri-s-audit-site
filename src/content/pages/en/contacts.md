@@ -13,4 +13,4 @@ The website does not accept files. After the first e-mail we agree a secure tran
 
 ## Enquiries and complaints
 
-Questions about the quality of the firm's work, independence or ethics should be sent to the managing partner at the same address, marked "Quality". Every enquiry is logged and handled under the procedure in the firm's Manual.
+Questions about the quality of the firm's work, independence or ethics should be sent to the director of the firm at the same address, marked "Quality". Every enquiry is logged and reviewed.

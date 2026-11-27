@@ -27,6 +27,11 @@ Readers contact the firm by e-mail or social channels only.
 8. **A reprint does not point at the author's personal site** (owner, 27.11.2026). A text that first appeared on a
    partner's own site (tilep.in) is published here as the firm's article: no "first published on…" line and no link
    to that site, in any language. The content gate fails on such a link.
+9. **No letter ё in Russian texts** (owner, 27.11.2026): write е, in content and in interface strings. The gate fails on it.
+10. **Plain words about the firm** (owner, 27.11.2026). Pages about the firm do not explain the quality system, name
+    ISQM or the firm's internal documents, or describe internal roles and tools. Positions are the official ones:
+    S. Golosova is Director and Managing Partner, I. Tilepin is Deputy Director for Development and Partner. The firm
+    has worked since 2002; the registry number is not published. Stress tax advice, IFRS and forensic work.
 
 ## Writing a post
 
