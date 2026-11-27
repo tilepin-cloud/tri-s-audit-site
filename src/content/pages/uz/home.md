@@ -1,5 +1,5 @@
 ---
-title: "Raqamlar ishonadigan audit"
+title: "Audit, soliq va konsalting"
 description: "Moliyaviy hisobot auditi, soliq konsaltingi, MHXS boʻyicha hisobot va forenzik. Oʻzbekistonda 2002 yildan beri ishlaymiz."
 updated: 2026-11-27
 about:
