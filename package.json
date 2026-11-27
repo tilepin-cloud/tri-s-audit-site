@@ -19,13 +19,13 @@
     "@astrojs/sitemap": "^3.7.4",
     "@fontsource-variable/onest": "^5.3.1",
     "@fontsource-variable/piazzolla": "^5.3.0",
-    "@fontsource/inter": "^5.3.0",
-    "@fontsource/montserrat": "^5.3.0",
     "@resvg/resvg-js": "^2.6.2",
     "astro": "^7.4.7",
     "pagefind": "^1.6.0"
   },
   "devDependencies": {
+    "@fontsource/onest": "^5.3.1",
+    "@fontsource/piazzolla": "^5.3.0",
     "wrangler": "^4.158.0"
   }
 }

@@ -14,9 +14,8 @@
 
 ## Fonts
 
-- Montserrat (500, 600, 700, 800) — Julieta Ulanovsky et al., SIL Open Font License 1.1, `@fontsource/montserrat`.
-- Inter (400, 500, 600) — Rasmus Andersson, SIL Open Font License 1.1, `@fontsource/inter`.
+- Piazzolla (variable) — Juan Pablo del Peral, Huerta Tipográfica, SIL Open Font License 1.1, `@fontsource-variable/piazzolla`.
+- Onest (variable) — Dmitri Voloshin and Andrey Kudryavtsev, SIL Open Font License 1.1, `@fontsource-variable/onest`.
 
-Cyrillic, Latin and Latin Extended subsets, woff2, bundled with the site; no requests to third-party font hosts.
-`src/og/fonts/` holds the same subsets merged into TrueType files (Montserrat SemiBold and Bold, Inter Regular)
+`src/og/fonts/` holds the same subsets merged into TrueType files (Piazzolla SemiBold and Bold, Onest Regular and SemiBold)
 for the Open Graph images rendered at build time; see the README there.

@@ -13,6 +13,18 @@
 @import '@fontsource-variable/onest/wght.css';
 @import './magazine.css';
 
+/* Piazzolla draws the hyphen slanted, which reads as a crooked stroke in TRI-S-AUDIT (owner, 27.11.2026). The hyphen
+   alone is taken from Onest, where it is a level bar: this face covers only U+002D and its two twins and stands
+   first in the serif stack, so every hyphen in serif text is straight. Dashes are not touched. */
+@font-face {
+  font-family: "Straight Hyphen";
+  font-style: normal italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('@fontsource-variable/onest/files/onest-latin-wght-normal.woff2') format('woff2-variations');
+  unicode-range: U+002D, U+2010-2011;
+}
+
 :root {
   --c-ink: #0b1420;        /* text, footer */
   --c-navy: #0f2a44;       /* services panel, hero fallback */
@@ -30,7 +42,7 @@
   /* Fonts (owner, 27.11.2026): the pairing of a printed magazine on every page. Piazzolla, a serif, sets the big
      titles and the reading text; Onest, a sans, sets the interface: menu, buttons, labels, small headings, tables.
      The wordmark and the firm name of the hero are set in Piazzolla too (owner, 27.11.2026). */
-  --f-serif: "Piazzolla Variable", Piazzolla, "PT Serif", Georgia, serif;
+  --f-serif: "Straight Hyphen", "Piazzolla Variable", Piazzolla, "PT Serif", Georgia, serif;
   --f-label: "Onest Variable", Onest, "Segoe UI", system-ui, Arial, sans-serif;
   --f-brand: var(--f-serif);
   --f-head: var(--f-label);

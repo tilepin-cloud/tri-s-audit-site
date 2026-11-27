@@ -1,8 +1,10 @@
 /**
  * Open Graph images in design v3: the navy card with the white owl mark and the wordmark, an eyebrow in pale sky
- * (rubric or the hero line "Audit, Tax & Advisory"), the title in Montserrat SemiBold, a hairline and a footer in Inter.
- * No orange. Rendered from an SVG template with resvg at build time. Fonts come from src/og/fonts/ (Montserrat
- * SemiBold and Bold, Inter Regular, merged from the Fontsource subsets — see the README there), so the output is the
+ * (rubric or the hero line "Audit, Tax & Advisory") in Onest, the title in Piazzolla SemiBold, a hairline and a footer
+ * in Onest: the fonts of the site (owner, 27.11.2026). Piazzolla draws the hyphen slanted, so every hyphen in serif
+ * text is set in Onest, where it is a level bar. No orange. Rendered from an SVG template with resvg at build time.
+ * Fonts come from src/og/fonts/ (Piazzolla SemiBold and Bold, Onest Regular and SemiBold, merged from the Fontsource
+ * subsets — see the README there), so the output is the
  * same on every build machine; system fonts are only a fallback for glyphs those files lack.
  */
 import type { APIRoute, GetStaticPaths } from 'astro';
@@ -17,8 +19,8 @@ import { t } from '@/i18n/utils';
 
 const W = 1200, H = 630;
 const NAVY = '#0F2A44', PALE = '#9CC8EE', WHITE = '#ffffff';
-const HEAD = 'Montserrat, Inter, DejaVu Sans, sans-serif';
-const TEXT = 'Inter, DejaVu Sans, sans-serif';
+const HEAD = 'Piazzolla, Georgia, DejaVu Serif, serif';
+const TEXT = 'Onest, DejaVu Sans, sans-serif';
 /**
  * A project file by its path from the repository root. In dev `import.meta.url` is the source file; in the build it is
  * the chunk under dist/, so the working directory (the project root for `astro build`) is tried as well.
@@ -29,6 +31,8 @@ function projectPath(rel: string): string | undefined {
   return [fromModule, fromCwd].find((p) => existsSync(p));
 }
 const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+/** Escaped serif text with every hyphen set in the sans face, where the stroke is level. */
+const serif = (s: string) => esc(s).replace(/[-‐‑]/g, `<tspan font-family="${TEXT}">-</tspan>`);
 
 /** The owl mark as nested SVG: public/img/owls-white.svg without its outer element and title. */
 function owl(x: number, y: number, height: number): string {
@@ -51,8 +55,8 @@ function wrap(text: string, maxChars: number, maxLines: number): string[] {
 }
 
 function svg(title: string, kicker: string, footerLeft: string, footerRight: string): string {
-  const size = title.length > 90 ? 50 : title.length > 60 ? 58 : 68;
-  const lines = wrap(title, Math.floor(1040 / (size * 0.56)), 4);
+  const size = title.length > 90 ? 50 : title.length > 60 ? 58 : 64;
+  const lines = wrap(title, Math.floor(1040 / (size * 0.5)), 4);
   const lineH = size * 1.14;
   const block = (lines.length - 1) * lineH;
   const startY = 352 - block / 2; // the title block is centred on the middle band of the card
@@ -60,9 +64,9 @@ function svg(title: string, kicker: string, footerLeft: string, footerRight: str
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
   <rect width="${W}" height="${H}" fill="${NAVY}"/>
   ${owl(80, 64, owlH)}
-  <text x="${80 + owlW + 20}" y="${64 + owlH / 2 + 9}" font-family="${HEAD}" font-weight="700" font-size="26" letter-spacing="1.6" fill="${WHITE}">${esc(firm.shortName)}</text>
-  <text x="80" y="${startY - size * 1.1 - 22}" font-family="${HEAD}" font-weight="600" font-size="20" letter-spacing="2.8" fill="${PALE}">${esc(kicker.toUpperCase())}</text>
-  ${lines.map((l, i) => `<text x="80" y="${(startY + i * lineH).toFixed(1)}" font-family="${HEAD}" font-weight="600" font-size="${size}" letter-spacing="-0.5" fill="${WHITE}">${esc(l)}</text>`).join('\n  ')}
+  <text x="${80 + owlW + 20}" y="${64 + owlH / 2 + 9}" font-family="${HEAD}" font-weight="700" font-size="27" letter-spacing="1.6" fill="${WHITE}">${serif(firm.shortName)}</text>
+  <text x="80" y="${startY - size * 1.1 - 22}" font-family="${TEXT}" font-weight="600" font-size="20" letter-spacing="2.8" fill="${PALE}">${esc(kicker.toUpperCase())}</text>
+  ${lines.map((l, i) => `<text x="80" y="${(startY + i * lineH).toFixed(1)}" font-family="${HEAD}" font-weight="600" font-size="${size}" letter-spacing="-0.3" word-spacing="${(size * 0.09).toFixed(1)}" fill="${WHITE}">${serif(l)}</text>`).join('\n  ')}
   <line x1="80" y1="546" x2="${W - 80}" y2="546" stroke="${WHITE}" stroke-opacity=".22" stroke-width="1.5"/>
   <text x="80" y="588" font-family="${TEXT}" font-size="21" fill="${WHITE}" fill-opacity=".8">${esc(footerLeft)}</text>
   <text x="${W - 80}" y="588" text-anchor="end" font-family="${TEXT}" font-size="21" fill="${WHITE}" fill-opacity=".6">${esc(footerRight)}</text>
@@ -72,7 +76,7 @@ function svg(title: string, kicker: string, footerLeft: string, footerRight: str
 function render(markup: string): Uint8Array {
   const fontsDir = projectPath('src/og/fonts');
   const fontFiles = fontsDir ? readdirSync(fontsDir).filter((f) => /\.(ttf|otf)$/i.test(f)).map((f) => join(fontsDir, f)) : [];
-  const r = new Resvg(markup, { fitTo: { mode: 'width', value: W }, font: { loadSystemFonts: true, fontFiles, defaultFontFamily: 'Montserrat' } });
+  const r = new Resvg(markup, { fitTo: { mode: 'width', value: W }, font: { loadSystemFonts: true, fontFiles, defaultFontFamily: 'Onest' } });
   return r.render().asPng();
 }
 
