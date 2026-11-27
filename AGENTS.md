@@ -15,9 +15,10 @@ Readers contact the firm by e-mail or social channels only.
 2. **No `[TBD]` or `[TBC]` in a published text.** The content gate (`npm run check:content`) fails the build.
    Unfinished texts carry `draft: true`.
 3. **Every post has a human author** (`author:` = a key in `src/content/team/`). The model drafts, a person signs.
-4. **Facts about standards and laws are cited.** Each post lists `sources:`; article and paragraph numbers are
-   checked against the current edition (lex.uz for Uzbek acts, the IAASB Handbook 2026 for ISA/ISQM).
-   If you cannot verify a number, do not write it.
+4. **Facts about standards and laws are cited — inside the text.** There is no source list under a post and the
+   `sources:` field stays empty (owner, 25.11.2026): a source with a public address is a link on the words that name
+   it; one without an address is named without a link. Article and paragraph numbers are checked against the current
+   edition (lex.uz for Uzbek acts, the IAASB Handbook 2026 for ISA/ISQM). If you cannot verify a number, do not write it.
 5. **Three languages share one `translationKey`.** A translation may lag, but never diverge in facts.
    Uzbek and English texts written by a model carry `reviewed: false` until a partner reviews them.
 6. **Nothing interactive.** Do not add forms, chat widgets, analytics scripts or external embeds. `_headers`
@@ -32,7 +33,7 @@ node scripts/new-post.mjs <slug> --rubric audit|ifrs|tax|ai|firm --author <team-
 Then fill `src/content/posts/ru/<date>-<slug>.md` first (Russian is the master for Uzbek-law topics; English is the
 master for methodology topics — write the master, then translate), remove `draft: true`, run `npm run check:content`
 and `npm run build`. Structure that works: `## Главное` (3–5 bullets, answer first) → what changes → how to prepare
-(table) → sources. Description 40–320 characters: it is the card, the meta description, the feed summary and the
+(table), with sources as inline links. Description 40–320 characters: it is the card, the meta description, the feed summary and the
 llms.txt line. Title ≤ 140 characters. Keep paragraphs short; one idea per paragraph.
 
 Posts with a future `date` are built in dev but hidden in production until the day; the scheduled workflow rebuilds daily.
