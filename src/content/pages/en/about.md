@@ -11,22 +11,23 @@ We use modern audit methods. Over the years the firm has built a solid client ba
 
 ## Main lines of work
 
-- **Audit.** Audit of financial statements prepared under the national standards or IFRS, in accordance with the International Standards on Auditing issued by the International Auditing and Assurance Standards Board (IAASB).
-- **Tax advice.** Advice and written opinions on tax.
-- **IFRS.** Preparation of IFRS statements, transformation from the national standards, first-time adoption and consolidation.
+- **Audit.** Audit of financial statements prepared under the national standards or IFRS, in accordance with the International Standards on Auditing published by the International Auditing and Assurance Standards Board of the International Federation of Accountants.
+- **Tax advice.** Advice on the application of tax legislation and on the preparation of tax calculations and returns.
+- **IFRS.** Preparation of financial statements under International Financial Reporting Standards: transformation, first-time adoption and consolidation.
 - **Forensic work.** Financial investigations and the gathering of evidence that can be used in a dispute.
 
 ## Other services
 
-- review engagements, agreed-upon procedures and compilation of statements;
-- other assurance engagements;
-- a report on the security and integrity of accounting system data.
+- reviews of financial statements;
+- assurance engagements;
+- agreed-upon procedures and compilation of financial information;
+- recommendations on the information security of financial information.
 
 See [Services](/en/services/) for details.
 
 ## Independence and quality
 
-We do not audit statements that we prepared or transformed for the same period. The firm's system of quality management follows International Standard on Quality Management 1 issued by the International Auditing and Assurance Standards Board (IAASB). Before issue every report goes through an internal quality review.
+We do not audit an entity for which, in the audited period, we kept the accounting records or prepared the financial statements, including IFRS statements. Internal quality control of the auditors' work is organised in accordance with the international standards on quality control published by the International Auditing and Assurance Standards Board of the International Federation of Accountants.
 
 ## Languages
 

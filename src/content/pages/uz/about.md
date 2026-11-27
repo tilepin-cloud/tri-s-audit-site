@@ -12,22 +12,23 @@ Zamonaviy audit usullarini qoʻllaymiz. Ish yillari davomida firmaning salmoqli 
 
 ## Asosiy yoʻnalishlar
 
-- **Audit.** BHMS yoki MHXS boʻyicha tuzilgan moliyaviy hisobot auditi — Audit va ishonchni taʼminlaydigan topshiriqlarning xalqaro standartlari boʻyicha kengash (IAASB) chiqargan Xalqaro audit standartlariga muvofiq.
-- **Soliq konsaltingi.** Soliqlar boʻyicha maslahatlar va yozma xulosalar.
-- **MHXS.** MHXS boʻyicha hisobot tayyorlash, milliy standartlardan transformatsiya, birinchi qoʻllash va konsolidatsiya.
+- **Audit.** BHMS yoki MHXS boʻyicha tuzilgan moliyaviy hisobot auditi — Xalqaro buxgalterlar federatsiyasining Audit va ishonchni taʼminlaydigan topshiriqlarning xalqaro standartlari boʻyicha kengashi eʼlon qiladigan auditning xalqaro standartlariga muvofiq.
+- **Soliq konsaltingi.** Soliqqa oid qonunchilikni qoʻllash, soliqlar va yigʻimlar boʻyicha hisob-kitoblar va deklaratsiyalar tuzish yuzasidan maslahatlar.
+- **MHXS.** Moliyaviy hisobotning xalqaro standartlari boʻyicha moliyaviy hisobot tuzish: transformatsiya, birinchi qoʻllash va konsolidatsiya.
 - **Forenzik.** Moliyaviy tekshiruvlar va nizoda foydalanish mumkin boʻlgan dalillarni toʻplash.
 
 ## Boshqa xizmatlar
 
-- obzor tekshiruvlari, kelishilgan protseduralar va hisobot kompilyatsiyasi;
-- axborotning ishonchliligini tasdiqlashga oid boshqa topshiriqlar;
-- hisob tizimi maʼlumotlarining xavfsizligi va yaxlitligi toʻgʻrisidagi hisobot.
+- moliyaviy hisobotning tahliliy tekshiruvlari;
+- ishonchni taʼminlaydigan topshiriqlar;
+- kelishilgan protseduralar va moliyaviy axborotni kompilyatsiya qilish;
+- moliyaviy axborotning axborot xavfsizligi boʻyicha tavsiyalar.
 
 Batafsil — [«Xizmatlar»](/uz/services/) boʻlimida.
 
 ## Mustaqillik va sifat
 
-Biz oʻzimiz tayyorlagan yoki transformatsiya qilgan hisobotni oʻsha davr uchun tekshirmaymiz. Firmaning sifatni boshqarish tizimi Audit va ishonchni taʼminlaydigan topshiriqlarning xalqaro standartlari boʻyicha kengash (IAASB) chiqargan Sifatni boshqarish boʻyicha xalqaro standart 1 ga muvofiq tuzilgan. Chiqarilishidan oldin har bir xulosa ichki sifat tekshiruvidan oʻtadi.
+Tekshiriladigan davrda buxgalteriya hisobini yuritgan yoki moliyaviy hisobotini, shu jumladan MHXS boʻyicha, tuzgan tashkilotimizda auditorlik tekshiruvini oʻtkazmaymiz. Auditorlar ishi sifatining ichki nazorati Xalqaro buxgalterlar federatsiyasining Audit va ishonchni taʼminlaydigan topshiriqlarning xalqaro standartlari boʻyicha kengashi eʼlon qiladigan sifat nazoratining xalqaro standartlariga muvofiq tashkil etilgan.
 
 ## Tillar
 

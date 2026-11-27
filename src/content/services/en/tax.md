@@ -1,7 +1,7 @@
 ---
 title: "Tax advice"
 short: "Tax advice"
-summary: "Written opinions on tax questions with the answer in the first paragraph, numbered arguments and references to provisions on lex.uz in the edition in force. Support in tax inspections and disputes."
+summary: "Advice on the application of tax legislation and on the preparation of tax calculations and returns. Written opinions with the answer in the first paragraph, numbered arguments and references to provisions on lex.uz in the edition in force."
 order: 7
 standards: ["Tax Code of Uzbekistan", "IESBA 604, 608"]
 deliverables:
@@ -21,7 +21,7 @@ faq:
 - tax consequences of a transaction, reorganisation, dividend payment or loan;
 - VAT and profit tax on complex transactions, international transactions and double taxation treaties;
 - application of tax incentives and special regimes;
-- support in a tax inspection: preparing objections and a position in a dispute.
+- advice in the course of a tax inspection.
 
 ## How the opinion is structured
 

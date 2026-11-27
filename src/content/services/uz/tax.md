@@ -1,7 +1,7 @@
 ---
 title: "Soliq konsaltingi"
 short: "Soliq konsaltingi"
-summary: "Soliq masalalari boʻyicha yozma xulosalar: javob birinchi xatboshida, raqamlangan dalillar va lex.uz normalariga amaldagi tahrirda havolalar. Soliq tekshiruvlari va nizolarni kuzatib borish."
+summary: "Soliqqa oid qonunchilikni qoʻllash, soliqlar va yigʻimlar boʻyicha hisob-kitoblar va deklaratsiyalar tuzish yuzasidan maslahatlar. Yozma xulosalar: javob birinchi xatboshida, raqamlangan dalillar va lex.uz normalariga amaldagi tahrirda havolalar."
 order: 7
 standards: ["OʻzR Soliq kodeksi", "IESBA 604, 608"]
 deliverables:
@@ -22,7 +22,7 @@ reviewed: false
 - bitim, qayta tashkil etish, dividendlar toʻlash yoki qarzning soliq oqibatlari;
 - murakkab operatsiyalar boʻyicha QQS va foyda soligʻi, xalqaro operatsiyalar va ikki yoqlama soliq solishning oldini olish toʻgʻrisidagi bitimlar;
 - soliq imtiyozlari va maxsus rejimlarni qoʻllash;
-- soliq tekshiruvini kuzatib borish: eʼtirozlar tayyorlash va nizodagi pozitsiya.
+- soliq tekshiruvi davomida maslahat berish.
 
 ## Xulosa qanday tuzilgan
 

@@ -1,6 +1,6 @@
 ---
-title: "Data security and integrity report"
-short: "Data security report"
+title: "Information security of financial information"
+short: "Information security"
 summary: "Review of the general IT controls of the accounting system and the integrity of accounting data, as part of an audit or as a separate engagement. Assessment through nine integrity tests, graded A to D, and a report for management."
 order: 8
 standards: ["ISA 315", "ZRU-764", "COBIT"]

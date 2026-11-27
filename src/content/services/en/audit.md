@@ -31,7 +31,7 @@ faq:
 1. **Acceptance.** Independence and conflict-of-interest check, engagement letter, plan and budget.
 2. **Planning.** Understanding of the business, risk assessment, materiality, audit strategy, request for data from the accounting system.
 3. **Procedures.** Tests of complete populations of entries, journal entries, confirmations, observation of the stocktake, analytics.
-4. **Completion.** Evaluation of misstatements, events after the reporting date, internal quality review, issue of the report.
+4. **Completion.** Evaluation of misstatements, events after the reporting date, internal quality control, issue of the report.
 
 ## Standards and basis
 

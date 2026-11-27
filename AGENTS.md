@@ -36,6 +36,12 @@ Readers contact the firm by e-mail or social channels only.
     "commercial law". A standard is named in full with its issuer on first mention (International Standards on
     Auditing and International Standard on Quality Management 1, issued by the IAASB), not by a bare abbreviation.
     Do not advertise AI: the blog rubric is «Современные технологии», and firm pages do not mention AI.
+    Terms follow the Law on Auditing Activity (ЗРУ-677): art. 9 for the standards («международные стандарты аудита,
+    публикуемые Советом по международным стандартам аудита и заданий, обеспечивающих уверенность Международной
+    федерации бухгалтеров»; «международные стандарты контроля качества»), art. 33 for the services («консультирование
+    по применению налогового законодательства», «составление финансовой отчетности по МСФО», «информационная
+    безопасность финансовой информации»), art. 45 for quality («внутренний контроль качества работы аудиторов»).
+    Uzbek uses the law's words: tahliliy tekshiruv, turdosh xizmatlar, auditning xalqaro standartlari.
     No slogans anywhere: the firm is presented by the plain line «Аудит, налоги и консалтинг».
 
 ## Writing a post
