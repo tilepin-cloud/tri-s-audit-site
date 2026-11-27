@@ -24,7 +24,7 @@ for (const lang of langs) {
   const fm = [
     '---', `title: "${titles[lang]}"`, `description: "${descs[lang]}"`, `date: ${date}`, `rubric: ${rubric}`, `tags: ["${rubric}"]`,
     issue ? `issue: ${issue}` : null, `author: ${author}`, `translationKey: ${slug}`, 'draft: true', lang === 'ru' ? null : 'reviewed: false',
-    'sources:', '  - title: ""', '    url: ""', '---', '',
+    '---', '',
   ].filter((l) => l !== null).join('\n');
   const body = `## ${h[lang][0]}\n\n- \n- \n- \n\n## ${h[lang][1]}\n\n\n\n## ${h[lang][2]}\n\n`;
   writeFileSync(file, fm + body, 'utf8');
