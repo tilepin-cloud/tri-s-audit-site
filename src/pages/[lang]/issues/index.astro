@@ -5,7 +5,8 @@ import { LANGS, type Lang } from '@/config/site';
 import { t, localePath, formatDate } from '@/i18n/utils';
 import { getIssues, getPosts } from '@/lib/content';
 
-export function getStaticPaths() { return LANGS.map((lang) => ({ params: { lang } })); }
+// No issues, no page: the list is built only when issues.yaml has at least one issue.
+export async function getStaticPaths() { return (await getIssues()).length ? LANGS.map((lang) => ({ params: { lang } })) : []; }
 const lang = Astro.params.lang as Lang;
 const tr = t(lang);
 const issues = await getIssues();
