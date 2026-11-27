@@ -17,7 +17,6 @@ const cats = (Object.keys(DOC_CATEGORIES) as DocCategory[]).filter((c) => docs.s
   <div class="wrap page-head">
     <Crumbs items={[{ name: tr('nav.home'), href: localePath(lang) }, { name: tr('docs.title') }]} />
     <h1>{tr('docs.title')}</h1>
-    <p class="lead">{tr('docs.description')}</p>
   </div>
   <div class="wrap page-body">
     {cats.map((c) => (
