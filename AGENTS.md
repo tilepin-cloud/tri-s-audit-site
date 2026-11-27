@@ -42,6 +42,9 @@ Readers contact the firm by e-mail or social channels only.
     по применению налогового законодательства», «составление финансовой отчетности по МСФО», «информационная
     безопасность финансовой информации»), art. 45 for quality («внутренний контроль качества работы аудиторов»).
     Uzbek uses the law's words: tahliliy tekshiruv, turdosh xizmatlar, auditning xalqaro standartlari.
+    No bare abbreviations: on first mention in a page write the full name, then the abbreviation in brackets
+    («международные стандарты финансовой отчетности (МСФО)»); the `standards:` tags of a service are data and are
+    not shown. Do not name НСБУ: write «национальные и международные стандарты финансовой отчетности».
     No slogans anywhere: the firm is presented by the plain line «Аудит, налоги и консалтинг».
 
 ## Writing a post

@@ -1,7 +1,7 @@
 ---
 title: "Moliyaviy hisobotning tahliliy tekshiruvi"
 short: "Tahliliy tekshiruv"
-summary: "XOTS 2400 boʻyicha soʻrovlar va tahliliy protseduralarga asoslangan cheklangan ishonch — toʻliq audit talab etilmasa-yu, egasi, bank yoki hamkorga tasdiq kerak boʻlganda."
+summary: "Tahliliy tekshiruvlarning xalqaro standarti (XOTS) 2400 boʻyicha soʻrovlar va tahliliy protseduralarga asoslangan cheklangan ishonch — toʻliq audit talab etilmasa-yu, egasi, bank yoki hamkorga tasdiq kerak boʻlganda."
 order: 2
 standards: ["XOTS 2400", "XOTS 2410"]
 deliverables:

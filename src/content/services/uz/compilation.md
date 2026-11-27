@@ -1,7 +1,7 @@
 ---
 title: "Moliyaviy axborotni kompilyatsiya qilish"
 short: "Kompilyatsiya"
-summary: "Mijozning hisob maʼlumotlaridan BHMS yoki MHXS boʻyicha moliyaviy hisobot tayyorlash va XTXS 4410 boʻyicha kompilyatsiya hisoboti. Auditsiz va ishonchsiz — lekin shakl va mantiq uchun bizning kasbiy javobgarligimiz bilan."
+summary: "Mijozning hisob maʼlumotlaridan milliy yoki xalqaro moliyaviy hisobot standartlari boʻyicha moliyaviy hisobot tayyorlash va turdosh xizmatlarning xalqaro standarti (XTXS) 4410 boʻyicha kompilyatsiya hisoboti. Auditsiz va ishonchsiz — lekin shakl va mantiq uchun bizning kasbiy javobgarligimiz bilan."
 order: 4
 standards: ["XTXS 4410"]
 deliverables:
@@ -17,7 +17,7 @@ reviewed: false
 
 ## Kompilyatsiya qachon kerak
 
-- investor yoki bank uchun MHXS boʻyicha birinchi hisobotni tayyorlash;
+- investor yoki bank uchun moliyaviy hisobotning xalqaro standartlari (MHXS) boʻyicha birinchi hisobotni tayyorlash;
 - shoʻba kompaniyaning guruh standartlari boʻyicha hisoboti;
 - oʻtgan davrlar hisobotini qayta tiklash;
 - MHXSga yaqin formatdagi boshqaruv hisoboti.

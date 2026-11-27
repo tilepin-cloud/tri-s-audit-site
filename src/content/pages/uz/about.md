@@ -1,6 +1,6 @@
 ---
 title: "Firma haqida"
-description: "TRI-S-AUDIT — audit, soliq va konsalting. Oʻzbekistonda 2002 yildan beri ishlaymiz: moliyaviy hisobot auditi, soliq konsaltingi, MHXS boʻyicha hisobot va forenzik."
+description: "TRI-S-AUDIT — audit, soliq va konsalting. Oʻzbekistonda 2002 yildan beri ishlaymiz: moliyaviy hisobot auditi, soliq konsaltingi, moliyaviy hisobotning xalqaro standartlari (MHXS) boʻyicha hisobot va forenzik."
 updated: 2026-11-27
 reviewed: false
 ---
@@ -12,7 +12,7 @@ Zamonaviy audit usullarini qoʻllaymiz. Ish yillari davomida firmaning salmoqli 
 
 ## Asosiy yoʻnalishlar
 
-- **Audit.** BHMS yoki MHXS boʻyicha tuzilgan moliyaviy hisobot auditi — Xalqaro buxgalterlar federatsiyasining Audit va ishonchni taʼminlaydigan topshiriqlarning xalqaro standartlari boʻyicha kengashi eʼlon qiladigan auditning xalqaro standartlariga muvofiq.
+- **Audit.** Milliy yoki xalqaro moliyaviy hisobot standartlari boʻyicha tuzilgan moliyaviy hisobot auditi — Xalqaro buxgalterlar federatsiyasining Audit va ishonchni taʼminlaydigan topshiriqlarning xalqaro standartlari boʻyicha kengashi eʼlon qiladigan auditning xalqaro standartlariga muvofiq.
 - **Soliq konsaltingi.** Soliqqa oid qonunchilikni qoʻllash, soliqlar va yigʻimlar boʻyicha hisob-kitoblar va deklaratsiyalar tuzish yuzasidan maslahatlar.
 - **MHXS.** Moliyaviy hisobotning xalqaro standartlari boʻyicha moliyaviy hisobot tuzish: transformatsiya, birinchi qoʻllash va konsolidatsiya.
 - **Forenzik.** Moliyaviy tekshiruvlar va nizoda foydalanish mumkin boʻlgan dalillarni toʻplash.

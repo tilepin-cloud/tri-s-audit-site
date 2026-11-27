@@ -55,8 +55,8 @@ export const HOME_SERVICES = ['audit', 'tax', 'ifrs', 'forensic', 'review', 'agr
 
 /** Blog rubrics. The slug is language-independent and appears in URLs: /ru/blog/rubric/audit/ */
 export const RUBRICS = {
-  audit: { ru: 'Аудит и МСА', en: 'Audit and ISA', uz: 'Audit va XAS' },
-  ifrs: { ru: 'МСФО и НСБУ', en: 'IFRS and NAS', uz: 'MHXS va BHMS' },
+  audit: { ru: 'Аудит', en: 'Audit', uz: 'Audit' },
+  ifrs: { ru: 'Финансовая отчетность', en: 'Financial reporting', uz: 'Moliyaviy hisobot' },
   tax: { ru: 'Налоги', en: 'Tax', uz: 'Soliq' },
   ai: { ru: 'Современные технологии', en: 'Technology', uz: 'Zamonaviy texnologiyalar' },
   firm: { ru: 'Новости фирмы', en: 'Firm news', uz: 'Firma yangiliklari' },

@@ -36,7 +36,6 @@ const jsonLd = [
 <Base lang={lang} title={entry.data.title} description={entry.data.summary} section="services" alternates={alternates} jsonLd={jsonLd}>
   <div class="wrap page-head">
     <Crumbs items={[{ name: tr('nav.home'), href: localePath(lang) }, { name: tr('services.title'), href: localePath(lang, 'services') }, { name: entry.data.title }]} />
-    {entry.data.standards.length > 0 && <p class="eyebrow">{entry.data.standards.join(' · ')}</p>}
     <h1>{entry.data.title}</h1>
     <p class="lead">{entry.data.summary}</p>
   </div>

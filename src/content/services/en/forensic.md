@@ -1,5 +1,5 @@
 ---
-title: "Forensic work and evidence gathering"
+title: "Forensic accounting"
 short: "Forensic"
 summary: "Investigation of indications of fraud, reconstruction of accounting records and gathering of evidence from accounting and open sources under admissibility rules, for owners, boards of directors and lawyers."
 order: 9

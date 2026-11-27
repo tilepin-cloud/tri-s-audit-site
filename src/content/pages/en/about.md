@@ -1,6 +1,6 @@
 ---
 title: "About the firm"
-description: "TRI-S-AUDIT: audit, tax and advisory. In Uzbekistan since 2002: audit of financial statements, tax advice, IFRS reporting and forensic work."
+description: "TRI-S-AUDIT: audit, tax and advisory. In Uzbekistan since 2002: audit of financial statements, tax advice, reporting under International Financial Reporting Standards (IFRS) and forensic work."
 updated: 2026-11-27
 ---
 ## Who we are
@@ -11,7 +11,7 @@ We use modern audit methods. Over the years the firm has built a solid client ba
 
 ## Main lines of work
 
-- **Audit.** Audit of financial statements prepared under the national standards or IFRS, in accordance with the International Standards on Auditing published by the International Auditing and Assurance Standards Board of the International Federation of Accountants.
+- **Audit.** Audit of financial statements prepared under national or international financial reporting standards, in accordance with the International Standards on Auditing published by the International Auditing and Assurance Standards Board of the International Federation of Accountants.
 - **Tax advice.** Advice on the application of tax legislation and on the preparation of tax calculations and returns.
 - **IFRS.** Preparation of financial statements under International Financial Reporting Standards: transformation, first-time adoption and consolidation.
 - **Forensic work.** Financial investigations and the gathering of evidence that can be used in a dispute.

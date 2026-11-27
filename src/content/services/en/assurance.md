@@ -1,15 +1,15 @@
 ---
 title: "Assurance engagements"
 short: "Assurance engagements"
-summary: "Independent assurance on non-financial information: indicators, control systems, compliance with the terms of a contract or regulation, under ISAE 3000 with reasonable or limited assurance."
+summary: "Independent assurance on non-financial information: indicators, control systems, compliance with the terms of a contract or regulation, under International Standard on Assurance Engagements (ISAE) 3000 with reasonable or limited assurance."
 order: 5
 standards: ["ISAE 3000", "ISAE 3402"]
 deliverables:
   - "Assurance report describing the subject matter and criteria"
   - "Report on identified deviations"
 faq:
-  - q: "Do you provide assurance on sustainability (ESG) reporting?"
-    a: "No. The firm does not undertake ISSA 5000 engagements. We provide assurance on financial and operational indicators, controls and compliance."
+  - q: "Do you provide assurance on sustainability reporting?"
+    a: "No. The firm does not undertake engagements under International Standard on Sustainability Assurance (ISSA) 5000. We provide assurance on financial and operational indicators, controls and compliance."
 ---
 <div class="callout"><b>In brief.</b> When a regulator, partner or parent company asks for independent assurance not on the financial statements as a whole but on specific information (an indicator, a procedure, compliance with requirements), ISAE 3000 applies. We agree the subject matter and criteria, perform the procedures and issue a report with reasonable or limited assurance.</div>
 

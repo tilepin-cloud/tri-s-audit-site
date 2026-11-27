@@ -77,7 +77,6 @@ const facts: [string, string][] = [
         {homeServices.map((s) => (
           <article class="card">
             <ServiceIcon name={entryKey(s)} />
-            {s.data.standards.length > 0 && <span class="std">{s.data.standards.join(' · ')}</span>}
             <h3><a href={localePath(lang, 'services', serviceSlug(s))}>{s.data.title}</a></h3>
             <p>{s.data.summary}</p>
           </article>

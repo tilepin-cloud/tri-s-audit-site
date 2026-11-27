@@ -25,7 +25,6 @@ const site = Astro.site!;
       {services.map((s) => (
         <article class="card">
           <ServiceIcon name={entryKey(s)} />
-          {s.data.standards.length > 0 && <span class="std">{s.data.standards.join(' · ')}</span>}
           <h2><a href={localePath(lang, 'services', serviceSlug(s))}>{s.data.title}</a></h2>
           <p>{s.data.summary}</p>
         </article>

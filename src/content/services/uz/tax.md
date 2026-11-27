@@ -12,7 +12,7 @@ faq:
   - q: "Maslahatni ogʻzaki olish mumkinmi?"
     a: "Dastlabki muhokama — ha. Xulosani biz yozma chiqaramiz: u normalar va hisob-kitoblarni tekshirishdan oʻtadi va hamkor tomonidan imzolanadi."
   - q: "Auditorlik mijozlariga maslahat berasizlarmi?"
-    a: "Ha, IESBA Etika kodeksi auditdan oʻtkaziladigan tashkilotlar uchun ruxsat etgan doirada. Jamoat manfaatlarini ifodalovchi tashkilotlar uchun bir qator xizmatlar mavjud emas va bu haqda qabul qilish vaqtida aytamiz."
+    a: "Ha, Professional buxgalterning etika kodeksi auditdan oʻtkaziladigan tashkilotlar uchun ruxsat etgan doirada. Jamoat manfaatlarini ifodalovchi tashkilotlar uchun bir qator xizmatlar mavjud emas va bu haqda qabul qilish vaqtida aytamiz."
 reviewed: false
 ---
 <div class="callout"><b>Qisqacha.</b> Siz savol berasiz — biz yozma javob beramiz: birinchi xatboshida xulosa, keyin Soliq kodeksi va soliq qonunchiligining boshqa hujjatlari moddalariga xulosa sanasida amaldagi tahrirda havolalar bilan dalillar, xavflarni baholash va keyin nima qilish kerakligi. Har bir normani chiqarishdan oldin lex.uz saytida tekshiramiz.</div>
@@ -20,7 +20,7 @@ reviewed: false
 ## Odatiy savollar
 
 - bitim, qayta tashkil etish, dividendlar toʻlash yoki qarzning soliq oqibatlari;
-- murakkab operatsiyalar boʻyicha QQS va foyda soligʻi, xalqaro operatsiyalar va ikki yoqlama soliq solishning oldini olish toʻgʻrisidagi bitimlar;
+- murakkab operatsiyalar boʻyicha qoʻshilgan qiymat soligʻi (QQS) va foyda soligʻi, xalqaro operatsiyalar va ikki yoqlama soliq solishning oldini olish toʻgʻrisidagi bitimlar;
 - soliq imtiyozlari va maxsus rejimlarni qoʻllash;
 - soliq tekshiruvi davomida maslahat berish.
 
