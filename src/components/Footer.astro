@@ -6,7 +6,7 @@
  */
 import { LANGS, HOME_SERVICES, firm, type Lang } from '@/config/site';
 import { t, localePath } from '@/i18n/utils';
-import { getServices, serviceSlug, entryKey } from '@/lib/content';
+import { getServices, getIssues, serviceSlug, entryKey } from '@/lib/content';
 
 interface Props { lang: Lang; alternates: Partial<Record<Lang, string>> }
 const { lang } = Astro.props;
@@ -17,11 +17,12 @@ const socials = [
   ['Telegram', firm.social.telegram], ['LinkedIn', firm.social.linkedin], ['Facebook', firm.social.facebook],
   ['Instagram', firm.social.instagram], ['YouTube', firm.social.youtube],
 ].filter(([, url]) => url) as [string, string][];
+const hasIssues = (await getIssues()).length > 0; // the link appears with the first issue
 const sections = [
   { href: localePath(lang, 'about'), label: tr('nav.about') },
   { href: localePath(lang, 'team'), label: tr('nav.team') },
   { href: localePath(lang, 'blog'), label: tr('nav.blog') },
-  { href: localePath(lang, 'issues'), label: tr('nav.issues') },
+  ...(hasIssues ? [{ href: localePath(lang, 'issues'), label: tr('nav.issues') }] : []),
   { href: localePath(lang, 'documents'), label: tr('nav.documents') },
   { href: localePath(lang, 'for-ai'), label: tr('nav.forAi') },
   { href: localePath(lang, 'contacts'), label: tr('nav.contacts') },

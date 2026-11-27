@@ -2,7 +2,8 @@
 /**
  * Content gate, run before every build (npm run check:content) and in CI.
  * Errors (exit 1): [TBD]/[TBC] in a non-draft text, a post without translationKey or author, an unknown author,
- *                  a document whose file is missing, a broken internal link, a date in the wrong format.
+ *                  a document whose file is missing, a broken internal link, a date in the wrong format,
+ *                  a post that links to an author's personal site (reprints carry no such link, AGENTS.md rule 8).
  * Warnings:        a text present in one language but not the others, reviewed: false, a description outside 40–320 chars.
  * Pure Node, no dependencies; the file walker and the front matter parser are in lib/content-files.mjs.
  */
@@ -14,6 +15,8 @@ const errors = [], warnings = [];
 const err = (f, m) => errors.push(`${rel(f)}: ${m}`);
 const warn = (f, m) => warnings.push(`${rel(f)}: ${m}`);
 
+// Personal sites of the authors: a post never links to them, also when it is a reprint from there (AGENTS.md rule 8).
+const PERSONAL_SITES = ['tilep.in'];
 const collections = ['pages', 'services', 'team', 'posts'];
 const byKey = {}; // collection -> key -> Set(lang)
 const authors = new Set(walk(join(CONTENT, 'team')).map((f) => f.split(sep).pop().replace(/\.(md|mdx)$/, '')));
@@ -44,6 +47,8 @@ for (const col of collections) {
       const id = `${lang}/${slug}`;
       if (postSlugs.has(id)) err(file, `duplicate slug "${slug}" in ${lang}`); else postSlugs.add(id);
       if (!data.description) err(file, 'description is required');
+      const personal = body.match(new RegExp(`https?://(www\.)?(${PERSONAL_SITES.join('|').replaceAll('.', '\.')})`, 'g'));
+      if (personal) err(file, `${personal.length} × link to the author's personal site (AGENTS.md rule 8)`);
     }
     // Internal links: /ru/... must resolve to a content entry or a known route; relative links to .md are not allowed.
     for (const m of body.matchAll(/\]\((\/[a-z]{2}\/[^)#\s]*)/g)) {

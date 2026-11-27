@@ -8,8 +8,6 @@ author: tilepin
 translationKey: audit-platform
 draft: false
 ---
-*Статья впервые опубликована на личном сайте автора: [tilep.in/pro/audit-platform](https://tilep.in/pro/audit-platform/).*
-
 ## Главное
 
 - Данные из системы министерство использует, когда выбирает, кого проверять.
