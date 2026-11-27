@@ -35,6 +35,7 @@ Readers contact the firm by e-mail or social channels only.
     Audit always comes first in any list of what the firm does. The firm gives tax advice only: no legal advice, no
     "commercial law". A standard is named in full with its issuer on first mention (International Standards on
     Auditing and International Standard on Quality Management 1, issued by the IAASB), not by a bare abbreviation.
+    Do not advertise AI: the blog rubric is «Современные технологии», and firm pages do not mention AI.
     No slogans anywhere: the firm is presented by the plain line «Аудит, налоги и консалтинг».
 
 ## Writing a post

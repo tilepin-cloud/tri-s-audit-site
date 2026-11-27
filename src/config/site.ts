@@ -58,7 +58,7 @@ export const RUBRICS = {
   audit: { ru: 'Аудит и МСА', en: 'Audit and ISA', uz: 'Audit va XAS' },
   ifrs: { ru: 'МСФО и НСБУ', en: 'IFRS and NAS', uz: 'MHXS va BHMS' },
   tax: { ru: 'Налоги', en: 'Tax', uz: 'Soliq' },
-  ai: { ru: 'ИИ в аудите и финансах', en: 'AI in audit and finance', uz: 'Audit va moliyada sunʼiy intellekt' },
+  ai: { ru: 'Современные технологии', en: 'Technology', uz: 'Zamonaviy texnologiyalar' },
   firm: { ru: 'Новости фирмы', en: 'Firm news', uz: 'Firma yangiliklari' },
 } as const;
 export type Rubric = keyof typeof RUBRICS;
