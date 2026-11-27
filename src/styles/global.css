@@ -2,17 +2,11 @@
    White tall header with the owl mark and the wordmark; full-bleed hero with the mountain photo under a dark
    gradient; navy #0F2A44 panels with thin-bordered cards; numbered steps; the leadership block on a #EEF5FB band;
    posts as bordered cards; sky #3080C0 contact panel; near-black #0B1420 footer. Sections breathe at 128–136 px.
-   Fonts (owner, 27.11.2026): Piazzolla for the big titles and the reading text, Onest for the interface, Montserrat
-   700–800 only in the wordmark and the firm name of the hero; all served locally from Fontsource. Orange #F87831 appears only in hover and focus states and as the
+   Fonts (owner, 27.11.2026): Piazzolla for the big titles and the reading text, Onest for the interface, the
+   wordmark and the firm name of the hero in Piazzolla; served locally from Fontsource. Orange #F87831 appears only in hover and focus states and as the
    underline of the current language: text links get an orange underline on hover, buttons and cards never.
    One light scheme. */
 
-@import '@fontsource/montserrat/cyrillic-700.css';
-@import '@fontsource/montserrat/cyrillic-800.css';
-@import '@fontsource/montserrat/latin-700.css';
-@import '@fontsource/montserrat/latin-800.css';
-@import '@fontsource/montserrat/latin-ext-700.css';
-@import '@fontsource/montserrat/latin-ext-800.css';
 /* Piazzolla (serif) and Onest (sans), variable fonts, for the whole site; magazine.css holds the article layout. */
 @import '@fontsource-variable/piazzolla/opsz.css';
 @import '@fontsource-variable/piazzolla/opsz-italic.css';
@@ -35,10 +29,10 @@
 
   /* Fonts (owner, 27.11.2026): the pairing of a printed magazine on every page. Piazzolla, a serif, sets the big
      titles and the reading text; Onest, a sans, sets the interface: menu, buttons, labels, small headings, tables.
-     Montserrat stays only in the wordmark and the firm name of the hero, which are the logo. */
+     The wordmark and the firm name of the hero are set in Piazzolla too (owner, 27.11.2026). */
   --f-serif: "Piazzolla Variable", Piazzolla, "PT Serif", Georgia, serif;
   --f-label: "Onest Variable", Onest, "Segoe UI", system-ui, Arial, sans-serif;
-  --f-brand: Montserrat, "Segoe UI", Arial, sans-serif;
+  --f-brand: var(--f-serif);
   --f-head: var(--f-label);
   --f-text: var(--f-label);
   --f-mono: Consolas, "SF Mono", Menlo, monospace;
@@ -119,7 +113,7 @@ hr { border: 0; border-top: 1px solid var(--c-line); margin: 40px 0; }
 .hdr { display: flex; align-items: center; gap: 40px; min-height: 96px; flex-wrap: wrap; padding-top: 12px; padding-bottom: 12px; }
 .brand { display: flex; align-items: center; gap: 16px; color: var(--c-ink); text-decoration: none; }
 .brand img { height: 44px; width: auto; }
-.wordmark { font-family: var(--f-brand); font-weight: 700; font-size: 21px; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
+.wordmark { font-family: var(--f-brand); font-optical-sizing: auto; font-weight: 700; font-size: 21px; letter-spacing: .06em; text-transform: uppercase; white-space: nowrap; }
 .mainnav { margin-left: auto; }
 .nav { display: flex; flex-wrap: wrap; gap: 8px 36px; list-style: none; margin: 0; padding: 0; }
 .nav a { color: var(--c-ink); font-size: 17px; font-weight: 500; letter-spacing: .005em; text-underline-offset: 7px; }
@@ -194,7 +188,7 @@ hr { border: 0; border-top: 1px solid var(--c-line); margin: 40px 0; }
 .hero > .wrap { position: relative; z-index: 1; width: 100%; display: flex; flex-direction: column; padding-top: 120px; padding-bottom: 96px; }
 .hero-top { text-align: center; }
 .hero-top .eyebrow { color: rgb(255 255 255 / .85); margin-bottom: 28px; }
-.hero-title { margin: 0; font-family: var(--f-brand); font-weight: 800; text-transform: uppercase; letter-spacing: .06em; line-height: 1; font-size: clamp(32px, 8.6vw, 132px); color: var(--c-white); white-space: nowrap; text-shadow: 0 2px 24px rgb(11 20 32 / .35); }
+.hero-title { margin: 0; font-family: var(--f-brand); font-optical-sizing: auto; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; line-height: 1; font-size: clamp(32px, 8.6vw, 132px); color: var(--c-white); white-space: nowrap; text-shadow: 0 2px 24px rgb(11 20 32 / .35); }
 .hero-lower { margin-top: auto; padding-top: 280px; }
 .hero-lead { margin: 0; font-size: 22px; line-height: 1.55; color: rgb(255 255 255 / .84); max-width: 720px; }
 .facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px; margin-top: 112px; }

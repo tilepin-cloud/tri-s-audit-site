@@ -15,7 +15,7 @@ texts, human author on every post, three languages by `translationKey`, nothing 
 | `src/lib/schema.ts` | schema.org builders (Organization, Person, BlogPosting, Service, FAQPage, Breadcrumbs) |
 | `src/lib/content.ts` | collection queries, visibility (drafts and future dates hidden in production) |
 | `src/pages/` | routes under `[lang]/`; `robots.txt.ts`, `llms.txt.ts`, `llms-full.txt.ts`, `og/[...path].png.ts` |
-| `src/styles/global.css` | design v3 tokens and styles; Piazzolla and Onest via `@fontsource-variable`, Montserrat for the wordmark; no framework |
+| `src/styles/global.css` | design v3 tokens and styles; Piazzolla and Onest via `@fontsource-variable`; no framework |
 | `src/styles/magazine.css` | the magazine layout of the article page and the lists of articles |
 | `scripts/` | `check-content.mjs` gate, `new-post.mjs` scaffold, `indexnow.mjs`, `panel.mjs` the control panel; shared readers in `lib/content-files.mjs` |
 | `public/_headers`, `public/_redirects` | security headers and 301 map for Cloudflare |
@@ -59,8 +59,8 @@ shows as many posts as the repository publishes.
   band; posts as bordered cards; sky `#3080C0` contact panel; near-black `#0B1420` footer. Sections breathe at
   128–136 px. Colours and fonts only from the tokens in `global.css`. Fonts were changed by the
   owner on 27.11.2026 to the pairing of a printed magazine on every page: Piazzolla (serif) for the big titles and the
-  reading text, Onest (sans) for the interface — menu, buttons, labels, small headings, tables; Montserrat 700–800
-  stays only in the wordmark and the firm name of the hero. All from Fontsource. Orange `#F87831` appears only in hover and focus states and
+  reading text, Onest (sans) for the interface — menu, buttons, labels, small headings, tables. The
+  wordmark and the firm name of the hero are Piazzolla too. All from Fontsource. Orange `#F87831` appears only in hover and focus states and
   under the current language: text links get an orange underline on hover, buttons and cards never. One light scheme.
   At 1180 px and below the header puts the logo and languages on the first row and the menu on a scrolling second
   row. `prototype/` shows the rejected v1 look; `design-v3/` is kept as the visual reference, not built.
