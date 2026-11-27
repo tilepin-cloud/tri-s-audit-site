@@ -1,0 +1,114 @@
+/* Articles: magazine layout (owner, 27.11.2026). The fonts are the site's own (Piazzolla and Onest, see global.css).
+   The article page and the lists of articles follow the layout of a printed magazine with plenty of air on a desktop:
+   a serif text face with a drop cap, a title of two or three lines, sans labels, hairlines and thick top bars
+   instead of cards, the key points in a tinted box beside the text. Colours are the firm's tokens only: ink for the
+   rules and the titles, sky for the accents, the band tint for the box; orange stays in hover and focus.
+   Imported by global.css; the rest of the site keeps design v3. */
+
+.wrap.article { padding-top: 88px; padding-bottom: var(--section); font-family: var(--f-serif); font-optical-sizing: auto; color: var(--c-ink); }
+.article time, .row time { font-variant-numeric: tabular-nums lining-nums; }
+.article__head { display: flex; flex-direction: column; gap: 22px; }
+.article__head .crumbs { margin: 0 0 6px; font-family: var(--f-label); }
+.rubric { margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 14px; font-family: var(--f-label); font-size: 15px; font-weight: 700; line-height: 24px; }
+.rubric a { color: var(--c-muted); text-underline-offset: 4px; }
+.rubric .kind, .row .kind { color: var(--c-sky-dark); }
+/* The title: at most two or three lines on a desktop, and a clear step down to the lead under it. */
+.article h1 { max-width: 24em; margin-bottom: 14px; font-family: var(--f-serif); font-size: 46px; font-weight: 600; line-height: 54px; letter-spacing: -.01em; text-wrap: balance; }
+.article__dek { margin: 0; max-width: 36em; font-size: 22px; line-height: 34px; }
+.dateline { display: flex; flex-wrap: wrap; gap: 0 28px; margin-top: 40px; border-top: 1px solid var(--c-ink); border-bottom: 1px solid var(--c-line); font-family: var(--f-label); font-size: 13px; line-height: 44px; color: var(--c-muted); }
+.dateline > time { color: var(--c-ink); }
+.dateline a { font-weight: 500; text-underline-offset: 4px; }
+
+.article__cols { display: grid; grid-template: "main kt" "main rest" 1fr / minmax(0, 700px) minmax(0, 340px); gap: 56px 96px; justify-content: space-between; align-items: start; margin-top: 80px; }
+.article__cols--plain { grid-template-rows: auto; grid-template-areas: "main rest"; }
+.article__main { grid-area: main; min-width: 0; }
+.article__rest { grid-area: rest; min-width: 0; display: flex; flex-direction: column; gap: 56px; }
+.takeaways { grid-area: kt; display: flex; flex-direction: column; gap: 14px; padding: 24px 28px 30px; background: var(--c-band); border-top: 6px solid var(--c-sky); }
+.takeaways h2 { font-family: var(--f-label); font-size: 15px; font-weight: 700; line-height: 22px; letter-spacing: 0; color: var(--c-sky-dark); }
+.takeaways ul { display: flex; flex-direction: column; gap: 10px; margin: 0; padding-left: 20px; font-size: 17px; line-height: 26px; }
+.takeaways li::marker { color: var(--c-sky); }
+.side-list { display: flex; flex-direction: column; padding-top: 12px; border-top: 6px solid var(--c-ink); }
+.side-list h2 { margin-bottom: 10px; font-family: var(--f-label); font-size: 15px; font-weight: 700; line-height: 22px; letter-spacing: 0; }
+.side-list > a { padding: 11px 0; border-top: 1px solid var(--c-line); font-family: var(--f-label); font-size: 15px; font-weight: 500; line-height: 22px; color: var(--c-ink); text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.side-list > a.side-list__all { color: var(--c-sky-dark); }
+.side-list .share { padding: 12px 0 0; border-top: 1px solid var(--c-line); font-family: var(--f-label); }
+.side-list .share a, .side-list .share button { border-radius: 0; }
+
+.prose.prose-mag { max-width: none; display: flex; flex-direction: column; gap: 26px; font-family: var(--f-serif); font-size: 20px; line-height: 33px; color: var(--c-ink); }
+.prose.prose-mag > * { margin: 0; }
+.prose.prose-mag > p:first-of-type::first-letter { float: left; margin: 7px 10px 0 0; font-size: 98px; font-weight: 600; line-height: 76px; color: var(--c-ink); }
+.prose.prose-mag h2 { margin: 38px 0 0; scroll-margin-top: 16px; font-family: var(--f-label); font-size: 22px; font-weight: 700; line-height: 28px; letter-spacing: -.01em; }
+.prose.prose-mag h3 { margin: 0; font-family: var(--f-label); font-size: 18px; font-weight: 700; line-height: 26px; }
+.prose.prose-mag a { text-decoration-color: currentColor; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.prose.prose-mag a:hover { text-decoration-color: var(--c-orange); }
+.prose.prose-mag ul, .prose.prose-mag ol { display: flex; flex-direction: column; gap: 8px; padding-left: 24px; }
+.prose.prose-mag li { margin: 0; }
+.prose.prose-mag em { color: inherit; }
+.prose.prose-mag blockquote { margin: 14px 0; padding: 22px 0 24px; border: 0; border-top: 1px solid var(--c-ink); border-bottom: 1px solid var(--c-ink); color: var(--c-sky-dark); font-size: 32px; font-style: italic; line-height: 42px; }
+.prose.prose-mag hr { width: 100%; margin: 8px 0; }
+.prose.prose-mag img { border-radius: 0; }
+.prose.prose-mag code { background: var(--c-band); border-radius: 2px; padding: 1px 4px; font-size: .85em; }
+.prose.prose-mag pre { border-radius: 0; font-size: 15px; line-height: 22px; }
+.prose.prose-mag pre code { background: none; padding: 0; font-size: inherit; }
+/* Tables: sans, tabular figures, an ink hairline above and a double-weight rule under the last row. The table stays
+   a scrolling block, so a wide one moves sideways inside the column on a phone. */
+.prose.prose-mag table { margin-top: 14px; font-family: var(--f-label); font-size: 15px; line-height: 21px; font-variant-numeric: tabular-nums lining-nums; text-align: left; }
+.prose.prose-mag th, .prose.prose-mag td { padding: 11px 16px 11px 0; border-bottom: 1px solid var(--c-line); vertical-align: top; }
+.prose.prose-mag th { border-top: 1px solid var(--c-ink); font-family: var(--f-label); font-size: 15px; font-weight: 600; letter-spacing: 0; text-transform: none; color: var(--c-ink); }
+.prose.prose-mag th:last-child, .prose.prose-mag td:last-child { padding-right: 0; }
+.prose.prose-mag tbody tr:last-child > * { border-bottom: 2px solid var(--c-ink); }
+/* The source line under a table is written as an italic paragraph right after it: set it as a caption. */
+.prose.prose-mag table + p:has(> em:only-child) { margin-top: -10px; font-family: var(--f-label); font-size: 13px; line-height: 18px; color: var(--c-muted); }
+.prose.prose-mag table + p:has(> em:only-child) em { font-style: normal; }
+
+.signoff { display: flex; flex-direction: column; gap: 16px; margin-top: 64px; font-family: var(--f-label); }
+.total { box-sizing: content-box; width: 200px; height: 4px; border-top: 2px solid var(--c-ink); border-bottom: 2px solid var(--c-ink); }
+.signoff .author { margin-top: 6px; font-size: 15px; line-height: 22px; }
+.signoff .author a { color: var(--c-ink); text-underline-offset: 4px; }
+.signoff .author span { color: var(--c-muted); }
+.signoff .avatar { font-family: var(--f-label); }
+.signoff p { margin: 0; font-size: 13px; line-height: 18px; color: var(--c-muted); }
+
+/* Lists of articles: rows under hairlines, the meta on the left, the title in the serif face. */
+.page-head.mag-head { padding-top: 88px; padding-bottom: 64px; }
+.page-head.mag-head h1 { max-width: none; font-size: 56px; font-weight: 600; line-height: 60px; }
+.page-head.mag-head .lead { font-family: var(--f-serif); font-optical-sizing: auto; font-size: 24px; line-height: 34px; color: var(--c-ink); max-width: 34em; }
+.rows { border-top: 6px solid var(--c-ink); }
+.row { display: flex; flex-wrap: wrap; gap: 6px 48px; padding: 40px 0 44px; border-bottom: 1px solid var(--c-line); }
+.row__meta { flex: 0 0 200px; display: flex; flex-direction: column; gap: 2px 14px; padding-top: 5px; font-family: var(--f-label); font-size: 13px; line-height: 18px; color: var(--c-muted); }
+.row .kind { font-weight: 600; text-underline-offset: 4px; }
+.row__body { flex: 999 480px; min-width: 0; max-width: 760px; display: flex; flex-direction: column; gap: 8px; font-family: var(--f-serif); font-optical-sizing: auto; }
+.row__title { font-size: 30px; font-weight: 600; line-height: 36px; }
+.row__title a { color: inherit; text-decoration-thickness: 1px; }
+.row__dek { margin: 0; font-size: 19px; line-height: 29px; color: var(--c-ink); }
+.mag-head + .page-body .rubric-nav { font-family: var(--f-label); border-bottom: 0; margin-bottom: 24px; }
+
+@media (max-width: 1000px) {
+  .wrap.article { padding-top: 56px; }
+  .article__cols { margin-top: 48px; gap: 40px; justify-content: start; }
+  .article__cols { grid-template: "kt" "main" "rest" / minmax(0, 700px); }
+  .article__cols--plain { grid-template-areas: "main" "rest"; }
+}
+@media (max-width: 760px) {
+  .wrap.article { padding-top: 32px; }
+  .article__head { gap: 14px; }
+  .article h1 { margin-bottom: 8px; font-size: 30px; line-height: 36px; }
+  .page-head.mag-head { padding-top: 40px; padding-bottom: 32px; }
+  .prose.prose-mag { gap: 22px; }
+  .prose.prose-mag h2 { margin-top: 22px; }
+  .signoff { margin-top: 44px; }
+  .article__dek { font-size: 20px; line-height: 29px; }
+  .dateline { gap: 0 20px; margin-top: 24px; }
+  .article__cols { gap: 36px; margin-top: 36px; }
+  .prose.prose-mag { font-size: 18px; line-height: 29px; }
+  .prose.prose-mag > p:first-of-type::first-letter { font-size: 84px; line-height: 66px; }
+  .prose.prose-mag blockquote { font-size: 25px; line-height: 33px; }
+  .page-head.mag-head h1 { font-size: 38px; line-height: 42px; }
+  .page-head.mag-head .lead { font-size: 20px; line-height: 29px; }
+  .row { padding: 22px 0 26px; }
+  .row__meta { flex: 100%; flex-flow: wrap; padding-top: 0; }
+  .row__body { flex-basis: 100%; }
+  .row__title { font-size: 24px; line-height: 29px; }
+  .row__dek { font-size: 17px; line-height: 26px; }
+}
+@media print { .article__rest { display: none !important; } }

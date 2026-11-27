@@ -1,0 +1,22 @@
+---
+/** A post in the list of articles, magazine layout: the rubric, the date and the author on the left, the title in
+    the serif face and the description on the right, a hairline above. The home page keeps the cards of design v3. */
+import { RUBRICS, type Lang, type Rubric } from '@/config/site';
+import { localePath, formatDate } from '@/i18n/utils';
+import { postSlug, getMember, shortName, type Post } from '@/lib/content';
+
+interface Props { post: Post; lang: Lang; showRubric?: boolean }
+const { post, lang, showRubric = true } = Astro.props;
+const author = (await getMember(lang, post.data.author)) ?? (await getMember('ru', post.data.author));
+---
+<article class="row">
+  <div class="row__meta">
+    {showRubric && <a class="kind" href={localePath(lang, 'blog', 'rubric', post.data.rubric)}>{RUBRICS[post.data.rubric as Rubric][lang]}</a>}
+    <time datetime={post.data.date.toISOString().slice(0, 10)}>{formatDate(post.data.date, lang)}</time>
+    {author && <span>{shortName(author.data.name)}</span>}
+  </div>
+  <div class="row__body">
+    <h2 class="row__title"><a href={localePath(lang, 'blog', postSlug(post))}>{post.data.title}</a></h2>
+    <p class="row__dek">{post.data.description}</p>
+  </div>
+</article>

@@ -15,7 +15,8 @@ texts, human author on every post, three languages by `translationKey`, nothing 
 | `src/lib/schema.ts` | schema.org builders (Organization, Person, BlogPosting, Service, FAQPage, Breadcrumbs) |
 | `src/lib/content.ts` | collection queries, visibility (drafts and future dates hidden in production) |
 | `src/pages/` | routes under `[lang]/`; `robots.txt.ts`, `llms.txt.ts`, `llms-full.txt.ts`, `og/[...path].png.ts` |
-| `src/styles/global.css` | design v3 tokens and all styles; Montserrat and Inter via `@fontsource`; no framework |
+| `src/styles/global.css` | design v3 tokens and styles; Piazzolla and Onest via `@fontsource-variable`, Montserrat for the wordmark; no framework |
+| `src/styles/magazine.css` | the magazine layout of the article page and the lists of articles |
 | `scripts/` | `check-content.mjs` gate, `new-post.mjs` scaffold, `indexnow.mjs`, `panel.mjs` the control panel; shared readers in `lib/content-files.mjs` |
 | `public/_headers`, `public/_redirects` | security headers and 301 map for Cloudflare |
 | `design-v3/` | the approved static page of design v3 (visual source of truth, not built); `CREDITS.md` at the root lists photo and font credits |
@@ -56,11 +57,19 @@ shows as many posts as the repository publishes.
   the owl mark and the wordmark; full-bleed hero with the mountain photo under a dark gradient and the firm name as
   the title; navy `#0F2A44` panels with thin-bordered cards; numbered steps; the leadership block on the `#EEF5FB`
   band; posts as bordered cards; sky `#3080C0` contact panel; near-black `#0B1420` footer. Sections breathe at
-  128–136 px. Colours and fonts only from the tokens in `global.css`: Montserrat 500–800 for headings and the
-  wordmark, Inter 400–600 for text, both from Fontsource. Orange `#F87831` appears only in hover and focus states and
+  128–136 px. Colours and fonts only from the tokens in `global.css`. Fonts were changed by the
+  owner on 27.11.2026 to the pairing of a printed magazine on every page: Piazzolla (serif) for the big titles and the
+  reading text, Onest (sans) for the interface — menu, buttons, labels, small headings, tables; Montserrat 700–800
+  stays only in the wordmark and the firm name of the hero. All from Fontsource. Orange `#F87831` appears only in hover and focus states and
   under the current language: text links get an orange underline on hover, buttons and cards never. One light scheme.
   At 1180 px and below the header puts the logo and languages on the first row and the menu on a scrolling second
   row. `prototype/` shows the rejected v1 look; `design-v3/` is kept as the visual reference, not built.
+- Articles are set as a magazine (owner, 27.11.2026): the article page and the lists under `/blog/` use
+  `magazine.css` — a drop cap, a title of two or three lines with a clear gap to the lead, generous spacing on a
+  desktop, hairlines and 6 px top bars instead of cards, the key points in a tinted box beside the text, a double rule before
+  the author. Colours stay the firm's tokens (ink rules, sky accents, the band tint); orange only in hover and focus.
+  The opening `## Главное` list of a post is cut out of the rendered HTML by `splitTakeaways` in `src/lib/content.ts`
+  and shown in that box. The home page and every other page keep the layout of design v3.
 - Every page sets `alternates` so hreflang is reciprocal and never points at a missing translation.
 - URLs: `/<lang>/section/slug/` with trailing slash; rubric and service keys are language-independent.
 - Uzbek is Latin script (`uz-Latn`); use the proper apostrophes oʻ, gʻ, ʼ.
