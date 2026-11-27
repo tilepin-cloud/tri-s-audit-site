@@ -1,34 +1,33 @@
 ---
 title: "About the firm"
-description: "TRI-S-AUDIT — audit, tax and advisory. The firm was entered in the Ministry of Finance register under No. 6 in 2021. ISA and IFRS audit, tax and legal advice, our own methodology and an AI contour."
-updated: 2026-11-20
+description: "TRI-S-AUDIT: audit, tax and advisory. In Uzbekistan since 2002: audit of financial statements, tax advice, IFRS reporting and forensic work."
+updated: 2026-11-27
 ---
 ## Who we are
 
-TRI-S-AUDIT is an independent audit, tax and advisory firm. We are entered in the register of audit organisations of the Ministry of Finance of the Republic of Uzbekistan under No. 6 (3 June 2021) and work under the International Standards on Auditing, the International Standards on Quality Management and the IESBA Code of Ethics, as recognised in Uzbekistan.
+TRI-S-AUDIT is an independent firm: audit, tax and advisory. We have worked in Uzbekistan since 2002 and are entered in the register of audit organisations of the Ministry of Finance of the Republic of Uzbekistan.
 
-The firm is led by two partners: the managing partner is responsible for engagements and clients; the partner responsible for quality is responsible for the quality system, the methodology and the review of every report before issue. This division is set out in the firm's Manual and is required by ISQM 1.
+We audit under the international standards and use modern audit methods. Over the years the firm has built a solid client base.
 
-## What we do
+## Main lines of work
 
-- audit of financial statements under NAS and IFRS;
-- review engagements, agreed-upon procedures and compilation of financial statements;
-- other assurance engagements under ISAE 3000;
-- transformation of financial statements to IFRS, first-time adoption and consolidation;
-- tax and legal advice;
-- a report on the security and integrity of accounting system data;
-- forensic work and evidence gathering under admissibility rules.
+- **Tax advice.** Advice and written opinions on the tax and commercial law of Uzbekistan.
+- **IFRS.** Preparation of IFRS statements, transformation from the national standards, first-time adoption and consolidation.
+- **Forensic work.** Financial investigations and the gathering of evidence that can be used in a dispute.
 
-We do not provide assurance on sustainability reporting (ISSA 5000), and we do not audit financial statements that we ourselves prepared or transformed for the same period.
+## Audit and other services
 
-## How the quality system works
+- audit of financial statements under the national standards and IFRS;
+- review engagements, agreed-upon procedures and compilation of statements;
+- other assurance engagements;
+- a report on the security and integrity of accounting system data.
 
-The firm's Manual is a set of policies, standards and instructions written in English and Russian and tied to the paragraphs of ISQM 1 and the articles of the Law "On Auditing Activity" (ZRU-677). Every engagement passes through the same gates: acceptance and independence, risk-based planning, data procedures, evaluation of misstatements, quality review, issue. The description of the system, approved by the managing partner, is available in the "Documents" section.
+See [Services](/en/services/) for details.
 
-## Technology contour
+## Independence and quality
 
-The firm uses language models to prepare drafts, check calculations and find provisions on lex.uz. Three rules do not change: models are not trained on client data, personal data enters the contour only in de-identified form, and a human signs the document. More in the blog rubric "AI in audit and finance".
+We do not audit statements that we prepared or transformed for the same period. Before issue every report goes through an internal quality review.
 
 ## Languages
 
-We produce reports, opinions and correspondence in Russian, English and Uzbek. The website is published in three languages; the content of the sections is largely parallel, but may differ where a topic matters to only one audience.
+We write reports, opinions and correspondence in Russian, English and Uzbek.

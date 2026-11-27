@@ -30,11 +30,6 @@ export function organization(lang: Lang) {
       addressCountry: firm.addressParts.country,
     },
     areaServed: { '@type': 'Country', name: 'Uzbekistan' },
-    identifier: {
-      '@type': 'PropertyValue',
-      propertyID: lang === 'ru' ? 'Реестр аудиторских организаций Минфина РУз' : 'Register of audit organisations, Ministry of Finance of Uzbekistan',
-      value: firm.registryNumber,
-    },
     taxID: firm.taxId,
     knowsLanguage: ['ru', 'en', 'uz'],
     sameAs,

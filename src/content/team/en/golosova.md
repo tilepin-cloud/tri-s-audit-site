@@ -1,6 +1,6 @@
 ---
 name: "Svetlana Golosova"
-role: "Managing Partner, Director"
+role: "Director and Managing Partner"
 credentials:
   - "Auditor, qualification certificate of the Republic of Uzbekistan"
 photo: ../../../assets/team/golosova.jpg
@@ -9,8 +9,6 @@ partner: true
 lead: true
 reviewed: false
 ---
-The managing partner is responsible for client relationships, engagement acceptance, performance of engagements and issue of reports, and for the firm as a whole before the authorised body.
+Runs the firm and is responsible for work with clients.
 
-Leads engagements in audit of financial statements, review engagements and agreed-upon procedures; signs audit reports and correspondence with regulators.
-
-*A detailed biography will be added.*
+Leads audits of financial statements, review engagements and agreed-upon procedures, and signs the auditor's reports.

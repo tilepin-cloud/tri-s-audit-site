@@ -1,16 +1,14 @@
 ---
-name: "I. Tilepin"
-role: "Partner responsible for quality, methodology owner"
+name: "Igor Tilepin"
+role: "Deputy Director for Development, Partner"
 credentials:
   - "Auditor, qualification certificate of the Republic of Uzbekistan"
 order: 2
 partner: true
 reviewed: false
 ---
-The partner responsible for quality is responsible for the firm's system of quality management under ISQM 1 and ISQM 2: reviews every report before issue, runs monitoring and remediation of deficiencies, and approves the methodology.
+An auditor, with TRI-S-AUDIT since 2022. Responsible for the development of the firm: audit methodology, digital tools and partnership with international audit networks. Leads audits of statements under ISA and IFRS.
 
-Author of the firm's methodology: the Manual, the machine layer for the AI contour and the templates of working papers. Responsible for the technology contour: approved tools and the rules for handling client data and AI agents.
+Before that he was chief financial officer of manufacturing companies and headed an audit agency.
 
-Leads the blog rubrics "Audit and ISA" and "AI in audit and finance".
-
-*The full name, photo and detailed biography are added by the website owner.*
+Writes the firm's publications on audit, IFRS and tax.

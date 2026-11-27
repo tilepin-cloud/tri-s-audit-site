@@ -6,7 +6,7 @@ reviewed: false
 ---
 ## Rekvizitlar
 
-«TRI-S-AUDIT» MChJ shaklidagi auditorlik tashkiloti. Oʻzbekiston Respublikasi Moliya vazirligining auditorlik tashkilotlari reestri, 2021 yil 3 iyundagi (03.06.2021) 6-raqam. STIR 204722723. Manzil: 100060, Toshkent shahri, Mirobod tumani, T. Shevchenko koʻchasi, 28.
+«TRI-S-AUDIT» MChJ shaklidagi auditorlik tashkiloti. Oʻzbekiston Respublikasi Moliya vazirligining auditorlik tashkilotlari reestriga kiritilgan. 2002 yildan beri ishlaydi. STIR 204722723. Manzil: 100060, Toshkent shahri, Mirobod tumani, T. Shevchenko koʻchasi, 28.
 
 ## Sayt materiallari
 

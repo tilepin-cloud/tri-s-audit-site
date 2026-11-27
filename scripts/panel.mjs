@@ -220,7 +220,7 @@ function attention(d) {
   for (const { name, label } of COLLECTIONS) {
     for (const l of LANGS) {
       const n = d.materials.filter((m) => m.collection === name && m.langs[l] && !m.langs[l].reviewed).length;
-      if (n) add('warn', `Не проверено партнёром: ${label.toLowerCase()}, ${l} — ${n}`);
+      if (n) add('warn', `Не проверено партнером: ${label.toLowerCase()}, ${l} — ${n}`);
     }
   }
   for (const doc of d.documents) {
@@ -228,10 +228,10 @@ function attention(d) {
     else if (doc.draft) add('warn', `Документ «${doc.title}» — черновик, на сайте скрыт`);
   }
   if (d.ownerTodo.length) add('warn', `Данные фирмы ждут подтверждения владельца: ${d.ownerTodo.map((o) => `${o.field}${o.note ? ` (${o.note})` : ''}`).join('; ')}`);
-  if (d.git.uncommitted) add('info', `В рабочей папке ${plural(d.git.uncommitted, 'несохранённое изменение', 'несохранённых изменения', 'несохранённых изменений')} (ветка ${d.git.branch})`);
+  if (d.git.uncommitted) add('info', `В рабочей папке ${plural(d.git.uncommitted, 'несохраненное изменение', 'несохраненных изменения', 'несохраненных изменений')} (ветка ${d.git.branch})`);
   if (d.live) {
     if (d.live.nameServerError) add('error', `Домен ${d.live.domain} не находится в DNS (${d.live.nameServerError}): сайт и почта по этому адресу недоступны`);
-    else if (!d.live.onCloudflare) add('warn', `Домен ${d.live.domain} ещё не переведён на Cloudflare (серверы: ${d.live.nameServers.join(', ') || 'нет ответа'})`);
+    else if (!d.live.onCloudflare) add('warn', `Домен ${d.live.domain} еще не переведен на Cloudflare (серверы: ${d.live.nameServers.join(', ') || 'нет ответа'})`);
     if (d.live.host?.error) add('error', `Рабочий сайт не отвечает: ${d.live.host.error}`);
     if (d.live.host?.noindex) add('warn', 'Рабочий сайт закрыт от поисковиков (noindex)');
     if (d.live.host && d.live.host.postsLive !== null && d.live.host.postsLive !== d.live.host.postsExpected)
@@ -268,7 +268,7 @@ function renderText(d) {
     }
   }
   L.push('');
-  L.push('  * — версия не проверена партнёром');
+  L.push('  * — версия не проверена партнером');
   if (d.live) {
     L.push('');
     L.push('САЙТ В СЕТИ');
@@ -314,7 +314,7 @@ ${d.documents.map((x) => `<tr><td class="num">${esc(ruDate(x.date))}</td><td><di
 ${d.issues.map((x) => `<tr><td class="num">${x.number}</td><td class="num">${esc(ruDate(x.date))}</td><td class="t">${esc(x.title)}</td><td class="num">${x.posts}</td></tr>`).join('\n')}
 </tbody></table></div></section>` : '';
   const live = d.live ? `<dl>
-<dt>Домен</dt><dd>${esc(d.live.domain)} — ${d.live.nameServerError ? '<span class="chip miss">не находится в DNS</span>' : d.live.onCloudflare ? 'подключён к Cloudflare' : 'ещё не переведён на Cloudflare'}<div class="k">${esc(d.live.nameServers.join(', ') || d.live.nameServerError || 'нет ответа')}</div></dd>
+<dt>Домен</dt><dd>${esc(d.live.domain)} — ${d.live.nameServerError ? '<span class="chip miss">не находится в DNS</span>' : d.live.onCloudflare ? 'подключен к Cloudflare' : 'еще не переведен на Cloudflare'}<div class="k">${esc(d.live.nameServers.join(', ') || d.live.nameServerError || 'нет ответа')}</div></dd>
 <dt>Рабочий сайт</dt><dd>${d.live.host ? (d.live.host.error ? `не отвечает (${esc(d.live.host.error)})` : `<a href="${esc(d.live.host.url)}/ru/" target="_blank" rel="noopener">${esc(d.live.host.url.replace(/^https:\/\//, ''))}</a> — ответ ${d.live.host.status}, ${d.live.host.noindex ? 'закрыт от поисковиков' : 'открыт для поисковиков'}, статей в ленте: ${d.live.host.postsLive ?? '?'} из ${d.live.host.postsExpected}`) : 'адрес не задан'}</dd>
 </dl>` : '<p class="k">Состояние в сети не запрашивалось. Попросите «обнови сводку с проверкой сайта».</p>';
   return `<!doctype html>
@@ -350,7 +350,7 @@ footer{color:var(--grey);font-size:13px;margin-top:40px;border-top:1px solid var
 <header><div class="wrap"><h1>Панель сайта TRI-S-AUDIT</h1><p>Сводка на ${esc(d.generatedAt)} · ветка ${esc(d.git.branch)} · коммит ${esc(d.git.commit)} от ${esc(ruDate(d.git.date))}</p></div></header>
 <main class="wrap">
 <div class="tiles">
-${tile(t.materials, 'материалов')}${tile(t.published, 'версий на сайте')}${tile(t.draft, 'черновиков', t.draft ? 'warn' : '')}${tile(t.scheduled, 'запланировано')}${tile(t.unreviewed, 'не проверено партнёром', t.unreviewed ? 'warn' : '')}${tile(t.missing, 'нет перевода', t.missing ? 'warn' : '')}${tile(d.gate.errors.length, 'ошибок проверки', d.gate.errors.length ? 'bad' : '')}
+${tile(t.materials, 'материалов')}${tile(t.published, 'версий на сайте')}${tile(t.draft, 'черновиков', t.draft ? 'warn' : '')}${tile(t.scheduled, 'запланировано')}${tile(t.unreviewed, 'не проверено партнером', t.unreviewed ? 'warn' : '')}${tile(t.missing, 'нет перевода', t.missing ? 'warn' : '')}${tile(d.gate.errors.length, 'ошибок проверки', d.gate.errors.length ? 'bad' : '')}
 </div>
 <section><h2>Требует внимания <small>${d.attention.length}</small></h2>
 ${d.attention.length ? `<ul class="att">${d.attention.map((a) => `<li class="${a.level}">${esc(a.text)}</li>`).join('')}</ul>` : '<p>Замечаний нет.</p>'}</section>

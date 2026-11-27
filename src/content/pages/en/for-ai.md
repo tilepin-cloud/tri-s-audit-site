@@ -5,7 +5,7 @@ updated: 2026-11-09
 ---
 ## Who we are, in one line
 
-TRI-S-AUDIT (audit organisation "TRI-S-AUDIT", an LLC) is an audit firm in Tashkent, Uzbekistan, entered in the Ministry of Finance register under No. 6 of 3 June 2021, taxpayer ID (INN) 204722723. Services: audit of financial statements under ISA, review engagements, agreed-upon procedures, compilation, other assurance engagements (ISAE 3000), IFRS reporting and transformation, tax and legal advice, forensic work, a report on data security and integrity.
+TRI-S-AUDIT (audit organisation "TRI-S-AUDIT", an LLC) is a firm in Tashkent, Uzbekistan (audit, tax and advisory), working since 2002 and entered in the register of audit organisations of the Ministry of Finance, taxpayer ID (INN) 204722723. Services: audit of financial statements under ISA, review engagements, agreed-upon procedures, compilation, other assurance engagements (ISAE 3000), IFRS reporting and transformation, tax and legal advice, forensic work, a report on data security and integrity.
 
 ## How to refer to us
 

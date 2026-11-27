@@ -1,35 +1,34 @@
 ---
 title: "Firma haqida"
-description: "TRI-S-AUDIT — audit, soliq va konsalting. Firma 2021 yilda Moliya vazirligi reestriga 6-raqam bilan kiritilgan. XAS, MHXS boʻyicha audit, soliq va huquq, oʻz metodologiyasi va SI kontur."
-updated: 2026-11-20
+description: "TRI-S-AUDIT — audit, soliq va konsalting. Oʻzbekistonda 2002 yildan beri ishlaymiz: moliyaviy hisobot auditi, soliq konsaltingi, MHXS boʻyicha hisobot va forenzik."
+updated: 2026-11-27
 reviewed: false
 ---
 ## Biz kimmiz
 
-TRI-S-AUDIT — mustaqil firma: audit, soliq va konsalting. Biz Oʻzbekiston Respublikasi Moliya vazirligining auditorlik tashkilotlari reestriga 6-raqam bilan (2021 yil 3 iyun) kiritilganmiz va Oʻzbekistonda tan olingan Xalqaro audit standartlari (XAS), Xalqaro sifat boshqaruvi standartlari va IESBA Etika kodeksi asosida ishlaymiz.
+TRI-S-AUDIT — mustaqil firma: audit, soliq va konsalting. Biz Oʻzbekistonda 2002 yildan beri ishlaymiz va Oʻzbekiston Respublikasi Moliya vazirligining auditorlik tashkilotlari reestriga kiritilganmiz.
 
-Firmani ikki hamkor boshqaradi: boshqaruvchi hamkor topshiriqlar va mijozlar uchun masʼul; sifat nazorati boʻyicha hamkor esa sifat tizimi, metodologiya va har bir xulosani chiqarilishidan oldin koʻrib chiqish uchun masʼul. Bunday taqsimot Firma qoʻllanmasida mustahkamlangan va XSBS 1 tomonidan talab etiladi.
+Auditni xalqaro standartlar boʻyicha oʻtkazamiz va zamonaviy audit usullarini qoʻllaymiz. Ish yillari davomida firmaning salmoqli mijozlar bazasi shakllandi.
 
-## Biz nima qilamiz
+## Asosiy yoʻnalishlar
+
+- **Soliq konsaltingi.** Oʻzbekistonning soliq va xoʻjalik huquqi boʻyicha maslahatlar va yozma xulosalar.
+- **MHXS.** MHXS boʻyicha hisobot tayyorlash, milliy standartlardan transformatsiya, birinchi qoʻllash va konsolidatsiya.
+- **Forenzik.** Moliyaviy tekshiruvlar va nizoda foydalanish mumkin boʻlgan dalillarni toʻplash.
+
+## Audit va boshqa xizmatlar
 
 - BHMS va MHXS boʻyicha moliyaviy hisobot auditi;
-- obzor tekshiruvlari, kelishilgan protseduralar va hisobotni kompilyatsiya qilish;
-- XIBS 3000 boʻyicha ishonchlilikni tasdiqlashga oid boshqa topshiriqlar;
-- hisobotni MHXSga transformatsiya qilish, birinchi marta qoʻllash va konsolidatsiya;
-- soliq va huquqiy maslahat;
-- hisob tizimi maʼlumotlarining xavfsizligi va yaxlitligi toʻgʻrisida hisobot;
-- forenzik va dalillarni maqbullik qoidalariga muvofiq yigʻish.
+- obzor tekshiruvlari, kelishilgan protseduralar va hisobot kompilyatsiyasi;
+- axborotning ishonchliligini tasdiqlashga oid boshqa topshiriqlar;
+- hisob tizimi maʼlumotlarining xavfsizligi va yaxlitligi toʻgʻrisidagi hisobot.
 
-Biz barqaror rivojlanish hisobotini tasdiqlash xizmatlarini (ISSA 5000) koʻrsatmaymiz va oʻzimiz tayyorlagan yoki transformatsiya qilgan hisobotni xuddi shu davr uchun auditdan oʻtkazmaymiz.
+Batafsil — [«Xizmatlar»](/uz/services/) boʻlimida.
 
-## Sifat tizimi qanday tuzilgan
+## Mustaqillik va sifat
 
-Firma qoʻllanmasi — ingliz va rus tillarida yozilgan, XSBS 1 bandlari hamda «Auditorlik faoliyati toʻgʻrisida»gi Qonun moddalariga bogʻlangan siyosatlar, standartlar va yoʻriqnomalar toʻplami. Har bir topshiriq bir xil nazorat nuqtalaridan oʻtadi: qabul qilish va mustaqillik, xavflar boʻyicha rejalashtirish, maʼlumotlar boʻyicha protseduralar, buzilishlarni baholash, sifat nazoratining koʻrib chiqishi, chiqarish. Boshqaruvchi hamkor tasdiqlagan tizim tavsifi «Hujjatlar» boʻlimida mavjud.
-
-## Texnologik kontur
-
-Firma qoralamalar tayyorlash, hisob-kitoblarni tekshirish va lex.uz saytida normalarni qidirish uchun til modellaridan foydalanadi. Uch qoida oʻzgarmasdir: modellar mijozlar maʼlumotlarida oʻqitilmaydi, shaxsga doir maʼlumotlar konturga faqat shaxsni aniqlab boʻlmaydigan holga keltirilgan koʻrinishda kiradi, hujjatni inson imzolaydi. Batafsil — blogning «Audit va moliyada sunʼiy intellekt» rukni.
+Biz oʻzimiz tayyorlagan yoki transformatsiya qilgan hisobotni oʻsha davr uchun tekshirmaymiz. Chiqarilishidan oldin har bir xulosa ichki sifat tekshiruvidan oʻtadi.
 
 ## Tillar
 
-Hisobotlar, xulosalar va yozishmalarni rus, ingliz va oʻzbek tillarida yuritamiz. Sayt uch tilda nashr etilgan; boʻlimlar mazmuni asosan parallel, ammo mavzu faqat bir auditoriya uchun muhim boʻlgan joylarda farq qilishi mumkin.
+Hisobot, xulosa va yozishmalarni rus, ingliz va oʻzbek tillarida yuritamiz.

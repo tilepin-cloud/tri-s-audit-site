@@ -98,8 +98,8 @@ export const GET: APIRoute = ({ props }) => {
     markup = svg(p.data.title, rubric, `${firm.shortName} · tri-s-audit.uz`, right);
   } else {
     const lang = (props.lang ?? 'ru') as Lang;
-    const tagline = lang === 'ru' ? 'Аудит, которому доверяют цифры' : lang === 'en' ? 'Audit the numbers can trust' : 'Raqamlar ishonadigan audit';
-    markup = svg(tagline, t(lang)('hero.eyebrow'), `${firm.shortName} · tri-s-audit.uz`, `${firm.email}`);
+    // No slogans (owner, 27.11.2026): the default card carries the plain line of the firm and the year it started.
+    markup = svg(t(lang)('hero.eyebrow'), t(lang)('fact.registry'), `${firm.shortName} · tri-s-audit.uz`, `${firm.email}`);
   }
   return new Response(render(markup), { headers: { 'Content-Type': 'image/png' } });
 };

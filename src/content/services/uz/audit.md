@@ -3,7 +3,7 @@ title: "Moliyaviy hisobot auditi"
 short: "Hisobot auditi"
 summary: "BHMS yoki MHXS boʻyicha hisobotning haqqoniyligi haqida Xalqaro audit standartlariga muvofiq bildirilgan mustaqil fikr. Egalar, banklar, investorlar va tartibga soluvchi organ uchun."
 order: 1
-standards: ["XAS", "XSBS 1", "OʻRQ-677"]
+standards: ["XAS", "OʻRQ-677"]
 deliverables:
   - "XAS 700, 701, 705 va 706 boʻyicha auditorlik xulosasi — rus, ingliz yoki oʻzbek tilida"
   - "Rahbariyatga va korporativ boshqaruv uchun masʼul shaxslarga xat (XAS 260, 265)"
@@ -32,7 +32,7 @@ reviewed: false
 1. **Qabul qilish.** Mustaqillik va manfaatlar toʻqnashuvini tekshirish, shartnoma-xat, reja va byudjet.
 2. **Rejalashtirish.** Biznesni tushunish, xavflarni baholash, muhimlik, audit strategiyasi, hisob tizimidan maʼlumotlar soʻrash.
 3. **Protseduralar.** Oʻtkazmalarning toʻliq toʻplamlarini tekshirish, jurnal yozuvlari, tasdiqnomalar, inventarizatsiyani kuzatish, tahlil.
-4. **Yakunlash.** Buzilishlarni baholash, hisobot sanasidan keyingi hodisalar, sifat nazorati boʻyicha hamkorning koʻrib chiqishi, xulosani chiqarish.
+4. **Yakunlash.** Buzilishlarni baholash, hisobot sanasidan keyingi hodisalar, ichki sifat tekshiruvi, xulosani chiqarish.
 
 ## Standartlar va asoslar
 

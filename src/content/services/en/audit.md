@@ -3,7 +3,7 @@ title: "Audit of financial statements"
 short: "Audit"
 summary: "An independent opinion on the fair presentation of financial statements under NAS or IFRS, performed under the International Standards on Auditing. For owners, banks, investors and the regulator."
 order: 1
-standards: ["ISA", "ISQM 1", "ZRU-677"]
+standards: ["ISA", "ZRU-677"]
 deliverables:
   - "Auditor's report under ISA 700, 701, 705 and 706, in Russian, English or Uzbek"
   - "Letter to management and those charged with governance (ISA 260, 265)"
@@ -31,7 +31,7 @@ faq:
 1. **Acceptance.** Independence and conflict-of-interest check, engagement letter, plan and budget.
 2. **Planning.** Understanding of the business, risk assessment, materiality, audit strategy, request for data from the accounting system.
 3. **Procedures.** Tests of complete populations of entries, journal entries, confirmations, observation of the stocktake, analytics.
-4. **Completion.** Evaluation of misstatements, events after the reporting date, review by the partner responsible for quality, issue of the report.
+4. **Completion.** Evaluation of misstatements, events after the reporting date, internal quality review, issue of the report.
 
 ## Standards and basis
 
