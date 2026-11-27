@@ -1,6 +1,6 @@
 ---
-title: "MHXS hisoboti va transformatsiya"
-short: "MHXS hisoboti"
+title: "MHXS boʻyicha moliyaviy hisobot tuzish"
+short: "MHXS boʻyicha hisobot"
 summary: "Hisobotni BHMSdan MHXSga transformatsiya qilish, MHXS 1 boʻyicha uchta solishtirish bilan birinchi marta qoʻllash, guruh konsolidatsiyasi va izohlar bilan toʻliq hisobotlar toʻplami. Investorlar, banklar va bosh kompaniyalar uchun."
 order: 6
 standards: ["MHXS 1", "MHXS 10", "XTXS 4410"]

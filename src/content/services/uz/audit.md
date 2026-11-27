@@ -32,7 +32,7 @@ reviewed: false
 1. **Qabul qilish.** Mustaqillik va manfaatlar toʻqnashuvini tekshirish, shartnoma-xat, reja va byudjet.
 2. **Rejalashtirish.** Biznesni tushunish, xavflarni baholash, muhimlik, audit strategiyasi, hisob tizimidan maʼlumotlar soʻrash.
 3. **Protseduralar.** Oʻtkazmalarning toʻliq toʻplamlarini tekshirish, jurnal yozuvlari, tasdiqnomalar, inventarizatsiyani kuzatish, tahlil.
-4. **Yakunlash.** Buzilishlarni baholash, hisobot sanasidan keyingi hodisalar, ichki sifat tekshiruvi, xulosani chiqarish.
+4. **Yakunlash.** Buzilishlarni baholash, hisobot sanasidan keyingi hodisalar, ichki sifat nazorati, xulosani chiqarish.
 
 ## Standartlar va asoslar
 

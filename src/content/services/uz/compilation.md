@@ -1,6 +1,6 @@
 ---
-title: "Moliyaviy hisobotni kompilyatsiya qilish"
-short: "Hisobot kompilyatsiyasi"
+title: "Moliyaviy axborotni kompilyatsiya qilish"
+short: "Kompilyatsiya"
 summary: "Mijozning hisob maʼlumotlaridan BHMS yoki MHXS boʻyicha moliyaviy hisobot tayyorlash va XTXS 4410 boʻyicha kompilyatsiya hisoboti. Auditsiz va ishonchsiz — lekin shakl va mantiq uchun bizning kasbiy javobgarligimiz bilan."
 order: 4
 standards: ["XTXS 4410"]
