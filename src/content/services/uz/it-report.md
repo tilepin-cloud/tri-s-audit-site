@@ -1,16 +1,16 @@
 ---
 title: "Moliyaviy axborotning axborot xavfsizligi"
 short: "Axborot xavfsizligi"
-summary: "Hisob tizimining umumiy IT-nazoratlari va hisob maʼlumotlari yaxlitligini tekshirish — auditning bir qismi yoki alohida topshiriq sifatida. Toʻqqizta yaxlitlik testi boʻyicha A–D darajali baho va rahbariyat uchun hisobot."
+summary: "Hisob tizimining umumiy axborot texnologiyalari nazoratlari va hisob maʼlumotlari yaxlitligini tekshirish — auditning bir qismi yoki alohida topshiriq sifatida. Toʻqqizta yaxlitlik testi boʻyicha A–D darajali baho va rahbariyat uchun hisobot."
 order: 8
 standards: ["XAS 315", "OʻRQ-764", "COBIT"]
 deliverables:
   - "A–D shkalasi boʻyicha baholi maʼlumotlar xavfsizligi va yaxlitligi toʻgʻrisida hisobot"
-  - "IT-nazoratlardagi kamchiliklar roʻyxati va tavsiyalar"
+  - "Axborot texnologiyalari nazoratlaridagi kamchiliklar roʻyxati va tavsiyalar"
   - "Moliyaviy hisobot auditida qoʻllaniladigan tasdiq"
 faq:
   - q: "Bu axborot xavfsizligi auditimi?"
-    a: "Yoʻq. Biz hisobotga ishonch uchun zarur hajmda hisob tizimining nazoratlari va maʼlumotlar yaxlitligini tekshiramiz. Muhim axborot infratuzilmasi obyektlarini baholash faqat vakolatli organ ruxsati bilan oʻtkaziladi (OʻRQ-764)."
+    a: "Yoʻq. Biz hisobotga ishonch uchun zarur hajmda hisob tizimining nazoratlari va maʼlumotlar yaxlitligini tekshiramiz. Muhim axborot infratuzilmasi obyektlarini baholash faqat vakolatli organ ruxsati bilan oʻtkaziladi («Kiberxavfsizlik toʻgʻrisida»gi Qonun)."
 reviewed: false
 ---
 <div class="callout"><b>Qisqacha.</b> Hisobot hisob tizimi maʼlumotlari qanchalik haqqoniy boʻlsa, shunchalik haqqoniy. Biz oʻtkazmalarni kim va qanday oʻzgartirishi mumkinligini, davrlar yopilganini, registrlar aylanmasi hisobotga mos kelishini, qoʻlda aralashuv izlari yoʻqligini tekshiramiz va tushunarli baho bilan hisobot beramiz.</div>

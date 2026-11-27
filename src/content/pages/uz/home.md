@@ -1,6 +1,6 @@
 ---
 title: "Audit, soliq va konsalting"
-description: "Moliyaviy hisobot auditi, soliq konsaltingi, MHXS boʻyicha hisobot va forenzik. Oʻzbekistonda 2002 yildan beri ishlaymiz."
+description: "Moliyaviy hisobot auditi, soliq konsaltingi, moliyaviy hisobotning xalqaro standartlari (MHXS) boʻyicha hisobot va forenzik. Oʻzbekistonda 2002 yildan beri ishlaymiz."
 updated: 2026-11-27
 about:
   title: "2002 yildan beri mustaqil audit"

@@ -12,14 +12,14 @@ faq:
   - q: "Can we get advice orally?"
     a: "An initial discussion, yes. We issue our opinion in writing: it goes through a check of the provisions and calculations and is signed by a partner."
   - q: "Do you advise audit clients?"
-    a: "Yes, within the limits permitted by the IESBA Code of Ethics for audited entities. For public interest entities a number of services are unavailable, and we say so at acceptance."
+    a: "Yes, within the limits permitted by the Code of Ethics for Professional Accountants for audited entities. For public interest entities a number of services are unavailable, and we say so at acceptance."
 ---
 <div class="callout"><b>In brief.</b> You ask a question and we answer in writing: the conclusion in the first paragraph, then arguments with references to the articles of the Tax Code and other acts of tax legislation in the edition in force on the date of the opinion, an assessment of risks and what to do next. We check every provision on lex.uz before issue.</div>
 
 ## Typical questions
 
 - tax consequences of a transaction, reorganisation, dividend payment or loan;
-- VAT and profit tax on complex transactions, international transactions and double taxation treaties;
+- value added tax (VAT) and profit tax on complex transactions, international transactions and double taxation treaties;
 - application of tax incentives and special regimes;
 - advice in the course of a tax inspection.
 

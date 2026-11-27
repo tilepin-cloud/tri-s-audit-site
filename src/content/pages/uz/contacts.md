@@ -6,7 +6,7 @@ reviewed: false
 ---
 ## Qanday javob beramiz
 
-`info@tri-s-audit.uz` manziliga yozilgan xatga ikki ish kuni ichida javob beramiz. Javob mazmunli boʻlishi uchun quyidagilarni koʻrsating: hisobot turi (BHMS yoki MHXS), hisobot davri, tarmoq va kompaniyaning taxminiy hajmi, shuningdek natija qaysi muddatgacha kerakligi.
+`info@tri-s-audit.uz` manziliga yozilgan xatga ikki ish kuni ichida javob beramiz. Javob mazmunli boʻlishi uchun quyidagilarni koʻrsating: hisobot turi (milliy yoki xalqaro moliyaviy hisobot standartlari boʻyicha), hisobot davri, tarmoq va kompaniyaning taxminiy hajmi, shuningdek natija qaysi muddatgacha kerakligi.
 
 ## Hujjatlarni topshirish
 

@@ -5,7 +5,7 @@ updated: 2026-11-09
 ---
 ## How we respond
 
-We reply to e-mails sent to `info@tri-s-audit.uz` within two working days. To make our reply specific, please state: the financial reporting framework (NAS or IFRS), the reporting period, the industry and approximate size of the company, and the date by which you need the result.
+We reply to e-mails sent to `info@tri-s-audit.uz` within two working days. To make our reply specific, please state: the financial reporting framework (national or international financial reporting standards), the reporting period, the industry and approximate size of the company, and the date by which you need the result.
 
 ## Transfer of documents
 

@@ -1,6 +1,6 @@
 ---
 title: "Audit, Tax & Advisory"
-description: "Audit of financial statements, tax advice, IFRS reporting and forensic work. In Uzbekistan since 2002."
+description: "Audit of financial statements, tax advice, reporting under International Financial Reporting Standards (IFRS) and forensic work. In Uzbekistan since 2002."
 updated: 2026-11-27
 about:
   title: "Independent audit since 2002"

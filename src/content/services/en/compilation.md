@@ -1,7 +1,7 @@
 ---
 title: "Compilation of financial information"
 short: "Compilation"
-summary: "Preparation of financial statements from the client's accounting data under NAS or IFRS, with a compilation report under ISRS 4410. No audit and no assurance, but with our professional responsibility for form and logic."
+summary: "Preparation of financial statements from the client's accounting data under national or international financial reporting standards, with a compilation report under International Standard on Related Services (ISRS) 4410. No audit and no assurance, but with our professional responsibility for form and logic."
 order: 4
 standards: ["ISRS 4410"]
 deliverables:
@@ -16,7 +16,7 @@ faq:
 
 ## When compilation is needed
 
-- preparing first IFRS financial statements for an investor or bank;
+- preparing first financial statements under International Financial Reporting Standards (IFRS) for an investor or bank;
 - financial statements of a subsidiary under group standards;
 - restoring financial statements for prior periods;
 - management accounts in a format close to IFRS.

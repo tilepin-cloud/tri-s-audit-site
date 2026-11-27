@@ -1,7 +1,7 @@
 ---
 title: "Moliyaviy hisobot auditi"
 short: "Hisobot auditi"
-summary: "BHMS yoki MHXS boʻyicha hisobotning haqqoniyligi haqida Xalqaro audit standartlariga muvofiq bildirilgan mustaqil fikr. Egalar, banklar, investorlar va tartibga soluvchi organ uchun."
+summary: "Milliy va xalqaro moliyaviy hisobot standartlari boʻyicha tuzilgan moliyaviy hisobotning haqqoniyligi haqida mustaqil fikr. Auditni auditning xalqaro standartlari (XAS) boʻyicha oʻtkazamiz. Egalar, banklar, investorlar va tartibga soluvchi organ uchun."
 order: 1
 standards: ["XAS", "OʻRQ-677"]
 deliverables:
@@ -12,13 +12,13 @@ deliverables:
 faq:
   - q: "Audit qancha davom etadi?"
     a: "1C da hisob yuritadigan oʻrta hajmdagi kompaniya uchun — maʼlumotlar taqdim etilgandan keyin toʻrt-sakkiz hafta. Muddat shartnoma-xatda belgilanadi."
-  - q: "MHXSga transformatsiya va auditni bir vaqtda buyurtma qilish mumkinmi?"
-    a: "Yoʻq. Firma oʻzi tayyorlagan yoki transformatsiya qilgan hisobotni xuddi shu davr uchun auditdan oʻtkazmaydi (OʻRQ-677 34-modda). Ikki xizmatdan birini taklif qilamiz, ikkinchisi uchun esa hamkasblarni tavsiya etamiz."
+  - q: "Moliyaviy hisobotning xalqaro standartlariga (MHXS) transformatsiya va auditni bir vaqtda buyurtma qilish mumkinmi?"
+    a: "Yoʻq. Firma oʻzi tayyorlagan yoki transformatsiya qilgan hisobotni xuddi shu davr uchun auditdan oʻtkazmaydi («Auditorlik faoliyati toʻgʻrisida»gi Qonunning 34-moddasi). Ikki xizmatdan birini taklif qilamiz, ikkinchisi uchun esa hamkasblarni tavsiya etamiz."
   - q: "Maʼlumotlar qanday topshiriladi?"
     a: "Hisob tizimidan olingan yuklamalar himoyalangan kanal orqali topshiriq papkasiga uzatiladi; shaxsga doir maʼlumotlar qayta ishlashdan oldin shaxsni aniqlab boʻlmaydigan holga keltiriladi. Sayt fayllarni qabul qilmaydi — topshirish tartibi xat orqali kelishiladi."
 reviewed: false
 ---
-<div class="callout"><b>Qisqacha.</b> Audit «Auditorlik faoliyati toʻgʻrisida»gi Qonunda (OʻRQ-677) sanab oʻtilgan tashkilotlar uchun majburiy: aksiyadorlik jamiyatlari, banklar, sugʻurtalovchilar, davlat ulushi bor korxonalar va belgilangan chegaralardan oshgan kompaniyalar. Natija — banklar, birja va Moliya vazirligi qabul qiladigan auditorlik xulosasi hamda hisob va nazoratlar boʻyicha izohlarni oʻz ichiga olgan rahbariyatga xat.</div>
+<div class="callout"><b>Qisqacha.</b> Audit «Auditorlik faoliyati toʻgʻrisida»gi Qonunda sanab oʻtilgan tashkilotlar uchun majburiy: aksiyadorlik jamiyatlari, banklar, sugʻurtalovchilar, davlat ulushi bor korxonalar va belgilangan chegaralardan oshgan kompaniyalar. Natija — banklar, birja va Moliya vazirligi qabul qiladigan auditorlik xulosasi hamda hisob va nazoratlar boʻyicha izohlarni oʻz ichiga olgan rahbariyatga xat.</div>
 
 ## Kimga kerak
 
@@ -36,4 +36,4 @@ reviewed: false
 
 ## Standartlar va asoslar
 
-Topshiriq Oʻzbekiston Respublikasida tan olingan, IAASB 2026 yil nashri toʻplami tahriridagi Xalqaro audit standartlari, «Auditorlik faoliyati toʻgʻrisida»gi Qonun va IESBA Etika kodeksi boʻyicha bajariladi. Kichik kompaniyalar uchun, agar joiz boʻlsa, kam murakkab tashkilotlar auditi uchun XAS (ISA for LCE) qoʻllaniladi.
+Topshiriq Xalqaro buxgalterlar federatsiyasining Audit va ishonchni taʼminlaydigan topshiriqlarning xalqaro standartlari boʻyicha kengashi eʼlon qiladigan va Oʻzbekiston Respublikasida tan olingan auditning xalqaro standartlari, «Auditorlik faoliyati toʻgʻrisida»gi Qonun va Professional buxgalterning etika kodeksi boʻyicha bajariladi. Kichik kompaniyalar uchun, agar joiz boʻlsa, kam murakkab tashkilotlar auditi uchun XAS (ISA for LCE) qoʻllaniladi.
